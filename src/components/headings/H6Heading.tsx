@@ -6,7 +6,7 @@ interface Props {
 }
 
 const H6Heading: React.FC<Props> = ({ children, className }) => {
-  return <h6 className={`text-[20px] font-[400] ${className}`}>{children}</h6>;
+  return <h6 className={`text-[18px] lg:text-[32px] font-[400] ${className}`}>{children}</h6>;
 };
 
 export default H6Heading;

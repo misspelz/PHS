@@ -11,7 +11,7 @@ const Layout = ({ children, activePage }: LayoutProps) => {
   return (
     <section className="w-full ">
       <Navbar active={activePage} />
-      <main className="w-full max-w-[1440px] mx-auto">{children}</main>
+      <main className="w-full max-w-[1440px] mx-auto ">{children}</main>
       <Footer />
     </section>
   );
