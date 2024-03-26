@@ -1,25 +1,22 @@
-// "use client";
-
 import Layout from "@/components/layout";
 import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
-// import { useState } from "react";
+import AboutUs from "@/components/home/aboutus";
+import Reviews from "@/components/home/reviews";
+import ContactUs from "@/components/home/contactus";
 
 const Home = () => {
   const activePage = "home";
 
-  // const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
-      {/* {isLoading ? (
-        <div>please wait...</div>
-      ) : ( */}
       <Layout activePage={activePage}>
         <Hero />
         <Services />
+        <AboutUs />
+        <Reviews />
+        <ContactUs />
       </Layout>
-      {/* )} */}
     </>
   );
 };

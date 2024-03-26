@@ -51,7 +51,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
   return (
     <nav
       className={`
-    fixed z-[999] w-full bg-[#fff] text-[#000] transition duration-500  h-[100px] ${className} flex items-center`}
+    fixed z-[999] w-full bg-[#fff] text-[#000] transition duration-500  h-[100px] ${className} flex items-center shadow-md`}
     >
       <div className="flex justify-between items-center px-6 lg:px-[123px]  w-full">
         <Link href="/">
