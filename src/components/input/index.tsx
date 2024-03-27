@@ -5,7 +5,7 @@ interface Props {
   id?: string;
   label?: string;
   type?: "text" | "password";
-  onChange?: ((e: ChangeEvent<HTMLInputElement>) => void) | null;
+  onChange?: ((e: ChangeEvent<HTMLInputElement>) => void) | undefined;
   isDisabled?: boolean;
   placeholder?: string;
   rightIcon?: React.ReactNode;
@@ -15,7 +15,7 @@ export default function Input({
   id = "",
   label = "",
   type = "text",
-  onChange = null,
+  onChange,
   isDisabled = false,
   placeholder = `${label?.toLowerCase()}`,
   rightIcon,

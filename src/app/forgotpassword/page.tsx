@@ -154,9 +154,11 @@ const ForgotPassword = () => {
                     ? "input-background-fill"
                     : ""
                 } w-10 h-10 lg:w-20 lg:h-20 outline-none px-4 text-[14px] lg:text-[20px] text-center border border-lightgray`}
-                ref={(input) =>
-                  input && (inputRefs.current[inputNumber - 1] = input)
-                }
+                ref={(input) => {
+                  if (input) {
+                    inputRefs.current[inputNumber - 1] = input;
+                  }
+                }}
               />
             ))}
           </div>
