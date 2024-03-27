@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/button";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
+import user from "@/assets/user.svg";
 import Image from "next/image";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contextapi";
 
 export const navlinks: NavLink[] = [
   {
@@ -43,11 +46,19 @@ interface NavbarProps {
 }
 
 const Navbar = ({ active, className }: NavbarProps) => {
+  const { profile } = useAuth();
+
+  const nav = useRouter();
   const [open, setOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
   };
+
+  const HandleLogin = () => {
+    nav.push("/login");
+  };
+
   return (
     <nav
       className={`
@@ -93,7 +104,18 @@ const Navbar = ({ active, className }: NavbarProps) => {
             )}
           </div>
 
-          <Button text="Login" className=" text-white" />
+          {profile ? (
+            <div className="flex gap-[8px] items-center">
+              <p>Vintage</p>
+              <Image src={user} alt="logo" />
+            </div>
+          ) : (
+            <Button
+              text="Login"
+              onClick={HandleLogin}
+              className=" text-white"
+            />
+          )}
         </div>
       </div>
 
