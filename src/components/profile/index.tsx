@@ -12,12 +12,14 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Button from "@/components/button";
 import LogoButton from "@/components/button/btnwithlogo";
 import CREATE_ACCOUNT from "@/api/services/auth";
+import { useRouter } from "next/navigation";
 
 interface ProfileProps {
   phoneNumber?: string;
 }
 
 const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
+  const nav = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,6 +63,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
 
   const HandleClose = () => {
     showSuccess(false);
+    nav.push("/login");
   };
 
   return (

@@ -51,16 +51,17 @@ const Login = () => {
               onChange={() => {}}
               disabled={false}
               placeholder="Email"
-              className="py-[16px] px-[24px] w-full  text-[12px] lg:text-[14px] outline-none"
+              className="py-[16px] px-[24px] w-full rounded-[10px]   text-[12px] lg:text-[14px] outline-none"
             />
           </div>
+          
           <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
             <input
               type={showPassword ? "text" : "password"}
               onChange={() => {}}
               disabled={false}
               placeholder="Password"
-              className="py-[16px] w-full px-[24px]  text-[12px] lg:text-[14px] outline-none"
+              className="py-[16px] w-full px-[24px] rounded-l-[10px]   text-[12px] lg:text-[14px] outline-none"
             />
             <button
               onClick={togglePasswordVisibility}

@@ -20,7 +20,7 @@ const Servicecard: React.FC<WebServicecardProps> = ({
   return (
     <div className="relative w-[170px] h-[370px] ">
       <Image src={imageSrc} alt="service" className="rounded-[10px] w-full" />
-      <div className="absolute bottom-4 right-0 bg-[#fff]  pl-[14px] pt-[10px] shadow-lg">
+      <div className="absolute bottom-10 right-0 bg-[#fff]  pl-[14px] pt-[10px] shadow-lg">
         <h3 className="text-[14px] text-center font-[600]">{title}</h3>
         <p className="w-[130px] text-[14px] mt-[8px] pr-[14px]">
           {description}

@@ -60,12 +60,89 @@ const Footer = () => {
               Services
             </PText>
             <ul className="flex flex-col gap-[20px] text-white text-[12px] lg:text-[16px]">
-              <li className="cursor-pointer">Plumbing</li>
-              <li className="cursor-pointer">Tv Mounting</li>
-              <li className="cursor-pointer">Painting</li>
-              <li className="cursor-pointer">Drywall Repairs</li>
-              <li className="cursor-pointer">Capentry</li>
-              <li className="cursor-pointer">General Household Maintenance</li>
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "1",
+                    title: "Plumbing",
+                    description:
+                      "Our Plumbing mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Plumbing</li>
+              </Link>
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "2",
+                    title: "Tv Mounting",
+                    description:
+                      "Our Tv Mounting mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Tv Mounting</li>
+              </Link>
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "3",
+                    title: "Painting",
+                    description:
+                      "Our Painting mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Painting</li>
+              </Link>
+
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "4",
+                    title: "Drywall Repairs",
+                    description:
+                      "Our Drywall Repairs mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Drywall Repairs</li>
+              </Link>
+
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "5",
+                    title: "Capentry",
+                    description:
+                      "Our Capentry Repairs mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Capentry</li>
+              </Link>
+
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "6",
+                    title: "General Household Maintenance",
+                    description:
+                      "Our General Household Maintenance Repairs mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">
+                  General Household Maintenance
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -96,7 +173,7 @@ const Footer = () => {
             <div className="relative w-full">
               <input
                 placeholder="Email"
-                className="h-[50px] pl-6 rounded-[8px] text-[12px] w-[250px]"
+                className="h-[50px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
               />
               <Button
                 text="Subscribe"
@@ -115,10 +192,10 @@ const Footer = () => {
           <PText className="text-white w-[200px]">
             Subscribe To Stay Up-to-Date with Prince Handyman Services
           </PText>
-          <div className="relative w-full">
+          <div className="relative w-full ">
             <input
               placeholder="Email"
-              className="h-[50px] lg:[70px] pl-6 rounded-[8px] text-[12px] w-[250px] "
+              className="h-[50px] lg:[70px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
             />
             <Button
               text="Subscribe"

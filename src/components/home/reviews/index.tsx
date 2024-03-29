@@ -6,14 +6,14 @@ import quote from "@/assets/phsquoteicon.svg";
 
 const Reviews = () => {
   return (
-    <div className="px-6 lg:px-[123px] py-[48px] ">
+    <div className="px-6 lg:px-[123px] py-[48px] max-w-[1500px] mx-auto ">
       <H6Heading className="text-center font-[600] ">Reviews</H6Heading>
       <p className={`text-[16px] text-center lg:text-[18px] `}>
         Here is what our customers have to say about us
       </p>
-      <div className="overflow-x-scroll lg:overflow-x-hidden w-full flex justify-center items-center">
-        <div className="mt-[28px] flex gap-[30px] items-center lg:overflow-x-hidden overflow-x-scroll w-[800px] lg:w-full lg:justify-between lg:gap-[77px]">
-          <div className="flex flex-col justify-center items-center w-[175px] lg:w-full">
+      <div className="overflow-x-scroll lg:overflow-x-hidden ">
+        <div className="mt-[28px] flex gap-[30px] items-center lg:overflow-x-hidden w-[1200px] overflow-x-scroll   lg:w-full lg:justify-between lg:gap-[77px]">
+          <div className="flex flex-col justify-center items-center w-[175px]  lg:w-full">
             <div className="w-full rounded-full flex flex-col justify-center items-center">
               <Image
                 src={reviewimg}
@@ -30,7 +30,7 @@ const Reviews = () => {
               to complete my project on time and within budget.{" "}
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center w-[175px] lg:w-full">
+          <div className="flex flex-col justify-center items-center w-[175px]   lg:w-full">
             <div className="w-full rounded-full flex flex-col justify-center items-center">
               <Image
                 src={reviewimg}
@@ -47,7 +47,7 @@ const Reviews = () => {
               to complete my project on time and within budget.{" "}
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center w-[175px] lg:w-full">
+          <div className="flex flex-col justify-center items-center  w-[175px]  lg:w-full">
             <div className="w-full rounded-full flex flex-col justify-center items-center">
               <Image
                 src={reviewimg}
@@ -64,7 +64,7 @@ const Reviews = () => {
               to complete my project on time and within budget.{" "}
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center w-[175px] lg:w-full">
+          <div className="flex flex-col justify-center items-center w-[175px]   lg:w-full">
             <div className="w-full rounded-full flex flex-col justify-center items-center">
               <Image
                 src={reviewimg}

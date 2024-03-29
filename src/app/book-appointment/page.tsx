@@ -31,13 +31,6 @@ const BookAppointment = () => {
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
 
-  console.log("Booking", {
-    selectedTime: selectedTime,
-    selectedService: selectedService,
-    address: address,
-    date: value,
-  });
-
   const handleTimeClick = (time: string) => {
     setSelectedTime(time);
   };

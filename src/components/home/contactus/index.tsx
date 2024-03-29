@@ -7,6 +7,7 @@ import React from "react";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaInstagram } from "react-icons/fa";
 import Button from "@/components/button";
+import Link from "next/link";
 
 const ContactUs = () => {
   return (
@@ -17,7 +18,7 @@ const ContactUs = () => {
         Get in touch with us
       </p>
       <div className="mt-[28px] relative h-[500px] lg:h-[880px] flex flex-col  items-center lg:px-[123px] ">
-        <div className="w-full">
+        <div className="w-full flex justify-center">
           <Image src={map} alt="image" className="lg:hidden w-full" />
           <Image src={webmap} alt="image" className="hidden lg:flex" />
         </div>
@@ -96,10 +97,20 @@ const ContactUs = () => {
 
             <div className="flex mt-[20px] gap-[20px]">
               <div className="p-1 bg-white rounded-full">
-                <SlSocialFacebook size={20} color="black" />
+                <Link
+                  href="https://web.facebook.com/people/Prince-Handyman-Services/61552184172583/"
+                  target="_blank"
+                >
+                  <SlSocialFacebook size={20} color="black" />
+                </Link>
               </div>
               <div className="p-1 bg-white rounded-full">
-                <FaInstagram size={20} color="black" />
+                <Link
+                  href="https://www.instagram.com/prince_handyman_services?igsh=MWJvcHhsNnowY3lqdQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                >
+                  <FaInstagram size={20} color="black" />
+                </Link>
               </div>
             </div>
           </div>

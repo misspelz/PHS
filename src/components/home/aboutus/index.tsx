@@ -1,6 +1,7 @@
 import H6Heading from "@/components/headings/H6Heading";
 import Image from "next/image";
 import image from "@/assets/phsaboutimg.svg";
+import imageweb from "@/assets/aboutimage.svg";
 import icon1 from "@/assets/abticon1.svg";
 import icon2 from "@/assets/abticon2.svg";
 import icon3 from "@/assets/abticon3.svg";
@@ -10,7 +11,10 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div id="about"  className="px-6 lg:px-[123px] py-[48px] mt-[48px]  bg-brown">
+    <div
+      id="about"
+      className="px-6 lg:px-[123px] py-[48px] mt-[48px]  bg-brown"
+    >
       <H6Heading className="text-center font-[600] text-white">
         About Us
       </H6Heading>
@@ -19,7 +23,12 @@ const AboutUs = () => {
       </p>
       <div className="lg:flex lg:gap-[116px]">
         <div className="flex w-full items-center justify-center">
-          <Image src={image} alt="image" className="mt-[28px]" />
+          <Image src={image} alt="image" className="mt-[28px] lg:hidden" />
+          <Image
+            src={imageweb}
+            alt="image"
+            className="mt-[28px] hidden lg:flex"
+          />
         </div>
         <div className="mt-[24px] grid grid-cols-2 gap-[17px] w-full">
           <div className="bg-white p-[13px] rounded-[10px]">
@@ -57,7 +66,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex w-full gap-[25px] mt-[52px]">
+      <div className="flex w-full gap-[25px] mt-[52px] ">
         <div className="flex flex-col justify-center items-center w-full">
           <div className="flex gap-[12px] items-center">
             <Image src={image2} alt="image" className="" />
@@ -67,7 +76,7 @@ const AboutUs = () => {
             Projects Completed
           </p>
         </div>
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col items-center w-full">
           <div className="flex gap-[12px] items-center">
             <Image src={image2} alt="image" className="" />
             <p className="text-[13px] text-white">500+</p>
