@@ -83,12 +83,14 @@ const Login = () => {
                 placeholder="Password"
                 className="rounded-[10px] outline-none"
               />
-              <p className="font-[500] ">Keep me logged in</p>
+              <p className="font-[500] text-[12px] lg:text-[16px]">
+                Keep me logged in
+              </p>
             </div>
             <div className="w-full">
               <p
                 onClick={HandleClick}
-                className="cursor-pointer font-[500] text-right"
+                className="cursor-pointer font-[500] text-right text-[12px] lg:text-[16px]"
               >
                 Forgot password?
               </p>
@@ -106,8 +108,8 @@ const Login = () => {
         />
       </div>
       <Link href="/register">
-        <p className="mt-[16px] text-center font-[500] mb-[24px]">
-          Don’t have an account? <span className="text-blue">Sign Up</span>
+        <p className="mt-[16px] text-center font-[500] mb-[24px] text-[12px] lg:text-[16px]">
+          Don’t have an account? <span className="text-blue">Sign up</span>
         </p>
       </Link>
     </div>

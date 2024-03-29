@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from "@/components/button";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
@@ -20,17 +20,17 @@ export const navlinks: NavLink[] = [
   {
     id: 2,
     title: "Services",
-    link: "/services",
+    link: "#services",
   },
   {
     id: 3,
     title: "About",
-    link: "/about",
+    link: "#about",
   },
   {
     id: 4,
     title: "Contact",
-    link: "/contact",
+    link: "#contact",
   },
 ];
 
@@ -46,6 +46,8 @@ interface NavbarProps {
 }
 
 const Navbar = ({ active, className }: NavbarProps) => {
+  const services = useRef(null);
+
   const { profile } = useAuth();
 
   const nav = useRouter();
@@ -62,7 +64,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
   return (
     <nav
       className={`
-    fixed z-[999] w-full bg-[#fff] text-[#000] transition duration-500  h-[100px] ${className} flex items-center shadow-md`}
+     w-full bg-[#fff] text-[#000] transition duration-500  h-[100px] ${className} flex items-center shadow-md`}
     >
       <div className="flex justify-between items-center px-6 lg:px-[123px]  w-full">
         <Link href="/">

@@ -10,7 +10,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="px-6 lg:px-[123px] py-[48px] mt-[48px]  bg-brown">
+    <div id="about"  className="px-6 lg:px-[123px] py-[48px] mt-[48px]  bg-brown">
       <H6Heading className="text-center font-[600] text-white">
         About Us
       </H6Heading>

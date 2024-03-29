@@ -19,6 +19,7 @@ const config: Config = {
         skyblue: "#F9F9F9",
         blue: "#6666FF",
         lightgray: "#A1A1A1",
+        blue100: "#F5F5F7",
       },
     },
   },

@@ -10,7 +10,7 @@ import Button from "@/components/button";
 
 const ContactUs = () => {
   return (
-    <div className=" py-[48px] bg-skyblue">
+    <div id="contact" className=" py-[48px] bg-skyblue">
       {" "}
       <H6Heading className="text-center font-[600] ">Contact</H6Heading>
       <p className={`text-[16px] text-center lg:text-[18px] `}>

@@ -9,9 +9,11 @@ interface LayoutProps {
 
 const Layout = ({ children, activePage }: LayoutProps) => {
   return (
-    <section className="w-full ">
-      <Navbar active={activePage} />
-      <main className="w-full max-w-[1440px] mx-auto ">{children}</main>
+    <section className="w-full relatve">
+      <div className=" w-full">
+        <Navbar active={activePage} />
+      </div>
+      <main className="w-full max-w-[1500px] mx-auto ">{children}</main>
       <Footer />
     </section>
   );

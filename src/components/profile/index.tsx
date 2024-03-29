@@ -1,8 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import axios from "axios";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
 import close from "@/assets/profileclose.svg";
@@ -13,8 +12,23 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Button from "@/components/button";
 import LogoButton from "@/components/button/btnwithlogo";
 
-const Profile = () => {
-  const [value, setValue] = useState<string | undefined>();
+const Profile = ({ phoneNumber }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: phoneNumber,
+    password: "",
+  });
+
+  console.log("formData", formData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -24,9 +38,16 @@ const Profile = () => {
 
   const [success, showSuccess] = useState(false);
 
-  const HandleSuccess = () => {
-    showSuccess(true);
+  const HandleSuccess = async () => {
+    try {
+      const response = await axios.post("/your-backend-endpoint", formData);
+      console.log("Registration successful:", response.data);
+      showSuccess(true);
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
   };
+
   const HandleClose = () => {
     showSuccess(false);
   };
@@ -46,12 +67,16 @@ const Profile = () => {
             Complete your profile
           </p>
 
-          <div className="max-w-[600px] w-full mx-auto">
+          <form
+            className="max-w-[600px] w-full mx-auto"
+            onSubmit={HandleSuccess}
+          >
             <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
               <input
-                type={"text"}
-                onChange={() => {}}
-                disabled={false}
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name"
                 className="py-[16px] px-[24px] w-full  text-[12px] lg:text-[14px] outline-none"
               />
@@ -59,9 +84,10 @@ const Profile = () => {
 
             <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
               <input
-                type={"text"}
-                onChange={() => {}}
-                disabled={false}
+                type="text"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email"
                 className="py-[16px] px-[24px] w-full  text-[12px] lg:text-[14px] outline-none"
               />
@@ -71,17 +97,23 @@ const Profile = () => {
               <PhoneInput
                 international
                 defaultCountry="NG"
-                value={value}
-                onChange={setValue}
-                className="outline-none text-lightgray"
+                value={formData.phoneNumber}
+                onChange={(value) =>
+                  setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    phoneNumber: value,
+                  }))
+                }
+                className="outline-none text-black"
               />
             </div>
 
             <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
               <input
                 type={showPassword ? "text" : "password"}
-                onChange={() => {}}
-                disabled={false}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Password"
                 className="py-[16px] w-full px-[24px]  text-[12px] lg:text-[14px] outline-none"
               />
@@ -100,8 +132,7 @@ const Profile = () => {
 
             <div className="mb-[24px]">
               <Button
-                text="Submit"
-                onClick={HandleSuccess}
+                text="submit"
                 className=" text-white mt-[80px] w-full py-[16px]"
               />
               <LogoButton
@@ -109,7 +140,7 @@ const Profile = () => {
                 className=" mt-[24px] w-full py-[16px]"
               />
             </div>
-          </div>
+          </form>
         </div>
       )}
 
@@ -125,7 +156,7 @@ const Profile = () => {
               Congratulations
             </p>
             <p className="mt-[4px] text-center lg:text-[18px] ">
-              Your profile has been setup successfully
+              Your profile has been set up successfully
             </p>
           </div>
         </div>
