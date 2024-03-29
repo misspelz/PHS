@@ -2,7 +2,7 @@
 
 import H6Heading from "@/components/headings/H6Heading";
 import Layout from "@/components/layout";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Calendar from "moedim";
 import Button from "@/components/button";
@@ -26,10 +26,10 @@ const timeSlots = [
 
 const BookAppointment = () => {
   const [Appointment, setAppointment] = useState(false);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
-  const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState<Date>(new Date());
 
   console.log("Booking", {
     selectedTime: selectedTime,
@@ -38,22 +38,22 @@ const BookAppointment = () => {
     date: value,
   });
 
-  const handleTimeClick = (time) => {
+  const handleTimeClick = (time: string) => {
     setSelectedTime(time);
   };
 
-  const handleServiceChange = (event) => {
+  const handleServiceChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedService(event.target.value);
   };
 
-  const handleAddressChange = (event) => {
+  const handleAddressChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAddress(event.target.value);
   };
 
   const HandleAppointment = () => {
     setAppointment(true);
   };
-  
+
   const HandleClose = () => {
     setAppointment(false);
   };
@@ -128,7 +128,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[16px] flex items-center w-full justify-center">
-              <Calendar value={value} onChange={(d) => setValue(d)} />
+              <Calendar value={value} onChange={(d: Date) => setValue(d)} />
             </div>
           </div>
         </div>
@@ -176,5 +176,3 @@ const BookAppointment = () => {
 };
 
 export default BookAppointment;
-
-// book-appointment

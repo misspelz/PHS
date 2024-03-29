@@ -2,10 +2,11 @@ import Image from "next/image";
 import React from "react";
 import close from "@/assets/profileclose.svg";
 import succesimg from "@/assets/profilesuccess.svg";
-import Link from "next/link";
-import Button from "../button";
+interface SuccessProps {
+  HandleClose: () => void;
+}
 
-const Success = ({ HandleClose }) => {
+const Success: React.FC<SuccessProps> = ({ HandleClose }) => {
   return (
     <div className="px-6 mx-4 py-[30px] pb-[50px] lg:w-[600px]   bg-white rounded-[10px]">
       <div className="flex w-full justify-end">

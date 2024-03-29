@@ -2,9 +2,12 @@ import Link from "next/link";
 import React, { ReactElement } from "react";
 import { LuCalendarDays } from "react-icons/lu";
 
+interface Background {
+  src: string;
+}
 interface HeroProps {
-  mobileBackground: string;
-  desktopBackground: string;
+  mobileBackground: Background;
+  desktopBackground: Background;
   headingText?: string;
   buttonText?: string;
   buttonIcon?: ReactElement;

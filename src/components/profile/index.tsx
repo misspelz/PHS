@@ -1,7 +1,7 @@
+import React, { useState, ChangeEvent } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import axios from "axios";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
 import close from "@/assets/profileclose.svg";
@@ -12,7 +12,11 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Button from "@/components/button";
 import LogoButton from "@/components/button/btnwithlogo";
 
-const Profile = ({ phoneNumber }) => {
+interface ProfileProps {
+  phoneNumber?: string;
+}
+
+const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +26,7 @@ const Profile = ({ phoneNumber }) => {
 
   console.log("formData", formData);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -101,7 +105,7 @@ const Profile = ({ phoneNumber }) => {
                 onChange={(value) =>
                   setFormData((prevFormData) => ({
                     ...prevFormData,
-                    phoneNumber: value,
+                    phoneNumber: value as string,
                   }))
                 }
                 className="outline-none text-black"
