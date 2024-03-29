@@ -11,6 +11,7 @@ import PhoneInput from "react-phone-number-input";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Button from "@/components/button";
 import LogoButton from "@/components/button/btnwithlogo";
+import CREATE_ACCOUNT from "@/api/services/auth";
 
 interface ProfileProps {
   phoneNumber?: string;
@@ -20,9 +21,13 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phoneNumber: phoneNumber,
+    phone_number: phoneNumber,
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [success, showSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -32,21 +37,25 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
     }));
   };
 
-  const [showPassword, setShowPassword] = useState(false);
-
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
 
-  const [success, showSuccess] = useState(false);
+  const validateInputs = () => {
+    return Object.values(formData).every((value) => value !== "");
+  };
 
-  const HandleSuccess = async () => {
+  const HandleSuccess = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     try {
-      const response = await axios.post("/your-backend-endpoint", formData);
-      console.log("Registration successful:", response.data);
+      setIsLoading(true);
+      const response = await CREATE_ACCOUNT(formData);
+      console.log("Registration successful:", response);
       showSuccess(true);
     } catch (error) {
       console.error("Registration failed:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -99,14 +108,14 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
               <PhoneInput
                 international
                 defaultCountry="NG"
-                value={formData.phoneNumber}
+                value={formData.phone_number}
                 onChange={(value) =>
                   setFormData((prevFormData) => ({
                     ...prevFormData,
                     phoneNumber: value as string,
                   }))
                 }
-                className="outline-none text-black"
+                className="outline-none text-black text-[12px] lg:text-[14px]"
               />
             </div>
 
@@ -134,8 +143,10 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
 
             <div className="mb-[24px]">
               <Button
-                text="submit"
-                className=" text-white mt-[80px] w-full py-[16px]"
+                text="Submit"
+                className={`text-white mt-[80px] w-full py-[16px]`}
+                disabled={!validateInputs()}
+                isLoading={isLoading}
               />
               <LogoButton
                 text="Continue with google"

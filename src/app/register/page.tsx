@@ -13,27 +13,18 @@ import Profile from "@/components/profile";
 
 const Register = () => {
   const [phoneNumber, setPhoneNumber] = useState<string | undefined>();
-  // console.log("phoneNumber", { phone_number: phoneNumber });
-
   const [showProfile, setShowProfile] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     setShowProfile(true);
-
-    // try {
-    //   const response = await axios.post(
-    //     "https://princehandymanservices.onrender.com/auth/users",
-    //     {
-    //       phoneNumber: value,
-    //     }
-    //   );
-    //   console.log("Registration successful:", response.data);
-    // } catch (error) {
-    //   console.error("Registration failed:", error);
-    // }
   };
+
+  const isPhoneNumberEmpty = !phoneNumber || phoneNumber.trim() === "";
+
+  // const isPhoneNumberValid = phoneNumber && /^\d{10}$/.test(phoneNumber);
+
+  // const isButtonDisabled = isPhoneNumberEmpty || !isPhoneNumberValid;
 
   return (
     <>
@@ -63,7 +54,8 @@ const Register = () => {
                 defaultCountry="NG"
                 value={phoneNumber}
                 onChange={setPhoneNumber}
-                className="outline-none text-black"
+                style={{ outline: "none" }}
+                className="phone-input outline-none text-[12px] lg:text-[14px]"
               />
             </div>
 
@@ -71,6 +63,7 @@ const Register = () => {
               <Button
                 text="Continue"
                 className=" text-white mt-[80px] w-full py-[16px]"
+                disabled={isPhoneNumberEmpty}
               />
             </div>
           </form>
