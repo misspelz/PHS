@@ -24,8 +24,6 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
     password: "",
   });
 
-  console.log("formData", formData);
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
