@@ -186,7 +186,6 @@ const Login = () => {
           <GoogleLogin
             onSuccess={onSuccess}
             onError={onFailure}
-            //cookiePolicy={"single_host_origin"}
             className="cursor-pointer mt-[24px] w-full"
           />
              Continue With Google
