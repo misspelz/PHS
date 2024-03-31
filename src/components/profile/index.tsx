@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent } from "react";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/phslogo.svg";
@@ -20,6 +19,7 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
   const nav = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +30,8 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [success, showSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [showErrorr, setShowErrorr] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -53,16 +55,27 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
       setIsLoading(true);
       const response = await CREATE_ACCOUNT(formData);
       console.log("Registration successful:", response);
-      showSuccess(true);
-    } catch (error) {
-      console.error("Registration failed:", error);
+      if (response.status === 201) {
+        showSuccess(true);
+      }
+    } catch (error: any) {
+      console.log("Registration failed:", error);
+      if (error.response && error.response.status === 400) {
+        setShowErrorr(true);
+      } else if (
+        error.response &&
+        error.response.status === 400 &&
+        error.response.data.email[0]
+      ) {
+        setShowError(true);
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
   const HandleClose = () => {
-    showSuccess(false);
+    // showSuccess(false);
     nav.push("/login");
   };
 
@@ -143,6 +156,18 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 )}
               </button>
             </div>
+
+            {showErrorr && (
+              <p className="mt-[24px] text-center font-semibold text-red-600 text-[12px] lg:text-[16px] ">
+                Something went wrong!
+              </p>
+            )}
+
+            {showError && (
+              <p className="mt-[24px] text-center font-semibold text-red-600 text-[12px] lg:text-[16px] ">
+                User with this email already exists.
+              </p>
+            )}
 
             <div className="mb-[24px]">
               <Button

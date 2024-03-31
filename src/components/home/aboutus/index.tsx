@@ -30,35 +30,43 @@ const AboutUs = () => {
             className="mt-[28px] hidden lg:flex"
           />
         </div>
-        <div className="mt-[24px] grid grid-cols-2 gap-[17px] w-full">
-          <div className="bg-white p-[13px] rounded-[10px]">
-            <Image src={icon1} alt="icon1" />
-            <p className="mt-[12px] font-[500] text-[14px] ">Experienced</p>
-            <p className="mt-[4px] text-[14px] mb-[10px]">
+        <div className="mt-[24px] grid grid-cols-1 sm:grid-cols-2 gap-[17px] w-full">
+          <div className="bg-white px-[13px] lg:px-[17px] rounded-[10px]">
+            <Image src={icon1} alt="icon1" className="mt-[12px] lg:mt-[24px]" />
+            <p className="mt-[12px] font-[500] text-[14px] lg:text-[18px] lg:mt-[16px]">
+              Experienced
+            </p>
+            <p className="mt-[4px] text-[14px] lg:text-[16px] mb-[40px] lg:mb-0  lg:mt-[8px] lg:leading-[24px]">
               We&apos;ve been serving customers like you for over a decade. Our
               experience means we know how to get the job done right.
             </p>
           </div>
-          <div className="bg-white p-[13px] rounded-[10px]">
-            <Image src={icon2} alt="icon1" />
-            <p className="mt-[12px] font-[500] text-[14px]">Experienced</p>
-            <p className="mt-[4px] text-[14px] mb-[13px]">
+          <div className="bg-white px-[13px] lg:px-[17px] rounded-[10px]">
+            <Image src={icon2} alt="icon1" className="mt-[12px] lg:mt-[24px]" />
+            <p className="mt-[12px] font-[500] text-[14px] lg:text-[18px] lg:mt-[16px]">
+              Experienced
+            </p>
+            <p className="mt-[4px] text-[14px] lg:text-[16px] mb-[40px] lg:mb-0  lg:mt-[8px] lg:leading-[24px]">
               We&apos;ve been serving customers like you for over a decade. Our
               experience means we know how to get the job done right.
             </p>
           </div>
-          <div className="bg-white p-[13px] rounded-[10px]">
-            <Image src={icon3} alt="icon1" />
-            <p className="mt-[12px] font-[500] text-[14px]">Experienced</p>
-            <p className="mt-[4px] text-[14px] mb-[13px]">
+          <div className="bg-white px-[13px] lg:px-[17px] rounded-[10px]">
+            <Image src={icon3} alt="icon1" className="mt-[12px] lg:mt-[24px]" />
+            <p className="mt-[12px] font-[500] text-[14px] lg:text-[18px] lg:mt-[16px]">
+              Experienced
+            </p>
+            <p className="mt-[4px] text-[14px] lg:text-[16px] mb-[40px] lg:mb-0  lg:mt-[8px] lg:leading-[24px]">
               We&apos;ve been serving customers like you for over a decade. Our
               experience means we know how to get the job done right.
             </p>
           </div>
-          <div className="bg-white p-[13px] rounded-[10px]">
-            <Image src={icon4} alt="icon1" />
-            <p className="mt-[12px] font-[500] text-[14px]">Experienced</p>
-            <p className="mt-[4px] text-[14px] mb-[13px]">
+          <div className="bg-white px-[13px] lg:px-[17px] rounded-[10px]">
+            <Image src={icon4} alt="icon1" className="mt-[12px] lg:mt-[24px]" />
+            <p className="mt-[12px] font-[500] text-[14px] lg:text-[18px] lg:mt-[16px]">
+              Experienced
+            </p>
+            <p className="mt-[4px] text-[14px] lg:text-[16px] mb-[40px] lg:mb-0 lg:mt-[8px] lg:leading-[24px]">
               We&apos;ve been serving customers like you for over a decade. Our
               experience means we know how to get the job done right.
             </p>
@@ -70,27 +78,27 @@ const AboutUs = () => {
         <div className="flex flex-col justify-center items-center w-full">
           <div className="flex gap-[12px] items-center">
             <Image src={image2} alt="image" className="" />
-            <p className="text-[13px] text-white">350+</p>
+            <p className="text-[13px] lg:text-[24px]  text-white">350+</p>
           </div>
-          <p className="text-[13px] mt-2 font-[500] text-center text-white">
+          <p className="text-[13px] lg:text-[24px] mt-2 font-[500] text-center text-white">
             Projects Completed
           </p>
         </div>
         <div className="flex flex-col items-center w-full">
           <div className="flex gap-[12px] items-center">
             <Image src={image2} alt="image" className="" />
-            <p className="text-[13px] text-white">500+</p>
+            <p className="text-[13px] lg:text-[24px]  text-white">500+</p>
           </div>
-          <p className="text-[13px] mt-2 font-[500] text-center text-white">
+          <p className="text-[13px] lg:text-[24px] mt-2 font-[500] text-center text-white">
             Happy Clients
           </p>
         </div>
         <div className="flex flex-col justify-center items-center w-full">
           <div className="flex gap-[12px] items-center">
             <Image src={image2} alt="image" className="" />
-            <p className="text-[13px] text-white">10+</p>
+            <p className="text-[13px] lg:text-[24px]  text-white">10+</p>
           </div>
-          <p className="text-[13px] mt-2 font-[500] text-center text-white">
+          <p className="text-[13px] lg:text-[24px] mt-2 font-[500] text-center text-white">
             Years of Experience
           </p>
         </div>

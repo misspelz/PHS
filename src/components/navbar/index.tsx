@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/button";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
@@ -9,7 +9,6 @@ import user from "@/assets/user.svg";
 import Image from "next/image";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/contextapi";
 
 export const navlinks: NavLink[] = [
   {
@@ -46,9 +45,12 @@ interface NavbarProps {
 }
 
 const Navbar = ({ active, className }: NavbarProps) => {
-  const services = useRef(null);
+  const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
 
-  const { profile } = useAuth();
+  useEffect(() => {
+    const user = localStorage.getItem("PHS_LoggedInUser");
+    setLoggedInUser(user);
+  }, []);
 
   const nav = useRouter();
   const [open, setOpen] = useState<boolean>(false);
@@ -106,12 +108,18 @@ const Navbar = ({ active, className }: NavbarProps) => {
             )}
           </div>
 
-          {profile ? (
+          {LoggedInUser === "true" ? (
             <div className="flex gap-[8px] items-center">
-              <p>Vintage</p>
+              <p>Username</p>
               <Image src={user} alt="logo" />
             </div>
           ) : (
+            // : LoggedInUser && open ? (
+            //   <div className="flex gap-[8px] items-center">
+            //     <p className="text-white">Vintage</p>
+            //     <FaRegUser color="white" />
+            //   </div>
+            // )
             <Button
               text="Login"
               onClick={HandleLogin}
