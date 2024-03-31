@@ -93,9 +93,9 @@ const Login = () => {
     }
   };
 
-  const onFailure = () => {
-    console.log("Login failed");
-  };
+  //const onFailure = () => {
+    //console.log("Login failed");
+  //};
 
   return (
     <>
@@ -185,7 +185,7 @@ const Login = () => {
           />
           <GoogleLogin
             onSuccess={onSuccess}
-            onError={onFailure}
+            //onError={onFailure}
             className="cursor-pointer mt-[24px] w-full"
           />
              Continue With Google
