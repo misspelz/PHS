@@ -93,10 +93,6 @@ const Login = () => {
     }
   };
 
-  //const onFailure = () => {
-    //console.log("Login failed");
-  //};
-
   return (
     <>
       <GoogleOAuthProvider clientId={clientId}>
@@ -185,7 +181,6 @@ const Login = () => {
           />
           <GoogleLogin
             onSuccess={onSuccess}
-            //onError={onFailure}
             className="cursor-pointer mt-[24px] w-full"
           />
              Continue With Google
