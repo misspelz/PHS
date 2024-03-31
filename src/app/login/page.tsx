@@ -94,7 +94,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+ 
       <GoogleOAuthProvider clientId={clientId}>
       <div className="px-6 lg:px-[123px]">
         {" "}
@@ -193,7 +193,7 @@ const Login = () => {
         </Link>
       </div>
       </GoogleOAuthProvider>
-    </div>
+  
   );
 };
 
