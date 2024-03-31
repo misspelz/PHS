@@ -58,6 +58,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
       const userDetails = JSON.parse(userDetailsString);
       setUserProfile(userDetails);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const nav = useRouter();
