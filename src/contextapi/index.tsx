@@ -19,7 +19,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [profile, setProfile] = useState<boolean>(false);
   const [keepLoggedIn, setKeepLoggedIn] = useState<boolean>(false);
   const [userId, setUserId] = useState("");
-  console.log("userId", userId);
 
   return (
     <AuthContext.Provider
