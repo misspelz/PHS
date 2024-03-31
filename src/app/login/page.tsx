@@ -93,8 +93,8 @@ const Login = () => {
     }
   };
 
-  const onFailure = (response: any) => {
-    console.log("Login failed: res:", response);
+  const onFailure = () => {
+    console.log("Login failed");
   };
 
   return (
