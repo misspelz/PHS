@@ -80,9 +80,9 @@ const Navbar = ({ active, className }: NavbarProps) => {
             navlinks.map(({ id, link, title }) => (
               <li
                 key={id}
-                className={`text-[16px] font-normal ease-in-out duration-300 capitalize ${
+                className={`text-[18px]  ease-in-out duration-300 capitalize ${
                   active?.toLocaleLowerCase() === title.toLocaleLowerCase()
-                    ? "text-primary "
+                    ? "text-primary font-[700]"
                     : "text-[#000] "
                 }`}
               >
@@ -109,17 +109,11 @@ const Navbar = ({ active, className }: NavbarProps) => {
           </div>
 
           {LoggedInUser === "true" ? (
-            <div className="flex gap-[8px] items-center">
-              <p>Username</p>
+            <div className="flex gap-[16px] items-center">
+              <p className="text-[14px]">Username</p>
               <Image src={user} alt="logo" />
             </div>
           ) : (
-            // : LoggedInUser && open ? (
-            //   <div className="flex gap-[8px] items-center">
-            //     <p className="text-white">Vintage</p>
-            //     <FaRegUser color="white" />
-            //   </div>
-            // )
             <Button
               text="Login"
               onClick={HandleLogin}

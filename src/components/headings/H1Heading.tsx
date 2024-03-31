@@ -8,7 +8,7 @@ interface Props {
 const H1Heading: React.FC<Props> = ({ children, className }) => {
   return (
     <h1
-      className={` text-[32px] lg:text-[60px] font-[600]  leading-[36px] lg:leading-[72px] ${className}`}
+      className={` text-[32px] lg:text-[60px] text-blacky font-[600]  leading-[36px] lg:leading-[78px] ${className}`}
     >
       {children}
     </h1>

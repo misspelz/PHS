@@ -2,10 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import heromobilebg from "@/assets/mobileherobg.svg";
+import calendar from "@/assets/calendarphs.svg";
 import herobg from "@/assets/herobgwebphs.svg";
 import H1Heading from "@/components/headings/H1Heading";
 import { LuCalendarDays } from "react-icons/lu";
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
   const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
@@ -22,11 +24,12 @@ const Hero = () => {
           className="h-[600px] bg-cover bg-no-repeat background-position-x-right"
           style={{
             backgroundImage: `url(${heromobilebg.src})`,
+            filter: "brightness(70%)",
           }}
         ></div>
 
         <div className="py-[12px] px-6 md:px-40 w-full">
-          <H1Heading className="text-center">
+          <H1Heading className="text-center w-[300px] mx-auto">
             Your Trusted <span className="text-primary">Handyman</span> Service
             for Every Repair
           </H1Heading>
@@ -34,18 +37,18 @@ const Hero = () => {
           {LoggedInUser === "true" ? (
             <Link href="book-appointment">
               <button
-                className={`rounded-[8px] bg-primary text-[#fff] py-[14px]  px-6  text-[12px]  w-full mt-[28px] flex items-center justify-center gap-[4px]`}
+                className={`rounded-[8px] bg-primary text-[#fff] py-[14px]  px-6  text-[12px]  w-full mt-[28px] flex items-center justify-center gap-[10px]`}
               >
-                <LuCalendarDays />
+                <Image src={calendar} alt="calendar" />
                 Book Appointment
               </button>
             </Link>
           ) : (
             <Link href="register">
               <button
-                className={`rounded-[8px] bg-primary text-[#fff] py-[14px]  px-6  text-[12px]  w-full mt-[28px] flex items-center justify-center gap-[4px]`}
+                className={`rounded-[8px] bg-primary text-[#fff] py-[14px]  px-6  text-[12px]  w-full mt-[28px] flex items-center justify-center gap-[10px]`}
               >
-                <LuCalendarDays />
+                <Image src={calendar} alt="calendar" />
                 Book Appointment
               </button>
             </Link>
@@ -61,27 +64,30 @@ const Hero = () => {
             backgroundImage: `url(${herobg.src})`,
           }}
         ></div>
-        <div className="absolute transform top-[35%] px-[123px]">
-          <H1Heading className="text-left w-[600px]">
-            Your Trusted <span className="text-primary">Handyman</span> Service
-            for Every Repair
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-30"></div>
+
+        <div className="absolute transform top-[25%] px-[123px]">
+          <H1Heading className="text-left w-[500px]">
+            Your Trusted <span className="text-[#d76e06]">Handyman</span>{" "}
+            Service for Every Repair
           </H1Heading>
 
           {LoggedInUser === "true" ? (
             <Link href="book-appointment">
               <button
-                className={`rounded-[8px] bg-primary text-[#fff] py-[16px]  px-28   mt-[28px] lg:mt-[62px] flex items-center justify-center gap-[4px] text-[18px] `}
+                className={`rounded-[8px] bg-primary text-[#fff] py-[20px]  px-[105px]   mt-[28px] lg:mt-[62px] flex items-center justify-center gap-[10px] text-[18px]  `}
               >
-                <LuCalendarDays />
+                <Image src={calendar} alt="calendar" />
                 Book Appointment
               </button>
             </Link>
           ) : (
             <Link href="register">
               <button
-                className={`rounded-[8px] bg-primary text-[#fff] py-[16px]  px-28   mt-[28px] lg:mt-[62px] flex items-center justify-center gap-[4px] text-[18px] `}
+                className={`rounded-[8px] bg-primary text-[#fff] py-[20px]  px-[105px]   mt-[28px] lg:mt-[62px] flex items-center justify-center gap-[10px] text-[18px] `}
               >
-                <LuCalendarDays />
+                <Image src={calendar} alt="calendar" />
                 Book Appointment
               </button>
             </Link>

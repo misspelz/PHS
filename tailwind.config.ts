@@ -20,6 +20,7 @@ const config: Config = {
         blue: "#6666FF",
         lightgray: "#A1A1A1",
         blue100: "#F5F5F7",
+        blacky: "#333333",
       },
     },
   },
