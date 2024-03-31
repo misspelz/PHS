@@ -2,13 +2,20 @@
 
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
+interface UserProfile {
+  name: string;
+  id: string;
+}
+
 interface AuthContextType {
   profile: boolean;
   userId: string;
+  userProfile: UserProfile[] | null;
   setUserId: React.Dispatch<React.SetStateAction<string>>;
   keepLoggedIn: boolean;
   setProfile: React.Dispatch<React.SetStateAction<boolean>>;
   setKeepLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setUserProfile: React.Dispatch<React.SetStateAction<UserProfile[] | null>>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -19,6 +26,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [profile, setProfile] = useState<boolean>(false);
   const [keepLoggedIn, setKeepLoggedIn] = useState<boolean>(false);
   const [userId, setUserId] = useState("");
+  const [userProfile, setUserProfile] = useState<UserProfile[] | null>(null);
 
   return (
     <AuthContext.Provider
@@ -29,6 +37,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         setKeepLoggedIn,
         userId,
         setUserId,
+        userProfile,
+        setUserProfile,
       }}
     >
       {children}

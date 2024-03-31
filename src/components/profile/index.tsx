@@ -60,14 +60,14 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
       }
     } catch (error: any) {
       console.log("Registration failed:", error);
-      if (error.response && error.response.status === 400) {
-        setShowErrorr(true);
-      } else if (
+      if (
         error.response &&
         error.response.status === 400 &&
         error.response.data.email[0]
       ) {
         setShowError(true);
+      } else if (error.response && error.response.status === 400) {
+        setShowErrorr(true);
       }
     } finally {
       setIsLoading(false);

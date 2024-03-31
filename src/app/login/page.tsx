@@ -9,8 +9,8 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
-import { LOG_IN } from "@/api/services/auth";
-import GoogleLogin from "react-google-login";
+import { GET_USER_PROFILE, LOG_IN } from "@/api/services/auth";
+// import GoogleLogin from "react-google-login";
 import axios from "axios";
 
 const Login = () => {
@@ -56,7 +56,12 @@ const Login = () => {
       const response = await LOG_IN(payload);
       console.log("Login successful:", response);
       if (response.status === 200) {
-        localStorage.setItem("phsAuthToken", response.data.auth_token);
+        localStorage.setItem("phsAuthToken", response?.data?.auth_token);
+        const res = await GET_USER_PROFILE();
+        console.log("GET_USER_PROFILE", res);
+        if (response.status === 200) {
+          localStorage.setItem("phs_userprofile", JSON.stringify(res?.data));
+        }
         if (keepLoggedIn) {
           localStorage.setItem("PHS_LoggedInUser", "true");
         }
@@ -80,21 +85,21 @@ const Login = () => {
     setKeepLoggedIn((prevKeepLoggedIn) => !prevKeepLoggedIn);
   };
 
-  const onSuccess = async (response: any) => {
-    try {
-      const res = await axios.post(
-        "https://princehandymanservices.onrender.com/accounts/google/login/callback/",
-        { access_token: response.accessToken }
-      );
-      console.log(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const onSuccess = async (response: any) => {
+  //   try {
+  //     const res = await axios.post(
+  //       "https://princehandymanservices.onrender.com/accounts/google/login/callback/",
+  //       { access_token: response.accessToken }
+  //     );
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const onFailure = (response: any) => {
-    console.log("Login failed: res:", response);
-  };
+  // const onFailure = (response: any) => {
+  //   console.log("Login failed: res:", response);
+  // };
 
   return (
     <>
@@ -181,14 +186,14 @@ const Login = () => {
             isLoading={isLoading}
             className=" text-white mt-[80px] w-full py-[16px]"
           />
-          <GoogleLogin
+          {/* <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
             onSuccess={onSuccess}
             onFailure={onFailure}
             cookiePolicy={"single_host_origin"}
             className="cursor-pointer mt-[24px] w-full"
-          />
+          /> */}
         </div>
         <Link href="/register">
           <p className="mt-[16px] text-center font-[500] mb-[24px] text-[12px] lg:text-[16px]">

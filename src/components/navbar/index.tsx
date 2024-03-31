@@ -9,6 +9,7 @@ import user from "@/assets/user.svg";
 import Image from "next/image";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contextapi";
 
 export const navlinks: NavLink[] = [
   {
@@ -45,11 +46,18 @@ interface NavbarProps {
 }
 
 const Navbar = ({ active, className }: NavbarProps) => {
+  const { userProfile, setUserProfile } = useAuth();
   const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
 
   useEffect(() => {
     const user = localStorage.getItem("PHS_LoggedInUser");
     setLoggedInUser(user);
+
+    const userDetailsString = localStorage.getItem("phs_userprofile");
+    if (userDetailsString !== null) {
+      const userDetails = JSON.parse(userDetailsString);
+      setUserProfile(userDetails);
+    }
   }, []);
 
   const nav = useRouter();
@@ -110,7 +118,9 @@ const Navbar = ({ active, className }: NavbarProps) => {
 
           {LoggedInUser === "true" ? (
             <div className="flex gap-[16px] items-center">
-              <p className="text-[14px]">Username</p>
+              <p className="text-[14px]">
+                {(userProfile && userProfile[0]?.name) || "Username"}
+              </p>
               <Image src={user} alt="logo" />
             </div>
           ) : (

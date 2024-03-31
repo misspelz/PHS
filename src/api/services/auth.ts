@@ -39,6 +39,13 @@ interface ContactPayload {
   phone_number: string;
   message: string;
 }
+interface AppointmentPayload {
+  user: string;
+  service_name: string;
+  time: string;
+  address: string;
+  date: string;
+}
 
 const CREATE_ACCOUNT = async (
   payload: RegPayload
@@ -66,6 +73,11 @@ export const LOG_IN = async (payload: LogInPayload): Promise<LoginResponse> => {
   } catch (error) {
     throw error;
   }
+};
+
+export const getToken = () => {
+  const token = localStorage.getItem("phsAuthToken");
+  return token;
 };
 
 export const FORGOT_PASSWORD = async (email: ForgotPasswordPayload) => {
@@ -102,4 +114,26 @@ export const CONTACT = async (payload: ContactPayload) => {
   } catch (error) {
     throw error;
   }
+};
+
+export const MAKE_AN_APPOINTMENT = async (payload: AppointmentPayload) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/api/phs/`, payload, {
+      headers: {
+        Authorization: `Token ${getToken()}`,
+      },
+    });
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const GET_USER_PROFILE = async () => {
+  const res = await axios.get(`${BASE_URL}/auth/users/`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  });
+  return res;
 };

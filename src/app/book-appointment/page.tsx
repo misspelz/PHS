@@ -8,6 +8,9 @@ import Calendar from "moedim";
 import Button from "@/components/button";
 import Modal from "@/components/modal";
 import Success from "@/components/appointment/success";
+import { useAuth } from "@/contextapi";
+import { MAKE_AN_APPOINTMENT } from "@/api/services/auth";
+import { useRouter } from "next/navigation";
 
 const timeSlots = [
   "08:00AM",
@@ -24,12 +27,45 @@ const timeSlots = [
   "07:00PM",
 ];
 
+interface AppointmentPayload {
+  user: string;
+  service_name: string;
+  time: string;
+  address: string;
+  date: string;
+}
+
+const formatDate = (date: Date): string => {
+  const year = date.getFullYear().toString();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 const BookAppointment = () => {
+  const nav = useRouter();
+  const { userProfile } = useAuth();
+
+  const userId = userProfile && userProfile[0]?.id;
+
   const [Appointment, setAppointment] = useState(false);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
+
+  const appointmentDetails: AppointmentPayload = {
+    user: userId || "",
+    service_name: selectedService,
+    address: address,
+    time: selectedTime || "",
+    date: formatDate(value),
+  };
+
+  const validateInputs =
+    selectedService === "" || address === "" || selectedTime === "" || !value;
+
+  console.log("appointmentDetails", appointmentDetails);
 
   const handleTimeClick = (time: string) => {
     setSelectedTime(time);
@@ -43,12 +79,30 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
-  const HandleAppointment = () => {
-    setAppointment(true);
+  const [showError, setShowError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const HandleAppointment = async () => {
+    try {
+      setIsLoading(true);
+      const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
+      console.log("appointment booked successful:", response);
+      if (response.status === 201) {
+        setAppointment(true);
+      }
+    } catch (error: any) {
+      console.log("appointment booked  failed:", error);
+      if (error.response && error.response.status === 400) {
+        setShowError(true);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const HandleClose = () => {
-    setAppointment(false);
+    // setAppointment(false);
+    nav.push("/");
   };
 
   return (
@@ -150,10 +204,18 @@ const BookAppointment = () => {
           </div>
         </div>
 
+        {showError && (
+          <p className="mt-[24px] text-center font-semibold text-red-600 text-[12px] lg:text-[16px] ">
+            Something went wrong!
+          </p>
+        )}
+
         <div className="w-full  flex items-center justify-center mt-[48px] lg:mt-[72px]">
           <Button
             text="Book"
             onClick={HandleAppointment}
+            disabled={validateInputs}
+            isLoading={isLoading}
             className="w-full text-white text-[16px] lg:text-[18px] lg:w-[40%] font-[700]"
           />
         </div>
