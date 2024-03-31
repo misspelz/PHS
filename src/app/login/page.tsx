@@ -190,7 +190,7 @@ const Login = () => {
             className="cursor-pointer mt-[24px] w-full"
           />
              Continue With Google
-          //</GoogleLogin>
+          </GoogleLogin>
         </div>
         <Link href="/register">
           <p className="mt-[16px] text-center font-[500] mb-[24px] text-[12px] lg:text-[16px]">
