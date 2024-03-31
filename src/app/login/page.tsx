@@ -93,8 +93,12 @@ const Login = () => {
     }
   };
 
+  const onFailure = () => {
+    console.log("Login failed");
+  };
+
   return (
- 
+    <>
       <GoogleOAuthProvider clientId={clientId}>
       <div className="px-6 lg:px-[123px]">
         {" "}
@@ -181,6 +185,7 @@ const Login = () => {
           />
           <GoogleLogin
             onSuccess={onSuccess}
+            onError={onFailure}
             className="cursor-pointer mt-[24px] w-full"
           />
              Continue With Google
@@ -193,8 +198,9 @@ const Login = () => {
         </Link>
       </div>
       </GoogleOAuthProvider>
-  
+    </>
   );
 };
 
 export default Login;
+
