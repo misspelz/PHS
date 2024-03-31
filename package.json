@@ -33,9 +33,9 @@
   "overrides": {
     "moedim": {
       "styled-components": "^6.1.8"
-    },
-    "resolutions": {
-      "react": "^17.0.0"
     }
+  },
+  "resolutions": {
+    "react": "^17.0.0"
   }
 }
