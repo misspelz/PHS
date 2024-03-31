@@ -81,11 +81,11 @@ const Login = () => {
     setKeepLoggedIn((prevKeepLoggedIn) => !prevKeepLoggedIn);
   };
 
-  const onSuccess = async (response: any) => {
+  const onSuccess = async (credentialResponse: any) => {
     try {
       const res = await axios.post(
         "https://princehandymanservices.onrender.com/accounts/google/login/callback/",
-        { access_token: response.accessToken }
+        { access_token: credentialResponse.accessToken }
       );
       console.log(res.data);
     } catch (error) {
@@ -184,12 +184,13 @@ const Login = () => {
             className=" text-white mt-[80px] w-full py-[16px]"
           />
           <GoogleLogin
-            buttonText="Login with Google"
             onSuccess={onSuccess}
-            onFailure={onFailure}
+            onError={onFailure}
             cookiePolicy={"single_host_origin"}
             className="cursor-pointer mt-[24px] w-full"
-          />
+          >
+             Continue With Google
+          </GoogleLogin>
         </div>
         <Link href="/register">
           <p className="mt-[16px] text-center font-[500] mb-[24px] text-[12px] lg:text-[16px]">
