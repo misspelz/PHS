@@ -33,6 +33,11 @@
   "overrides": {
     "moedim": {
       "styled-components": "^6.1.8"
+    },
+    "react-google-login": {
+      "peerDependencies": {
+        "react": "^18.2.0"
+      }
     }
   }
 }
