@@ -10,7 +10,8 @@ import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
 import { LOG_IN } from "@/api/services/auth";
-import GoogleLogin from "react-google-login";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+//import GoogleLogin from "react-google-login";
 import axios from "axios";
 
 const Login = () => {
@@ -98,6 +99,7 @@ const Login = () => {
 
   return (
     <>
+      <GoogleOAuthProvider clientId={clientId}>
       <div className="px-6 lg:px-[123px]">
         {" "}
         <div className="  w-full py-[30px]">
@@ -190,6 +192,7 @@ const Login = () => {
             className="cursor-pointer mt-[24px] w-full"
           />
         </div>
+        </GoogleOAuthProvider>
         <Link href="/register">
           <p className="mt-[16px] text-center font-[500] mb-[24px] text-[12px] lg:text-[16px]">
             Don’t have an account? <span className="text-blue">Sign up</span>
