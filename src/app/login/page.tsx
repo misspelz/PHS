@@ -184,7 +184,6 @@ const Login = () => {
             className=" text-white mt-[80px] w-full py-[16px]"
           />
           <GoogleLogin
-            clientId={clientId}
             buttonText="Login with Google"
             onSuccess={onSuccess}
             onFailure={onFailure}
