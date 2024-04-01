@@ -5,6 +5,11 @@ import Image from "next/image";
 import map from "@/assets/contactmapmobile.svg";
 import webmap from "@/assets/Map.svg";
 import icon from "@/assets/contactmapimg.svg";
+import contacticon from "@/assets/phswebbcontacticon.svg";
+import emailicon from "@/assets/phswebemailicon.svg";
+import locationmobileicon from "@/assets/phslocationicon.svg";
+import contactmobileicon from "@/assets/phscontacticon.svg";
+import emailmobileicon from "@/assets/phsemailicon.svg";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaInstagram } from "react-icons/fa";
@@ -95,7 +100,7 @@ const ContactUs = () => {
                   name="name"
                   value={payload.name}
                   onChange={handleChange}
-                  className="px-[24px] py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
@@ -105,7 +110,7 @@ const ContactUs = () => {
                   name="email"
                   value={payload.email}
                   onChange={handleChange}
-                  className="px-[24px] py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
@@ -115,10 +120,19 @@ const ContactUs = () => {
                   name="phone_number"
                   value={payload.phone_number}
                   onChange={handleChange}
-                  className="px-[24px] py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
+                <textarea
+                  cols={30}
+                  rows={1}
+                  placeholder="Message"
+                  name="message"
+                  value={payload.message}
+                  onChange={handleChange}
+                  className="pl-[24px] py-[16px] flex lg:hidden w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                />
                 <textarea
                   cols={30}
                   rows={3}
@@ -126,7 +140,7 @@ const ContactUs = () => {
                   name="message"
                   value={payload.message}
                   onChange={handleChange}
-                  className="pl-[24px] py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="pl-[24px] hidden lg:flex py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
 
@@ -142,7 +156,7 @@ const ContactUs = () => {
                 </p>
               )}
 
-              <div className="lg:flex lg:items-center lg:gap-[20px]">
+              <div className="lg:flex lg:items-center lg:gap-[63px]">
                 <Button
                   text="Submit"
                   disabled={!validateInputs()}
@@ -161,28 +175,47 @@ const ContactUs = () => {
           <div className="w-[40%] bg-primary font-[500] text-white py-[24px] px-[10px] lg:px-[36px]">
             <p className="text-[12px] lg:text-[18px]">Contact Information</p>
 
-            <div className="flex flex-col gap-[20px]  mt-[16px]">
-              <div className="flex flex-col gap-[8px]">
-                <Image src={icon} alt="image" className="" />
+            <div className="flex flex-col gap-[20px] lg:gap-[32px]  mt-[16px] justify-center">
+              <div className="flex flex-col lg:flex-row  gap-[8px] lg:gap-[16px]">
+                <Image src={icon} alt="image" className="hidden lg:flex" />
+                <Image
+                  src={locationmobileicon}
+                  alt="image"
+                  className="flex lg:hidden"
+                />
                 <p className="text-[12px] lg:text-[14px]">
                   Ringfort View, Balrothery, Balbriggan, Dublin
                 </p>
               </div>
 
-              <div className="flex flex-col gap-[8px]">
-                <Image src={icon} alt="image" className="" />
+              <div className="flex flex-col lg:flex-row gap-[8px] lg:gap-[16px]">
+                <Image
+                  src={contacticon}
+                  alt="image"
+                  className="hidden lg:flex"
+                />
+                <Image
+                  src={contactmobileicon}
+                  alt="image"
+                  className="flex lg:hidden"
+                />
                 <p className="text-[12px] lg:text-[14px]">+353 89 266 0336</p>
               </div>
 
-              <div className="flex flex-col gap-[8px]">
-                <Image src={icon} alt="image" className="" />
+              <div className="flex flex-col lg:flex-row  gap-[8px] lg:gap-[16px]">
+                <Image src={emailicon} alt="image" className="hidden lg:flex" />
+                <Image
+                  src={emailmobileicon}
+                  alt="image"
+                  className="flex lg:hidden"
+                />
                 <p className="text-[12px] lg:text-[14px]">
                   www.princehandy manservices.ie
                 </p>
               </div>
             </div>
 
-            <div className="flex mt-[20px] gap-[20px]">
+            <div className="flex mt-[20px] gap-[20px] lg:mt-[24px]">
               <div className="p-1 bg-white rounded-full">
                 <Link
                   href="https://web.facebook.com/people/Prince-Handyman-Services/61552184172583/"
