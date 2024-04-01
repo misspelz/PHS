@@ -100,7 +100,7 @@ const ContactUs = () => {
                   name="name"
                   value={payload.name}
                   onChange={handleChange}
-                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border border-inputBorder rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
@@ -110,7 +110,7 @@ const ContactUs = () => {
                   name="email"
                   value={payload.email}
                   onChange={handleChange}
-                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border border-inputBorder rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
@@ -120,7 +120,7 @@ const ContactUs = () => {
                   name="phone_number"
                   value={payload.phone_number}
                   onChange={handleChange}
-                  className="px-[24px] py-[10px] lg:py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="px-[24px] py-[10px] lg:py-[16px] w-full border border-inputBorder rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
               <div className="mt-[16px]">
@@ -131,7 +131,7 @@ const ContactUs = () => {
                   name="message"
                   value={payload.message}
                   onChange={handleChange}
-                  className="pl-[24px] py-[16px] flex lg:hidden w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="pl-[24px] py-[16px] flex lg:hidden w-full border border-inputBorder rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
                 <textarea
                   cols={30}
@@ -140,7 +140,7 @@ const ContactUs = () => {
                   name="message"
                   value={payload.message}
                   onChange={handleChange}
-                  className="pl-[24px] hidden lg:flex py-[16px] w-full border rounded-[10px] text-[12px] lg:text-[14px] outline-none"
+                  className="pl-[24px] hidden lg:flex py-[16px] w-full border border-inputBorder rounded-[10px] text-[12px] lg:text-[14px] outline-none"
                 />
               </div>
 
@@ -221,8 +221,16 @@ const ContactUs = () => {
                   href="https://web.facebook.com/people/Prince-Handyman-Services/61552184172583/"
                   target="_blank"
                 >
-                  <SlSocialFacebook size={15} color="black"  className="flex lg:hidden"  />
-                  <SlSocialFacebook size={20} color="black"  className="hidden lg:flex"  />
+                  <SlSocialFacebook
+                    size={15}
+                    color="black"
+                    className="flex lg:hidden"
+                  />
+                  <SlSocialFacebook
+                    size={20}
+                    color="black"
+                    className="hidden lg:flex"
+                  />
                 </Link>
               </div>
               <div className="p-1 bg-white rounded-full">
@@ -230,8 +238,16 @@ const ContactUs = () => {
                   href="https://www.instagram.com/prince_handyman_services?igsh=MWJvcHhsNnowY3lqdQ%3D%3D&utm_source=qr"
                   target="_blank"
                 >
-                  <FaInstagram size={15} color="black"  className="flex lg:hidden" />
-                  <FaInstagram size={20} color="black" className="hidden lg:flex"   />
+                  <FaInstagram
+                    size={15}
+                    color="black"
+                    className="flex lg:hidden"
+                  />
+                  <FaInstagram
+                    size={20}
+                    color="black"
+                    className="hidden lg:flex"
+                  />
                 </Link>
               </div>
             </div>
