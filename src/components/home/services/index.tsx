@@ -85,7 +85,7 @@ const Services = () => {
                   <WebServicecard
                     imageSrc={service.webimage}
                     title={service.title}
-                    description={service.description}
+                    description={service.description.slice(0, 80)}
                     learn={
                       <Link
                         href={{
