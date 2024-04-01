@@ -30,13 +30,12 @@ export default function Services({
     btn: string;
   };
 }) {
-  console.log("searchParams", searchParams);
+
 
   const service = servicesdata.find(
     (service) => service.id === parseInt(searchParams.id)
   );
 
-  console.log("service", service);
 
   return (
     <Layout activePage="services">

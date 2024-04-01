@@ -176,10 +176,10 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 disabled={!validateInputs()}
                 isLoading={isLoading}
               />
-              <LogoButton
+              {/* <LogoButton
                 text="Continue with google"
                 className=" mt-[24px] w-full py-[16px]"
-              />
+              /> */}
             </div>
           </form>
         </div>

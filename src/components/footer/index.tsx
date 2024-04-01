@@ -57,10 +57,20 @@ const Footer = () => {
 
           <div className="flex gap-[20px]">
             <div className="p-1 bg-primary rounded-full">
-              <SlSocialFacebook size={20} color="white" />
+              <Link
+                href="https://web.facebook.com/people/Prince-Handyman-Services/61552184172583/"
+                target="_blank"
+              >
+                <SlSocialFacebook size={20} color="white" />
+              </Link>
             </div>
             <div className="p-1 bg-primary rounded-full">
-              <FaInstagram size={20} color="white" />
+              <Link
+                href="https://www.instagram.com/prince_handyman_services?igsh=MWJvcHhsNnowY3lqdQ%3D%3D&utm_source=qr"
+                target="_blank"
+              >
+                <FaInstagram size={20} color="white" />
+              </Link>
             </div>
           </div>
         </div>
@@ -172,7 +182,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="lg:flex mt-[40px] hidden lg:justify-end">
+
+        {/* LARGE SCREEN */}
+        <div className="lg:flex mt-[40px] hidden lg:justify-end ">
           <div className="flex flex-col gap-[20px] lg:gap-[24px] justify-left w-full">
             <PText className="text-white font-[700] lg:text-[24px]">
               Newsletter
@@ -180,15 +192,15 @@ const Footer = () => {
             <PText className="text-white ">
               Subscribe To Stay Up-to-Date with Prince Handyman Services
             </PText>
-            <div className="relative w-full">
+            <div className="relative bg-white rounded-[8px] pr-[20px]">
               <input
                 placeholder="Email"
-                className="h-[60px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
+                className="h-[60px] pl-6 rounded-[8px] text-[12px]  outline-none"
               />
               <div className="flex justify-end ">
                 <Button
                   text="Subscribe"
-                  className=" text-white absolute  top-[9px]   lg:text-[12px] lg:px-6"
+                  className=" text-white absolute  top-[9px] lg:text-[12px] lg:px-6"
                 />
               </div>
             </div>
@@ -196,6 +208,7 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* MOBILE SCREEN */}
       <div className="flex lg:hidden mt-[31px] lg:justify-end">
         <div className="flex flex-col gap-[16px] justify-left w-full">
           <PText className="text-white font-[700] lg:text-[24px]">
@@ -204,14 +217,14 @@ const Footer = () => {
           <PText className="text-white w-[200px]">
             Subscribe To Stay Up-to-Date with Prince Handyman Services
           </PText>
-          <div className="relative w-full ">
+          <div className="relative w-full bg-white rounded-[8px] pr-[0px]">
             <input
               placeholder="Email"
-              className="h-[50px] lg:[70px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
+              className="h-[50px] lg:[70px] pl-6 rounded-[8px] text-[12px] w-full outline-none"
             />
             <Button
               text="Subscribe"
-              className=" text-white absolute transform -translate-x-28 translate-y-[6px] lg:translate-y-[4px] lg:text-[12px] lg:px-6"
+              className=" text-white absolute transform -translate-x-28 translate-y-[6px] lg:translate-y-[4px] lg:text-[12px]  lg:px-6"
             />
           </div>
         </div>
