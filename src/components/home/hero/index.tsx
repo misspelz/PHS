@@ -5,7 +5,6 @@ import heromobilebg from "@/assets/mobileherobg.svg";
 import calendar from "@/assets/calendarphs.svg";
 import herobg from "@/assets/herobgwebphs.svg";
 import H1Heading from "@/components/headings/H1Heading";
-import { LuCalendarDays } from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,7 +20,7 @@ const Hero = () => {
     <div>
       <div className="lg:hidden">
         <div
-          className="h-[600px] bg-cover bg-no-repeat background-position-x-right"
+          className="h-[400px] bg-cover bg-no-repeat background-position-x-right"
           style={{
             backgroundImage: `url(${heromobilebg.src})`,
             filter: "brightness(70%)",

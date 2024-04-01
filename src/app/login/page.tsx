@@ -10,8 +10,6 @@ import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
 import { GET_USER_PROFILE, LOG_IN } from "@/api/services/auth";
-// import GoogleLogin from "react-google-login";
-import axios from "axios";
 
 const Login = () => {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
@@ -54,11 +52,9 @@ const Login = () => {
     try {
       setIsLoading(true);
       const response = await LOG_IN(payload);
-      console.log("Login successful:", response);
       if (response.status === 200) {
         localStorage.setItem("phsAuthToken", response?.data?.auth_token);
         const res = await GET_USER_PROFILE();
-        console.log("GET_USER_PROFILE", res);
         if (response.status === 200) {
           localStorage.setItem("phs_userprofile", JSON.stringify(res?.data));
         }

@@ -8,9 +8,7 @@ interface Props {
 
 const PText: React.FC<Props> = ({ children, className }) => {
   return (
-    <p className={`text-[12px] lg:text-[16px] ${className}`}>
-      {children}
-    </p>
+    <p className={`text-[12px] lg:text-[16px] ${className}`}>{children}</p>
   );
 };
 

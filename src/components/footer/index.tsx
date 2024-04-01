@@ -11,12 +11,13 @@ import Button from "@/components/button/btn";
 const Footer = () => {
   return (
     <div className="px-6 py-[40px] lg:py-[60px] lg:px-[123px] bg-brown">
-      <div className="flex lg:hidden items-center justify-between gap-[40px]">
-        <Link href="/" className="w-[30%]">
-          {" "}
-          <Image src={mobilelogo} alt="logo" className="" />
-        </Link>
-        <div className="flex flex-col gap-[16px] w-[70%] ">
+      <div className="flex lg:hidden items-center justify-between ">
+        <div>
+          <Link href="/" className="w-[50%]">
+            <Image src={mobilelogo} alt="logo" className="" />
+          </Link>
+        </div>
+        <div className="flex flex-col gap-[16px] w-[50%] pl-[6px]">
           <PText className="text-white text-left lg:w-[100px]">
             At Prince Handyman Services, we understand the importance of having
             a reliable service.
@@ -79,7 +80,7 @@ const Footer = () => {
             <PText className="text-white font-[700] lg:text-[24px]">
               Services
             </PText>
-            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px]">
+            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px] font-[400]">
               <Link
                 href={{
                   pathname: `/services`,
@@ -171,8 +172,8 @@ const Footer = () => {
             <PText className="text-white font-[700] lg:text-[24px]">
               Contact Info
             </PText>
-            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px]">
-              <li className="cursor-pointer ">
+            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px] font-[400]">
+              <li className="cursor-pointer  ">
                 Ringfort View, Balrothery, Balbriggan, Dublin
               </li>
               <li className="cursor-pointer">+353 89 266 0336</li>
@@ -214,7 +215,7 @@ const Footer = () => {
           <PText className="text-white font-[700] lg:text-[24px]">
             Newsletter
           </PText>
-          <PText className="text-white w-[200px]">
+          <PText className="text-white font-[400] w-[200px]">
             Subscribe To Stay Up-to-Date with Prince Handyman Services
           </PText>
           <div className="relative w-full bg-white rounded-[8px] pr-[0px]">
