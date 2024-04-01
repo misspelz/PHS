@@ -190,8 +190,7 @@ const Login = () => {
             clientId={clientId}
             buttonText="Login with Google"
             onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={"single_host_origin"}
+            onError={onFailure}
             className="cursor-pointer mt-[24px] w-full"
           /> */}
         </div>
