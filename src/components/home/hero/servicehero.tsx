@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/contextapi";
 import Link from "next/link";
 import React, { ReactElement, useEffect, useState } from "react";
 import { LuCalendarDays } from "react-icons/lu";
@@ -20,12 +21,7 @@ const Hero: React.FC<HeroProps> = ({
   desktopBackground,
   headingText,
 }) => {
-  const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
-
-  useEffect(() => {
-    const user = localStorage.getItem("PHS_LoggedInUser");
-    setLoggedInUser(user);
-  }, []);
+  const { userProfile } = useAuth();
 
   return (
     <>
@@ -42,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({
             <h1 className="text-center text-[18px] font-[600]">
               {headingText}
             </h1>
-            {LoggedInUser === "true" ? (
+            {userProfile ? (
               <Link href="book-appointment">
                 <button
                   className={`rounded-[8px] bg-primary text-[#fff] py-[10px] px-10  lg:px-28   mt-[10px] flex items-center justify-center gap-[4px] text-[16px] `}
@@ -80,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({
               {headingText}
             </h1>
 
-            {LoggedInUser === "true" ? (
+            {userProfile ? (
               <Link href="book-appointment">
                 <button
                   className={`rounded-[8px] bg-primary text-[#fff] py-[16px]  px-28   mt-[20px] flex items-center justify-center gap-[4px] text-[18px] `}
