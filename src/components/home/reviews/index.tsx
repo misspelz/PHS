@@ -1,8 +1,38 @@
 import H6Heading from "@/components/headings/H6Heading";
 import Image from "next/image";
 import React from "react";
-import reviewimg from "@/assets/reviewimg.svg";
+import john from "@/assets/reviewimg.svg";
 import quote from "@/assets/phsquoteicon.svg";
+import sarah from "@/assets/sarah.svg";
+import michael from "@/assets/michael.svg";
+import emily from "@/assets/emily.svg";
+
+const reviewData = [
+  {
+    name: "John Smith",
+    image: john,
+    testimonial:
+      "Outstanding service! Prince Handyman Service went above and beyond to complete my project on time and within budget.",
+  },
+  {
+    name: "Sarah Johnson",
+    image: sarah,
+    testimonial:
+      "I couldn't be happier with the results! exceptional service from start to finish. Professional, reliable, and skilled - I'll definitely be a repeat customer.",
+  },
+  {
+    name: "Michael Davis",
+    image: michael,
+    testimonial:
+      "Impressed by the professionalism and attention to detail displayed by the team. They exceeded my expectations and delivered exceptional quality.",
+  },
+  {
+    name: "Emily Thompson",
+    image: emily,
+    testimonial:
+      "Fantastic experience working with them. Their team was friendly, efficient, and incredibly knowledgeable. I'm thrilled with the outcome.",
+  },
+];
 
 const Reviews = () => {
   return (
@@ -11,76 +41,33 @@ const Reviews = () => {
       <p className={`text-[16px] text-center lg:text-[18px] `}>
         Here is what our customers have to say about us
       </p>
-      <div className="overflow-x-scroll lg:overflow-x-hidden ">
-        <div className="mt-[28px] flex gap-[30px] items-center lg:overflow-x-hidden w-[1200px] overflow-x-scroll   lg:w-full lg:justify-between lg:gap-[77px]">
-          <div className="flex flex-col justify-center items-center w-[175px]  lg:w-full">
-            <div className="w-full rounded-full flex flex-col justify-center items-center">
+      <div className={`customScrollbar overflow-x-scroll `}>
+        <div className="mt-[28px] flex items-start w-[800px] lg:overflow-x-hidden lg:w-[1200px] overflow-x-scroll  gap-[34px]   lg:gap-[77px]">
+          {reviewData.map((review, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-center items-center w-[175px]  lg:w-[238px] "
+            >
+              <div className="w-full rounded-full flex flex-col justify-center items-center">
+                <Image
+                  src={review.image}
+                  alt="Reviewer's Image"
+                  className="h-[60px] w-[60px] lg:h-[150px] lg:w-[150px] rounded-full"
+                />
+              </div>
               <Image
-                src={reviewimg}
-                alt="image"
-                className="h-[60px] w-[60px] lg:h-[150px] lg:w-[150px] rounded-full"
+                src={quote}
+                alt="Quotation Mark"
+                className="mt-4 lg:mt-4"
               />
+              <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
+                {review.name}
+              </p>
+              <p className="text-[14px] lg:text-[16px] mt-[8px] text-center lg:w-[220px] mb-5 lg:mb-10">
+                {review.testimonial}
+              </p>
             </div>
-            <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
-              John Smith
-            </p>
-            <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
-              Outstanding service! Prince Handyman Service went above and beyond
-              to complete my project on time and within budget.{" "}
-            </p>
-          </div>
-          <div className="flex flex-col justify-center items-center w-[175px]   lg:w-full">
-            <div className="w-full rounded-full flex flex-col justify-center items-center">
-              <Image
-                src={reviewimg}
-                alt="image"
-                className="h-[60px] w-[60px] lg:h-[150px] lg:w-[150px] rounded-full"
-              />
-            </div>
-            <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
-              John Smith
-            </p>
-            <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
-              Outstanding service! Prince Handyman Service went above and beyond
-              to complete my project on time and within budget.{" "}
-            </p>
-          </div>
-          <div className="flex flex-col justify-center items-center  w-[175px]  lg:w-full">
-            <div className="w-full rounded-full flex flex-col justify-center items-center">
-              <Image
-                src={reviewimg}
-                alt="image"
-                className="h-[60px] w-[60px] lg:h-[150px] lg:w-[150px] rounded-full"
-              />
-            </div>
-            <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
-              John Smith
-            </p>
-            <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
-              Outstanding service! Prince Handyman Service went above and beyond
-              to complete my project on time and within budget.{" "}
-            </p>
-          </div>
-          <div className="flex flex-col justify-center items-center w-[175px]   lg:w-full">
-            <div className="w-full rounded-full flex flex-col justify-center items-center">
-              <Image
-                src={reviewimg}
-                alt="image"
-                className="h-[60px] w-[60px] lg:h-[150px] lg:w-[150px] rounded-full"
-              />
-            </div>
-            <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
-              John Smith
-            </p>
-            <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
-              Outstanding service! Prince Handyman Service went above and beyond
-              to complete my project on time and within budget.{" "}
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

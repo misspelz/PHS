@@ -10,7 +10,7 @@ import emailicon from "@/assets/phswebemailicon.svg";
 import locationmobileicon from "@/assets/phslocationicon.svg";
 import contactmobileicon from "@/assets/phscontacticon.svg";
 import emailmobileicon from "@/assets/phsemailicon.svg";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaInstagram } from "react-icons/fa";
 import Button from "@/components/button";
