@@ -77,7 +77,7 @@ const ContactUs = () => {
       <p className={`text-[16px] text-center lg:text-[18px] `}>
         Get in touch with us
       </p>
-      <div className="mt-[28px] relative h-[570px] lg:h-[920px] flex flex-col  items-center lg:px-[123px] ">
+      <div className="mt-[28px] relative h-[500px] lg:h-[920px] flex flex-col  items-center lg:px-[123px] ">
         <div className="w-full flex justify-center">
           <Image src={map} alt="image" className="lg:hidden w-full" />
           <Image src={webmap} alt="image" className="hidden lg:flex" />

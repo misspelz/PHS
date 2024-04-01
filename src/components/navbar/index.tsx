@@ -117,7 +117,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
             )}
           </div>
 
-          {LoggedInUser === "true" ? (
+          {userProfile ? (
             <div className="flex gap-[16px] items-center">
               <p className="text-[14px]">
                 {(userProfile && userProfile[0]?.name) || "Username"}
