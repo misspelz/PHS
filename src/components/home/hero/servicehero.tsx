@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({
             backgroundImage: `url(${desktopBackground?.src})`,
           }}
         >
-          <div className="z-20">
+          <div className="z-20 flex flex-col items-center">
             <h1 className="text-center text-white text-[60px] font-[600]">
               {headingText}
             </h1>

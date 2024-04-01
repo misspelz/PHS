@@ -57,7 +57,6 @@ export default function Services({
             Get familiar with the process
           </p>
         </div>
-        {/* <div>{searchParams.description}</div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px] lg:gap-[24px] py-[28px]">
           <div className="flex ">
