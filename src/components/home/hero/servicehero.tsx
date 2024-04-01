@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({
         <div
           className="h-[350px]  bg-cover bg-no-repeat "
           style={{
-            backgroundImage: `url(${mobileBackground.src})`,
+            backgroundImage: `url(${mobileBackground?.src})`,
           }}
         ></div>
         <div className="w-full z-20  flex flex-col items-center justify-center">
@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({
         <div
           className="h-[550px]  bg-cover bg-no-repeat flex flex-col justify-center items-center"
           style={{
-            backgroundImage: `url(${desktopBackground.src})`,
+            backgroundImage: `url(${desktopBackground?.src})`,
           }}
         >
           <div className="z-20">

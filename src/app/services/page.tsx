@@ -5,28 +5,46 @@ import plumbingimg from "@/assets/plumbingmobile.svg";
 import plumbingimgweb from "@/assets/plumbing.svg";
 import serviceworkmobile from "@/assets/serviceworkmobile.svg";
 import serviceworkweb from "@/assets/serviceworkweb.svg";
+import img2 from "@/assets/img2.svg";
+import img3 from "@/assets/img3.svg";
+import img4 from "@/assets/img4.svg";
+import img2mobile from "@/assets/img2mobile.svg";
+import img3mobile from "@/assets/img3mobile.svg";
+import img4mobile from "@/assets/img4mobile.svg";
 import H6Heading from "@/components/headings/H6Heading";
 import Image from "next/image";
+import { servicesdata } from "@/components/data";
+
+interface Background {
+  src: string;
+}
 
 export default function Services({
   searchParams,
 }: {
   searchParams: {
-    id: number;
+    id: string;
     title: string;
     description: string;
-    imageSrc: string;
-    webimage: string;
+    bg: Background;
     btn: string;
   };
 }) {
+  console.log("searchParams", searchParams);
+
+  const service = servicesdata.find(
+    (service) => service.id === parseInt(searchParams.id)
+  );
+
+  console.log("service", service);
+
   return (
     <Layout activePage="services">
       <div className="relative">
         {/* Hero section */}
         <Hero
-          mobileBackground={plumbingimg}
-          desktopBackground={plumbingimgweb}
+          mobileBackground={service?.bg}
+          desktopBackground={service?.bg}
           headingText={searchParams.title}
         />
       </div>
@@ -78,12 +96,12 @@ export default function Services({
           <div className="flex ">
             <div className="w-full">
               <Image
-                src={serviceworkmobile}
+                src={img2mobile}
                 alt="image"
                 className="lg:hidden w-full h-full"
               />
               <Image
-                src={serviceworkweb}
+                src={img2}
                 alt="image"
                 className="hidden lg:block w-full h-full"
               />
@@ -110,12 +128,12 @@ export default function Services({
           <div className="flex ">
             <div className="w-full">
               <Image
-                src={serviceworkmobile}
+                src={img3mobile}
                 alt="image"
                 className="lg:hidden w-full h-full"
               />
               <Image
-                src={serviceworkweb}
+                src={img3}
                 alt="image"
                 className="hidden lg:block w-full h-full"
               />
@@ -129,11 +147,11 @@ export default function Services({
               <div className="w-full h-full flex justify-center items-center px-[13px]">
                 <div>
                   <p className="font-[600] text-[16px] lg:text-[18px]">
-                    Service Review
+                    Make Payment
                   </p>
                   <p className="mt-[4px]">
-                    You will receive a notification for a service feedback once
-                    your task has been completed
+                    Make full payments for the handyman service(s) to be carried
+                    out
                   </p>
                 </div>
               </div>
@@ -142,12 +160,12 @@ export default function Services({
           <div className="flex ">
             <div className="w-full">
               <Image
-                src={serviceworkmobile}
+                src={img4mobile}
                 alt="image"
                 className="lg:hidden w-full h-full"
               />
               <Image
-                src={serviceworkweb}
+                src={img4}
                 alt="image"
                 className="hidden lg:block w-full h-full"
               />
@@ -161,11 +179,11 @@ export default function Services({
               <div className="w-full h-full flex justify-center items-center px-[13px]">
                 <div>
                   <p className="font-[600] text-[16px] lg:text-[18px]">
-                    Make Payment
+                    Service Review
                   </p>
                   <p className="mt-[4px]">
-                    Make full payments for the handyman service(s) to be carried
-                    out
+                    You will receive a notification for a service feedback once
+                    your task has been completed
                   </p>
                 </div>
               </div>

@@ -1,9 +1,24 @@
 import ServiceIcon from "@/assets/service1.svg";
 import herobg from "@/assets/herobgwebphs.svg";
-import plumbingimg from "@/assets/plumbingmobile.svg";
+import plumbingimgmobile from "@/assets/plumbingimgmobile.svg";
+import paintingimgmobile from "@/assets/paintingimgmobile.svg";
 import plumbingimgweb from "@/assets/plumbing.svg";
 import paintingimg from "@/assets/paintingmobile.svg";
 import paintingimgweb from "@/assets/painting.svg";
+import GHM from "@/assets/GHM.svg";
+import drywall from "@/assets/drywall.svg";
+import tiling from "@/assets/tiling.svg";
+import capentry from "@/assets/capentry.svg";
+import tvmounting from "@/assets/tvmounting.svg";
+import paintingwebimg from "@/assets/paintingwebimg.svg";
+import plumbingwebimg from "@/assets/plumbingwebimg.svg";
+import bgPlumbing from "@/assets/plumbing.svg";
+import bgPainting from "@/assets/bgpainting.svg";
+import bgTV from "@/assets/bgtv.svg";
+import bgCapentry from "@/assets/bgcapentry.svg";
+import bgTilling from "@/assets/bgtiling.svg";
+import bgDrywall from "@/assets/bgdrywall.svg";
+import bgGHM from "@/assets/bggeneralhm.svg";
 
 // interface ServiceData {
 //   id: number;
@@ -18,64 +33,69 @@ export const servicesdata = [
   {
     id: 1,
     title: "Plumbing",
-    description:
-      "Our Plumbing mix their awesome skills to make really great paintings.",
-    imageSrc: plumbingimg,
-    webimage: plumbingimgweb,
+    description: "We have only the best, qualified and certified plumbers.",
+    imageSrc: plumbingimgmobile,
+    webimage: plumbingwebimg,
+    bg: bgPlumbing,
     btn: "Learn more",
   },
   {
     id: 2,
     title: "Painting",
     description:
-      "Our Painting mix their awesome skills to make really great paintings.",
-    imageSrc: paintingimg,
-    webimage: paintingimgweb,
+      "Our painters mix their awesome skills to make really great paintings.",
+    imageSrc: paintingimgmobile,
+    webimage: paintingwebimg,
+    bg: bgPainting,
     btn: "Learn more",
   },
   {
     id: 3,
-    title: "Tech",
-    description:
-      "Our Tech mix their awesome skills to make really great paintings.",
-    imageSrc: plumbingimg,
-    webimage: plumbingimgweb,
+    title: "TV Mounting",
+    description: "Seamless TV Mounting: Perfect Placement, Every Time.",
+    imageSrc: plumbingimgmobile,
+    webimage: tvmounting,
+    bg: bgTV,
     btn: "Learn more",
   },
   {
     id: 4,
-    title: "Agriculture",
+    title: "Capentry",
     description:
-      "Our Agriculture mix their awesome skills to make really great paintings.",
-    imageSrc: paintingimg,
-    webimage: paintingimgweb,
+      "We've gathered a team of the best carpenters for top-notch work and quality.",
+    imageSrc: paintingimgmobile,
+    webimage: capentry,
+    bg: bgCapentry,
     btn: "Learn more",
   },
   {
     id: 5,
-    title: "Medical",
+    title: "Tilling",
     description:
-      "Our Medical mix their awesome skills to make really great paintings.",
-    imageSrc: plumbingimg,
-    webimage: plumbingimgweb,
+      "Our expert tilers guarantee flawless results, transforming your space with quality.",
+    imageSrc: plumbingimgmobile,
+    webimage: tiling,
+    bg: bgTilling,
     btn: "Learn more",
   },
   {
     id: 6,
-    title: "Engineering",
+    title: "Drywall Repairs",
     description:
-      "Our Engineering mix their awesome skills to make really great paintings.",
-    imageSrc: plumbingimg,
-    webimage: plumbingimgweb,
+      "We ensure seamless drywall repairs, restoring your walls with expertise.",
+    imageSrc: paintingimgmobile,
+    webimage: drywall,
+    bg: bgDrywall,
     btn: "Learn more",
   },
   {
     id: 7,
-    title: "Coding",
+    title: "General Household Maintenance",
     description:
-      "Our Coding mix their awesome skills to make really great paintings.",
-    imageSrc: plumbingimg,
-    webimage: plumbingimgweb,
+      "We handle all your house maintenance needs with care and ensure your home stays in safe.",
+    imageSrc: plumbingimgmobile,
+    webimage: GHM,
+    bg: bgGHM,
     btn: "Learn more",
   },
 ];

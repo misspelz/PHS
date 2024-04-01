@@ -22,7 +22,7 @@ const Reviews = () => {
               />
             </div>
             <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[500]">
+            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
               John Smith
             </p>
             <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
@@ -39,7 +39,7 @@ const Reviews = () => {
               />
             </div>
             <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[500]">
+            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
               John Smith
             </p>
             <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
@@ -56,7 +56,7 @@ const Reviews = () => {
               />
             </div>
             <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[500]">
+            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
               John Smith
             </p>
             <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">
@@ -73,7 +73,7 @@ const Reviews = () => {
               />
             </div>
             <Image src={quote} alt="image" className="mt-4 lg:mt-4" />
-            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[500]">
+            <p className="text-[14px] lg:text-[18px] mt-[12px] font-[700]">
               John Smith
             </p>
             <p className="text-[14px] lg:text-[16px] mt-[8px] text-center">

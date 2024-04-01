@@ -74,7 +74,7 @@ const Services = () => {
             </button>
           )}
 
-          <div className="flex overflow-hidden">
+          <div className="flex ">
             {servicesdata
               .slice(currentSlide * 3, (currentSlide + 1) * 3)
               .map((service, index) => (
@@ -84,7 +84,7 @@ const Services = () => {
                   // onClick={() => handleServiceClick(service.id)}
                 >
                   <WebServicecard
-                    imageSrc={service.imageSrc}
+                    imageSrc={service.webimage}
                     title={service.title}
                     description={service.description}
                     learn={

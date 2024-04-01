@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[10px]  justify-between">
+      <div className=" grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[10px] lg:gap-[50px]  justify-between">
         <div className="hidden lg:flex flex-col items-start justify-center gap-[20px]">
           <Link href="/" className="">
             {" "}
@@ -65,11 +65,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex mt-[40px]  lg:justify-end">
-          <div className="flex flex-col gap-[20px] justify-right w-full">
+          <div className="flex flex-col gap-[10px] lg:gap-[24px] justify-right w-full">
             <PText className="text-white font-[700] lg:text-[24px]">
               Services
             </PText>
-            <ul className="flex flex-col gap-[20px] text-white text-[12px] lg:text-[16px]">
+            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px]">
               <Link
                 href={{
                   pathname: `/services`,
@@ -157,11 +157,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex mt-[40px] lg:justify-end ">
-          <div className="flex flex-col gap-[20px] justify-right w-full">
+          <div className="flex flex-col gap-[10px] lg:gap-[24px] justify-right w-full">
             <PText className="text-white font-[700] lg:text-[24px]">
               Contact Info
             </PText>
-            <ul className="flex flex-col gap-[20px] text-white text-[12px] lg:text-[16px]">
+            <ul className="flex flex-col gap-[10px] lg:gap-[16px] text-white text-[12px] lg:text-[16px]">
               <li className="cursor-pointer ">
                 Ringfort View, Balrothery, Balbriggan, Dublin
               </li>
@@ -173,29 +173,31 @@ const Footer = () => {
           </div>
         </div>
         <div className="lg:flex mt-[40px] hidden lg:justify-end">
-          <div className="flex flex-col gap-[20px] justify-left w-full">
+          <div className="flex flex-col gap-[20px] lg:gap-[24px] justify-left w-full">
             <PText className="text-white font-[700] lg:text-[24px]">
               Newsletter
             </PText>
-            <PText className="text-white w-[200px]">
+            <PText className="text-white ">
               Subscribe To Stay Up-to-Date with Prince Handyman Services
             </PText>
             <div className="relative w-full">
               <input
                 placeholder="Email"
-                className="h-[50px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
+                className="h-[60px] pl-6 rounded-[8px] text-[12px] w-[250px] outline-none"
               />
-              <Button
-                text="Subscribe"
-                className=" text-white absolute transform -translate-x-28 translate-y-[6px] lg:translate-y-[4px] lg:text-[12px] lg:px-6"
-              />
+              <div className="flex justify-end ">
+                <Button
+                  text="Subscribe"
+                  className=" text-white absolute  top-[9px]   lg:text-[12px] lg:px-6"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex lg:hidden mt-[40px] lg:justify-end">
-        <div className="flex flex-col gap-[20px] justify-left w-full">
+      <div className="flex lg:hidden mt-[31px] lg:justify-end">
+        <div className="flex flex-col gap-[16px] justify-left w-full">
           <PText className="text-white font-[700] lg:text-[24px]">
             Newsletter
           </PText>
@@ -215,9 +217,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="h-[1px] w-full bg-white mt-[40px] lg:mt-[40px] "></div>
+      <div className="h-[1px] w-full bg-white mt-[48px] lg:mt-[40px] "></div>
 
-      <PText className="text-white text-left mt-4 lg:mb-10 lg:mt-5">
+      <PText className="text-white text-left mt-[8px] lg:mb-10 lg:mt-5">
         Copyright © 2024 Prince Handyman Services
       </PText>
     </div>

@@ -20,17 +20,21 @@ const Servicecard: React.FC<WebServicecardProps> = ({
   return (
     <div className="relative w-[170px] h-[370px] ">
       <Image src={imageSrc} alt="service" className="rounded-[10px] w-full" />
-      <div className="absolute bottom-10 right-0 bg-[#fff]  pl-[14px] pt-[10px] shadow-lg">
-        <h3 className="text-[14px] text-center font-[600]">{title}</h3>
-        <p className="w-[130px] text-[14px] mt-[8px] pr-[14px]">
-          {description}
-        </p>
-        <div className="w-full flex items-center mt-[22px] gap-[20px] cursor-pointer">
-          <p className="text-[14px] text-primary">{learn}</p>
-          <Image src={arrow} alt="learn-more-arrow" />
+      <div className="absolute -bottom-4 right-0 bg-[#fff]  pl-[14px] pt-[10px] shadow-lg h-[270px] flex flex-col justify-between">
+        <div>
+          <h3 className="text-[14px] text-center font-[600]">{title}</h3>
+          <p className="w-[130px] text-[14px] mt-[8px] pr-[14px]">
+            {description}
+          </p>
         </div>
-        <div className="w-fulll flex justify-end">
-          <Image src={design} alt="base-design" />
+        <div className="flex flex-col ">
+          <div className="w-full flex items-center mt-[22px] gap-[20px] cursor-pointer">
+            <p className="text-[14px] text-primary">{learn}</p>
+            <Image src={arrow} alt="learn-more-arrow" />
+          </div>
+          <div className="w-fulll flex justify-end">
+            <Image src={design} alt="base-design" />
+          </div>
         </div>
       </div>
     </div>
