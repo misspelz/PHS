@@ -221,7 +221,8 @@ const ContactUs = () => {
                   href="https://web.facebook.com/people/Prince-Handyman-Services/61552184172583/"
                   target="_blank"
                 >
-                  <SlSocialFacebook size={20} color="black" />
+                  <SlSocialFacebook size={15} color="black"  className="flex lg:hidden"  />
+                  <SlSocialFacebook size={20} color="black"  className="hidden lg:flex"  />
                 </Link>
               </div>
               <div className="p-1 bg-white rounded-full">
@@ -229,7 +230,8 @@ const ContactUs = () => {
                   href="https://www.instagram.com/prince_handyman_services?igsh=MWJvcHhsNnowY3lqdQ%3D%3D&utm_source=qr"
                   target="_blank"
                 >
-                  <FaInstagram size={20} color="black" />
+                  <FaInstagram size={15} color="black"  className="flex lg:hidden" />
+                  <FaInstagram size={20} color="black" className="hidden lg:flex"   />
                 </Link>
               </div>
             </div>
