@@ -11,6 +11,8 @@ import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
 import { AiOutlineLogout } from "react-icons/ai";
+import { LOG_OUT } from "@/api/services/auth";
+import toast from "react-hot-toast";
 
 export const navlinks: NavLink[] = [
   {
@@ -62,10 +64,31 @@ const Navbar = ({ active, className }: NavbarProps) => {
   };
 
   const LogOutDropDown = () => {
-    setShowLogOut(!showLogOut);
+    setShowLogOut(true);
   };
+  const [isLoading, setIsLoading] = useState(false);
 
-  const HandleLogOut = () => {};
+  const HandleLogOut = async () => {
+    try {
+      setIsLoading(true);
+      const response = await LOG_OUT();
+      console.log("Log out successful:", response);
+      if (response.status === 204) {
+        localStorage.removeItem("phsAuthToken");
+        localStorage.removeItem("phs_userprofile");
+        localStorage.setItem("PHS_LoggedInUser", "false");
+        toast.success("Log Out Successful!");
+        setTimeout(() => {
+          nav.push("/login");
+        }, 2000);
+      }
+    } catch (error: any) {
+      console.log("Logout failed:", error);
+    } finally {
+      setIsLoading(false);
+      setShowLogOut(false);
+    }
+  };
 
   useEffect(() => {
     const user = localStorage.getItem("PHS_LoggedInUser");
@@ -138,8 +161,14 @@ const Navbar = ({ active, className }: NavbarProps) => {
                   onClick={HandleLogOut}
                   className="absolute -bottom-[44px] z-[999] rounded-[4px] right-0  bg-white p-2 gap-1 shadow flex items-center cursor-pointer"
                 >
-                  <AiOutlineLogout size={20} color="#E94444" />
-                  <p className="text-[14px] text-redColor"> Log out</p>
+                  {isLoading ? (
+                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-red-200 h-6 w-6 mx-6"></div>
+                  ) : (
+                    <>
+                      <AiOutlineLogout size={20} color="#E94444" />
+                      <p className="text-[14px] text-redColor"> Log out</p>
+                    </>
+                  )}
                 </div>
               )}
             </div>

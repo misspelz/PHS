@@ -10,10 +10,9 @@ import Button from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
 import { GET_USER_PROFILE, LOG_IN } from "@/api/services/auth";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
-
   const { keepLoggedIn, setKeepLoggedIn } = useAuth();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -54,6 +53,7 @@ const Login = () => {
       const response = await LOG_IN(payload);
       if (response.status === 200) {
         localStorage.setItem("phsAuthToken", response?.data?.auth_token);
+
         const res = await GET_USER_PROFILE();
         if (response.status === 200) {
           localStorage.setItem("phs_userprofile", JSON.stringify(res?.data));
@@ -61,7 +61,10 @@ const Login = () => {
         if (keepLoggedIn) {
           localStorage.setItem("PHS_LoggedInUser", "true");
         }
-        nav.push("/");
+        toast.success("Log In Successful!");
+        setTimeout(() => {
+          nav.push("/");
+        }, 2000);
       }
     } catch (error: any) {
       console.log("Login failed:", error);

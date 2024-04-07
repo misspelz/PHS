@@ -33,13 +33,6 @@ interface ResetPasswordPayload {
   new_password: string;
   confirm_password: string;
 }
-interface ContactPayload {
-  name: string;
-  email: string;
-  phone_number: string;
-  message: string;
-  image: File | null;
-}
 interface AppointmentPayload {
   user: string;
   service_name: string;
@@ -78,6 +71,7 @@ export const LOG_IN = async (payload: LogInPayload): Promise<LoginResponse> => {
 
 export const getToken = () => {
   const token = localStorage.getItem("phsAuthToken");
+  // console.log("token", token);
   return token;
 };
 
@@ -137,4 +131,21 @@ export const GET_USER_PROFILE = async () => {
     },
   });
   return res;
+};
+
+export const LOG_OUT = async () => {
+  try {
+    const res = await axios.post(
+      `${BASE_URL}/authtoken/token/logout`,
+      {},
+      {
+        headers: {
+          Authorization: `Token ${getToken()}`,
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
 };

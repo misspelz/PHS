@@ -28,7 +28,6 @@ interface PayloadType {
 
 const ContactUs = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -39,8 +38,6 @@ const ContactUs = () => {
     message: "",
     image: null,
   });
-
-  console.log("payload", payload);
 
   const validateInputs = () => {
     return Object.values(payload).every((value) => value !== "");

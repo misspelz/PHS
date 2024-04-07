@@ -192,7 +192,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
           </div>
 
           <div className="flex flex-col items-center justify-center h-full max-w-[600px] w-full mx-auto">
-            <Image src={succesimg} alt="close-icon" className="" />
+            <Image src={succesimg} alt="close-icon" className="w-[80px]" />
             <p className="text-[18px] lg:text-[28px]  font-[600] mt-[24px] text-center">
               Congratulations
             </p>

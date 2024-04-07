@@ -65,8 +65,6 @@ const BookAppointment = () => {
   const validateInputs =
     selectedService === "" || address === "" || selectedTime === "" || !value;
 
-  console.log("appointmentDetails", appointmentDetails);
-
   const handleTimeClick = (time: string) => {
     setSelectedTime(time);
   };
