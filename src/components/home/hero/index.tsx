@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import heromobilebg from "@/assets/mobileherobg.svg";
+import heromobilebg from "@/assets/heroimg.svg";
 import calendar from "@/assets/calendarphs.svg";
-import herobg from "@/assets/herobgwebphs.svg";
+import herobg from "@/assets/herowebimg.svg";
 import H1Heading from "@/components/headings/H1Heading";
 import Link from "next/link";
 import Image from "next/image";
@@ -63,7 +63,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black opacity-30"></div>
 
         <div className="absolute transform top-[25%] px-[123px]">
-          <H1Heading className="text-left w-[500px]">
+          <H1Heading className="text-left text-white w-[500px]">
             Your Trusted <span className="text-[#d76e06]">Handyman</span>{" "}
             Service for Every Repair
           </H1Heading>

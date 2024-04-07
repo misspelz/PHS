@@ -86,13 +86,13 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "1",
-                    title: "Plumbing",
+                    title: "Minor Plumbing",
                     description:
                       "Our Plumbing mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
-                <li className="cursor-pointer">Plumbing</li>
+                <li className="cursor-pointer">Minor Plumbing</li>
               </Link>
               <Link
                 href={{

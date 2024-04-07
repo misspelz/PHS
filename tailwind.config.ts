@@ -22,6 +22,7 @@ const config: Config = {
         blue100: "#F5F5F7",
         blacky: "#333333",
         inputBorder: "#E5E5E5",
+        redColor: "#E94444",
       },
     },
   },

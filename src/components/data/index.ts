@@ -33,7 +33,7 @@ import arrow from "@/assets/servicearrow.svg";
 export const servicesdata = [
   {
     id: 1,
-    title: "Plumbing",
+    title: "Minor Plumbing",
     description: "We have only the best, qualified and certified plumbers.",
     imageSrc: plumbingimgmobile,
     webimage: plumbingwebimg,

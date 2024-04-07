@@ -2,7 +2,7 @@
 
 import { useAuth } from "@/contextapi";
 import Link from "next/link";
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement } from "react";
 import { LuCalendarDays } from "react-icons/lu";
 
 interface Background {

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contextapi";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export const navlinks: NavLink[] = [
   {
@@ -48,6 +49,23 @@ interface NavbarProps {
 const Navbar = ({ active, className }: NavbarProps) => {
   const { userProfile, setUserProfile } = useAuth();
   const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
+  const nav = useRouter();
+  const [open, setOpen] = useState<boolean>(false);
+  const [showLogOut, setShowLogOut] = useState<boolean>(false);
+
+  const toggleMenu = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const HandleLogin = () => {
+    nav.push("/login");
+  };
+
+  const LogOutDropDown = () => {
+    setShowLogOut(!showLogOut);
+  };
+
+  const HandleLogOut = () => {};
 
   useEffect(() => {
     const user = localStorage.getItem("PHS_LoggedInUser");
@@ -60,17 +78,6 @@ const Navbar = ({ active, className }: NavbarProps) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const nav = useRouter();
-  const [open, setOpen] = useState<boolean>(false);
-
-  const toggleMenu = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const HandleLogin = () => {
-    nav.push("/login");
-  };
 
   return (
     <nav
@@ -100,7 +107,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
             ))}
         </ul>
 
-        <div className="flex  items-center gap-[24px]">
+        <div className="flex  items-center gap-[18px] lg:gap-[24px]">
           <div className="flex lg:hidden">
             {open ? (
               <RiCloseFill
@@ -118,11 +125,23 @@ const Navbar = ({ active, className }: NavbarProps) => {
           </div>
 
           {userProfile ? (
-            <div className="flex gap-[16px] items-center">
+            <div
+              onClick={LogOutDropDown}
+              className="relative cursor-pointer flex gap-[10px] lg:gap-[16px] items-center"
+            >
               <p className="text-[14px]">
                 {(userProfile && userProfile[0]?.name) || "Username"}
               </p>
               <Image src={user} alt="logo" />
+              {showLogOut && (
+                <div
+                  onClick={HandleLogOut}
+                  className="absolute -bottom-[44px] z-[999] rounded-[4px] right-0  bg-white p-2 gap-1 shadow flex items-center cursor-pointer"
+                >
+                  <AiOutlineLogout size={20} color="#E94444" />
+                  <p className="text-[14px] text-redColor"> Log out</p>
+                </div>
+              )}
             </div>
           ) : (
             <Button

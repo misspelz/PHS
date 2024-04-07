@@ -38,6 +38,7 @@ interface ContactPayload {
   email: string;
   phone_number: string;
   message: string;
+  image: File | null;
 }
 interface AppointmentPayload {
   user: string;
@@ -107,7 +108,7 @@ export const RESET_PASSWORD = async (payload: ResetPasswordPayload) => {
   }
 };
 
-export const CONTACT = async (payload: ContactPayload) => {
+export const CONTACT = async (payload: FormData) => {
   try {
     const res = await axios.post(`${BASE_URL}/contact/`, payload);
     return res;
