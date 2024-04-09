@@ -24,11 +24,6 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const { userProfile } = useAuth();
 
-  const nav = useRouter();
-
-  const BookApp = () => {
-    nav.push("/book-appointment");
-  };
 
   return (
     <>
@@ -56,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({
                 }}
               >
                 <button
-                  onClick={BookApp}
+                 
                   className={`rounded-[8px] bg-primary text-[#fff] py-[10px] px-10  lg:px-28   mt-[10px] flex items-center justify-center gap-[4px] text-[16px] `}
                 >
                   <LuCalendarDays />

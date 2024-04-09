@@ -100,13 +100,13 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "3",
-                    title: " Tv Mounting",
+                    title: "TV Mounting",
                     description:
-                      "Our Tv Mounting mix their awesome skills to make really great paintings.",
+                      "Our TV Mounting mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
-                <li className="cursor-pointer"> Tv Mounting</li>
+                <li className="cursor-pointer">TV Mounting</li>
               </Link>
 
               <Link
@@ -128,7 +128,7 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "5",
-                    title: " Tiling",
+                    title: "Tiling",
                     description:
                       " Our expert tilers guarantee flawless results, transforming your space with quality.",
                   },
@@ -155,7 +155,7 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "4",
-                    title: " Capentry",
+                    title: "Capentry",
                     description:
                       "Our Capentry Repairs mix their awesome skills to make really great paintings.",
                   },

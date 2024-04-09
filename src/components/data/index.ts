@@ -76,7 +76,7 @@ export const servicesdata = [
 
   {
     id: 5,
-    title: "Tilling",
+    title: "Tiling",
     description:
       "Our expert tilers guarantee flawless results, transforming your space with quality.",
     imageSrc: tilingmob,

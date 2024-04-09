@@ -2,7 +2,7 @@
 
 import H6Heading from "@/components/headings/H6Heading";
 import Layout from "@/components/layout";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Calendar from "moedim";
 import Button from "@/components/button";
@@ -58,7 +58,7 @@ const BookAppointment = ({
 
   const [Appointment, setAppointment] = useState(false);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [selectedService, setSelectedService] = useState(searchParams.service);
+  const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
 
@@ -111,6 +111,12 @@ const BookAppointment = ({
     nav.push("/");
   };
 
+  useEffect(() => {
+    if (searchParams.service) {
+      setSelectedService(searchParams.service);
+    }
+  }, [searchParams]);
+
   return (
     <Layout>
       <div className="px-6 lg:px-[123px] py-[24px] lg:py-[52px]">
@@ -146,9 +152,10 @@ const BookAppointment = ({
                   </option>
                   <option value="Painting">Painting</option>
                   <option value="Tiling">Tiling</option>
-                  <option value="Carpentry">Carpentry</option>
+                  <option value="Capentry">Capentry</option>
                   <option value="Drywall Repairs">Drywall Repairs</option>
                   <option value="TV Mounting">TV Mounting</option>
+                  <option value="Minor Plumbing">Minor Plumbing</option>
                   <option value="General Household Maintenance">
                     General Household Maintenance
                   </option>
