@@ -137,7 +137,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
 
             <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "password" : "text"}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}

@@ -19,9 +19,7 @@ interface Background {
   src: string;
 }
 
-export default function Services({
-  searchParams,
-}: {
+export default function Services({searchParams}: {
   searchParams: {
     id: string;
     title: string;
@@ -29,13 +27,12 @@ export default function Services({
     bg: Background;
     btn: string;
   };
-}) {
-
+}
+) {
 
   const service = servicesdata.find(
     (service) => service.id === parseInt(searchParams.id)
   );
-
 
   return (
     <Layout activePage="services">

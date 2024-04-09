@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/contextapi";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { ReactElement } from "react";
 import { LuCalendarDays } from "react-icons/lu";
 
@@ -23,12 +24,18 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const { userProfile } = useAuth();
 
+  const nav = useRouter();
+
+  const BookApp = () => {
+    nav.push("/book-appointment");
+  };
+
   return (
     <>
       {/* Mobile Screen */}
       <div className="lg:hidden">
         <div
-          className="h-[350px]  bg-cover bg-no-repeat "
+          className="h-[350px] bg-cover bg-center bg-no-repeat "
           style={{
             backgroundImage: `url(${mobileBackground?.src})`,
           }}
@@ -38,9 +45,18 @@ const Hero: React.FC<HeroProps> = ({
             <h1 className="text-center text-[18px] font-[600]">
               {headingText}
             </h1>
+
             {userProfile ? (
-              <Link href="book-appointment">
+              <Link
+                href={{
+                  pathname: `/book-appointment`,
+                  query: {
+                    service: headingText,
+                  },
+                }}
+              >
                 <button
+                  onClick={BookApp}
                   className={`rounded-[8px] bg-primary text-[#fff] py-[10px] px-10  lg:px-28   mt-[10px] flex items-center justify-center gap-[4px] text-[16px] `}
                 >
                   <LuCalendarDays />
@@ -77,7 +93,14 @@ const Hero: React.FC<HeroProps> = ({
             </h1>
 
             {userProfile ? (
-              <Link href="book-appointment">
+              <Link
+                href={{
+                  pathname: `/book-appointment`,
+                  query: {
+                    service: headingText,
+                  },
+                }}
+              >
                 <button
                   className={`rounded-[8px] bg-primary text-[#fff] py-[16px]  px-28   mt-[20px] flex items-center justify-center gap-[4px] text-[18px] `}
                 >

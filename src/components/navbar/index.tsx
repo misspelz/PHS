@@ -165,8 +165,10 @@ const Navbar = ({ active, className }: NavbarProps) => {
                     <div className="loader ease-linear rounded-full border-8 border-t-8 border-red-200 h-6 w-6 mx-6"></div>
                   ) : (
                     <>
-                      <AiOutlineLogout size={20} color="#E94444" />
-                      <p className="text-[14px] text-redColor"> Log out</p>
+                      <div className="flex items-center justify-between w-[70px]">
+                        <AiOutlineLogout size={20} color="#E94444" />
+                        <p className="text-[14px] text-redColor"> Log out</p>
+                      </div>
                     </>
                   )}
                 </div>

@@ -1,5 +1,5 @@
 import plumbingimgmobile from "@/assets/plumbingimgmobile.svg";
-import paintingimgmobile from "@/assets/paintingimgmobile.svg";
+import paintingimgmobile from "@/assets/paintingsmallscreen.svg";
 import GHM from "@/assets/GHM.svg";
 import GHMmob from "@/assets/service7.png";
 import drywall from "@/assets/drywall.svg";

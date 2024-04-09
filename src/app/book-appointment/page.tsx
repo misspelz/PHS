@@ -42,7 +42,15 @@ const formatDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-const BookAppointment = () => {
+const BookAppointment = ({
+  searchParams,
+}: {
+  searchParams: {
+    service: string;
+  };
+}) => {
+  // console.log("searchParams", searchParams);
+
   const nav = useRouter();
   const { userProfile } = useAuth();
 
@@ -50,7 +58,7 @@ const BookAppointment = () => {
 
   const [Appointment, setAppointment] = useState(false);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedService, setSelectedService] = useState(searchParams.service);
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
 

@@ -51,7 +51,7 @@ const Register = () => {
             <div className="mt-[24px] py-[16px] px-[24px] border rounded-[10px]">
               <PhoneInput
                 international
-                defaultCountry="NG"
+                defaultCountry="IE"
                 value={phoneNumber}
                 onChange={setPhoneNumber}
                 style={{ outline: "none" }}

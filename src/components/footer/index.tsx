@@ -94,27 +94,29 @@ const Footer = () => {
               >
                 <li className="cursor-pointer">Minor Plumbing</li>
               </Link>
-              <Link
-                href={{
-                  pathname: `/services`,
-                  query: {
-                    id: "2",
-                    title: "Tv Mounting",
-                    description:
-                      "Our Tv Mounting mix their awesome skills to make really great paintings.",
-                  },
-                }}
-              >
-                <li className="cursor-pointer">Tv Mounting</li>
-              </Link>
+
               <Link
                 href={{
                   pathname: `/services`,
                   query: {
                     id: "3",
+                    title: " Tv Mounting",
+                    description:
+                      "Our Tv Mounting mix their awesome skills to make really great paintings.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer"> Tv Mounting</li>
+              </Link>
+
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "2",
                     title: "Painting",
                     description:
-                      "Our Painting mix their awesome skills to make really great paintings.",
+                      " Our Painting mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
@@ -125,10 +127,23 @@ const Footer = () => {
                 href={{
                   pathname: `/services`,
                   query: {
-                    id: "4",
+                    id: "5",
+                    title: " Tiling",
+                    description:
+                      " Our expert tilers guarantee flawless results, transforming your space with quality.",
+                  },
+                }}
+              >
+                <li className="cursor-pointer">Tiling</li>
+              </Link>
+              <Link
+                href={{
+                  pathname: `/services`,
+                  query: {
+                    id: "6",
                     title: "Drywall Repairs",
                     description:
-                      "Our Drywall Repairs mix their awesome skills to make really great paintings.",
+                      " Our Drywall Repairs mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
@@ -139,8 +154,8 @@ const Footer = () => {
                 href={{
                   pathname: `/services`,
                   query: {
-                    id: "5",
-                    title: "Capentry",
+                    id: "4",
+                    title: " Capentry",
                     description:
                       "Our Capentry Repairs mix their awesome skills to make really great paintings.",
                   },
@@ -153,7 +168,7 @@ const Footer = () => {
                 href={{
                   pathname: `/services`,
                   query: {
-                    id: "6",
+                    id: "7",
                     title: "General Household Maintenance",
                     description:
                       "Our General Household Maintenance Repairs mix their awesome skills to make really great paintings.",
@@ -167,6 +182,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
         <div className="flex mt-[40px] lg:justify-end ">
           <div className="flex flex-col gap-[10px] lg:gap-[24px] justify-right w-full">
             <PText className="text-white font-[700] lg:text-[24px]">

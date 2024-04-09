@@ -24,10 +24,12 @@ const Hero = () => {
         ></div>
 
         <div className="py-[12px] px-6 md:px-40 w-full">
-          <H1Heading className="text-center w-[300px] mx-auto">
+          <H1Heading className="text-center  mx-auto">
             Your Trusted <span className="text-primary">Handyman</span> Service
             for Every Repair
           </H1Heading>
+
+         
 
           {userProfile ? (
             <Link href="book-appointment">
