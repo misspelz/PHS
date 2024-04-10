@@ -50,7 +50,6 @@ const BookAppointment = ({
     service: string;
   };
 }) => {
-  // console.log("searchParams", searchParams);
 
   const nav = useRouter();
   const { userProfile } = useAuth();
@@ -112,7 +111,6 @@ const BookAppointment = ({
   };
 
   const HandleClose = () => {
-    // setAppointment(false);
     nav.push("/");
   };
 
