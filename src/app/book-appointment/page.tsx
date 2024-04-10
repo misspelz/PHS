@@ -11,6 +11,7 @@ import Success from "@/components/appointment/success";
 import { useAuth } from "@/contextapi";
 import { MAKE_AN_APPOINTMENT } from "@/api/services/auth";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const timeSlots = [
   "08:00AM",
@@ -70,6 +71,8 @@ const BookAppointment = ({
     date: formatDate(value),
   };
 
+  console.log("appointmentDetails", appointmentDetails);
+
   const validateInputs =
     selectedService === "" || address === "" || selectedTime === "" || !value;
 
@@ -98,8 +101,10 @@ const BookAppointment = ({
       }
     } catch (error: any) {
       console.log("appointment booked  failed:", error);
-      if (error.response && error.response.status === 400) {
-        setShowError(true);
+      if (error.response && error.response.status === 401) {
+        toast.error(error.response.data.detail);
+      } else if (error.response && error.response.status === 500) {
+        toast.error(error.message);
       }
     } finally {
       setIsLoading(false);
@@ -216,12 +221,6 @@ const BookAppointment = ({
             ))}
           </div>
         </div>
-
-        {showError && (
-          <p className="mt-[24px] text-center font-semibold text-red-600 text-[12px] lg:text-[16px] ">
-            Something went wrong!
-          </p>
-        )}
 
         <div className="w-full  flex items-center justify-center mt-[48px] lg:mt-[72px]">
           <Button

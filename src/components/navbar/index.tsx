@@ -23,17 +23,17 @@ export const navlinks: NavLink[] = [
   {
     id: 2,
     title: "Services",
-    link: "#services",
+    link: "/#services",
   },
   {
     id: 3,
     title: "About",
-    link: "#about",
+    link: "/#about",
   },
   {
     id: 4,
     title: "Contact",
-    link: "#contact",
+    link: "/#contact",
   },
 ];
 
@@ -50,7 +50,6 @@ interface NavbarProps {
 
 const Navbar = ({ active, className }: NavbarProps) => {
   const { userProfile, setUserProfile } = useAuth();
-  const [LoggedInUser, setLoggedInUser] = useState<string | null>(null);
   const nav = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const [showLogOut, setShowLogOut] = useState<boolean>(false);
@@ -78,9 +77,10 @@ const Navbar = ({ active, className }: NavbarProps) => {
         localStorage.removeItem("phs_userprofile");
         localStorage.setItem("PHS_LoggedInUser", "false");
         toast.success("Log Out Successful!");
+        nav.push("/login");
         setTimeout(() => {
-          nav.push("/login");
-        }, 2000);
+          window.location.reload();
+        }, 1000);
       }
     } catch (error: any) {
       console.log("Logout failed:", error);
@@ -92,9 +92,10 @@ const Navbar = ({ active, className }: NavbarProps) => {
         localStorage.removeItem("phs_userprofile");
         localStorage.setItem("PHS_LoggedInUser", "false");
         toast.success("Log Out Successful!");
+        nav.push("/login");
         setTimeout(() => {
-          nav.push("/login");
-        }, 2000);
+          window.location.reload();
+        }, 1000);
       }
     } finally {
       setIsLoading(false);
@@ -104,7 +105,6 @@ const Navbar = ({ active, className }: NavbarProps) => {
 
   useEffect(() => {
     const user = localStorage.getItem("PHS_LoggedInUser");
-    setLoggedInUser(user);
 
     const userDetailsString = localStorage.getItem("phs_userprofile");
     if (userDetailsString !== null) {

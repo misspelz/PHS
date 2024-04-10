@@ -62,9 +62,9 @@ const Login = () => {
           localStorage.setItem("PHS_LoggedInUser", "true");
         }
         toast.success("Log In Successful!");
-        setTimeout(() => {
+        // setTimeout(() => {
           nav.push("/");
-        }, 2000);
+        // }, 2000);
       }
     } catch (error: any) {
       console.log("Login failed:", error);
