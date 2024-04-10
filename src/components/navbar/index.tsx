@@ -84,6 +84,18 @@ const Navbar = ({ active, className }: NavbarProps) => {
       }
     } catch (error: any) {
       console.log("Logout failed:", error);
+      if (
+        error.response.status === 401 &&
+        error.response.data.detail === "Invalid token."
+      ) {
+        localStorage.removeItem("phsAuthToken");
+        localStorage.removeItem("phs_userprofile");
+        localStorage.setItem("PHS_LoggedInUser", "false");
+        toast.success("Token has expired! Logged out Successful");
+        setTimeout(() => {
+          nav.push("/login");
+        }, 2000);
+      }
     } finally {
       setIsLoading(false);
       setShowLogOut(false);
