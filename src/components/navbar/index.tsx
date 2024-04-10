@@ -91,7 +91,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
         localStorage.removeItem("phsAuthToken");
         localStorage.removeItem("phs_userprofile");
         localStorage.setItem("PHS_LoggedInUser", "false");
-        toast.success("Token has expired! Logged out Successful");
+        toast.success("Log Out Successful!");
         setTimeout(() => {
           nav.push("/login");
         }, 2000);
