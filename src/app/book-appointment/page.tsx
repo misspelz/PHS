@@ -185,8 +185,8 @@ const BookAppointment = ({
             </div>
           </div>
 
-          <div className="w-full bg-blue100 p-[28px] mt-[48px] lg:mt-0  h-[350px] rounded-[10px]">
-            <p className={`text-[16px] text-center lg:text-[18px] `}>
+          <div className="w-full bg-blue100 p-[28px] mt-[48px] lg:mt-0 h-[350px] rounded-[10px]">
+            <p className={`text-[16px] text-center lg:text-[18px] mb-[20px]`}>
               Please pick a date for your service
             </p>
 
