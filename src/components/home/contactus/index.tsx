@@ -365,7 +365,7 @@ const ContactUs = () => {
                   height={20}
                 />
                 <p className="text-[12px] lg:text-[14px]">
-                  www.princehandy manservices.ie
+                  www.princehandymanservices.ie
                 </p>
               </div>
             </div>
