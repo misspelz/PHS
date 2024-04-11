@@ -190,7 +190,7 @@ const BookAppointment = ({
               Please pick a date for your service
             </p>
 
-            <div className="mt-[16px] flex items-center w-full justify-center scale-115">
+            <div className="mt-[16px] flex items-center w-full justify-center scale-118">
               <Calendar value={value} onChange={(d: Date) => setValue(d)} />
             </div>
           </div>
