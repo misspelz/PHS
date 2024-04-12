@@ -10,7 +10,7 @@ import Modal from "@/components/modal";
 import Success from "@/components/appointment/success";
 import { useAuth } from "@/contextapi";
 import { MAKE_AN_APPOINTMENT } from "@/api/services/auth";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const timeSlots = [
