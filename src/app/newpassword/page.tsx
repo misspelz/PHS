@@ -86,15 +86,15 @@ const NewPassword = () => {
           </p>
 
           <div className="max-w-[600px] w-full mx-auto">
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder  flex rounded-[10px] mt-[24px]">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "password" : "text"}
                 disabled={false}
                 placeholder="New Password"
                 name="new_password"
                 value={payload.new_password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px]  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] w-full px-[24px] border-inputBorder  text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
@@ -108,15 +108,15 @@ const NewPassword = () => {
                 )}
               </button>
             </div>
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder  flex rounded-[10px] mt-[24px]">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "password" : "text"}
                 disabled={false}
                 placeholder="Confirm Password"
                 name="confirm_password"
                 value={payload.confirm_password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px]  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] w-full px-[24px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
