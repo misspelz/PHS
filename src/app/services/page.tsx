@@ -101,7 +101,7 @@ export default function Services({searchParams}: {
                 className="hidden lg:block w-full h-full"
               />
             </div>
-            <div className="w-full  flex flex-col bg-white text-black">
+            <div className="w-full  flex flex-col bg-blue100 text-black">
               <div className="w-full flex justify-end">
                 <div className="bg-primary h-[32px] w-[32px] lg:h-[52px] lg:w-[56px] flex items-center justify-center">
                   <p className="text-white text-[18px]">2</p>
@@ -133,7 +133,7 @@ export default function Services({searchParams}: {
                 className="hidden lg:block w-full h-full"
               />
             </div>
-            <div className="w-full  flex flex-col bg-white text-black">
+            <div className="w-full  flex flex-col bg-blue100 text-black">
               <div className="w-full flex justify-end">
                 <div className="bg-primary h-[32px] w-[32px] lg:h-[52px] lg:w-[56px]  flex items-center justify-center">
                   <p className="text-white text-[18px]">3</p>
