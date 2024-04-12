@@ -10,7 +10,7 @@ import Modal from "@/components/modal";
 import Success from "@/components/appointment/success";
 import { useAuth } from "@/contextapi";
 import { MAKE_AN_APPOINTMENT } from "@/api/services/auth";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
 const timeSlots = [
@@ -43,15 +43,8 @@ const formatDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-const BookAppointment = ({
-  searchParams,
-}: {
-  searchParams: {
-    service: string;
-  };
-}) => {
-
-  const nav = useRouter();
+const BookAppointment = () => {
+  const router = useRouter();
   const { userProfile } = useAuth();
 
   const userId = userProfile && userProfile[0]?.id;
@@ -111,14 +104,18 @@ const BookAppointment = ({
   };
 
   const HandleClose = () => {
-    nav.push("/");
+    router.push("/");
   };
 
   useEffect(() => {
-    if (searchParams.service) {
-      setSelectedService(searchParams.service);
-    }
-  }, [searchParams]);
+    const serviceQuery = router.query.title ? decodeURIComponent(String(router.query.title)) : '';
+    const formattedService = formatServiceName(serviceQuery);
+    setSelectedService(formattedService);
+  }, [router.query.title]);
+
+  const formatServiceName = (service: string) => {
+  return decodeURIComponent(service.replace(/\+/g, ' '));
+};
 
   return (
     <Layout activePage="services">
