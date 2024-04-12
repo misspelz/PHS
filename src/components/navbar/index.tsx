@@ -68,18 +68,15 @@ const Navbar = ({ active, className }: NavbarProps) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    const target = event.target as HTMLElement; 
-    if (logoutRef.current && !logoutRef.current.contains(target)) {
-      setShowLogOut(false);
-    }
-  };
-  
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  if (logoutRef.current && !logoutRef.current.contains(event.target as Element)) {
+    setShowLogOut(false);
+  }
+};
+
+useEffect(() => {
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
   
   const [isLoading, setIsLoading] = useState(false);
 
