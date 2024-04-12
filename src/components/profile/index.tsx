@@ -98,25 +98,25 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
             className="max-w-[600px] w-full mx-auto"
             onSubmit={HandleSuccess}
           >
-            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
+            <div className="relative border-2 border-inputBorder w-full border flex rounded-[10px] mt-[24px]">
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="py-[16px] px-[24px] w-full border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
-            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
+            <div className="relative border-2 border-inputBorder w-full border flex rounded-[10px] mt-[24px]">
               <input
                 type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="py-[16px] px-[24px] w-full border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
@@ -135,7 +135,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
               />
             </div>
 
-            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
+            <div className="relative border-2 border-inputBorder w-full border flex rounded-[10px] mt-[24px]">
               <input
                 type={showPassword ? "password" : "text"}
                 name="password"
