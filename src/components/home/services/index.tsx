@@ -18,20 +18,21 @@ const Services = () => {
   });
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => {
-      const newSlide = prevSlide === Math.ceil(servicesdata.length / 3) - 1 ? 0 : prevSlide + 1;
-      sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); // Store updated slide index
-      return newSlide;
-    });
-  };
+  setCurrentSlide((prevSlide: number) => {
+    const newSlide = prevSlide === Math.ceil(servicesdata.length / 3) - 1 ? 0 : prevSlide + 1;
+    sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); 
+    return newSlide;
+  });
+};
 
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) => {
-      const newSlide = prevSlide === 0 ? Math.ceil(servicesdata.length / 3) - 1 : prevSlide - 1;
-      sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); // Store updated slide index
-      return newSlide;
-    });
-  };
+const prevSlide = () => {
+  setCurrentSlide((prevSlide: number) => {
+    const newSlide = prevSlide === 0 ? Math.ceil(servicesdata.length / 3) - 1 : prevSlide - 1;
+    sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); 
+    return newSlide;
+  });
+};
+
 
   // This effect ensures that if the user navigates away and then returns,
   // the sessionStorage is checked to potentially update the current slide.
