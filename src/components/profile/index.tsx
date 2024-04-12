@@ -98,29 +98,29 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
             className="max-w-[600px] w-full mx-auto"
             onSubmit={HandleSuccess}
           >
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="py-[16px] px-[24px] w-full  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="py-[16px] px-[24px] w-full  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
-            <div className="mt-[24px] py-[16px] px-[24px] border rounded-[10px]">
+            <div className="mt-[24px] py-[16px] px-[24px] border-2 border-inputBorder border rounded-[10px]">
               <PhoneInput
                 international
                 defaultCountry="NG"
@@ -131,18 +131,18 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                     phoneNumber: value as string,
                   }))
                 }
-                className="outline-none text-black text-[12px] lg:text-[14px]"
+                className="outline-none text-black border-inputBorder text-[12px] lg:text-[14px]"
               />
             </div>
 
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type={showPassword ? "password" : "text"}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className="py-[16px] w-full px-[24px]  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] w-full px-[24px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
