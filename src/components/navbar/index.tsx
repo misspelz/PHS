@@ -67,8 +67,8 @@ const Navbar = ({ active, className }: NavbarProps) => {
     setShowLogOut(prev => !prev);
   };
 
-  const handleClickOutside = (event: React.SyntheticEvent) => {
-  if (logoutRef.current && !logoutRef.current.contains(event.target as Element)) {
+ const handleClickOutside = (event: MouseEvent) => {
+  if (logoutRef.current && !logoutRef.current.contains(event.target as Node)) {
     setShowLogOut(false);
   }
 };
@@ -80,7 +80,7 @@ useEffect(() => {
   
   const [isLoading, setIsLoading] = useState(false);
 
-  const HandleLogOut = async (event: React.SyntheticEvent) => {
+  const HandleLogOut = async (event:  React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation(); 
     try {
       setIsLoading(true);
