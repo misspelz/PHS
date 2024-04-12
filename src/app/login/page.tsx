@@ -116,7 +116,7 @@ const Login = () => {
         </p>
         <div className="max-w-[600px] w-full mx-auto">
           <div>
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type="email"
                 disabled={false}
@@ -124,11 +124,11 @@ const Login = () => {
                 name="email"
                 value={payload.email}
                 onChange={handleChange}
-                className="py-[16px] px-[24px] w-full rounded-[10px] border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
-            <div className="relative w-full border border-2 flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type={showPassword ? "password" : "text"}
                 disabled={false}
