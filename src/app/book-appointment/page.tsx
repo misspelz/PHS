@@ -44,7 +44,7 @@ const formatDate = (date: Date): string => {
 };
 
 const BookAppointment = () => {
-  const nav = useRouter();
+  const router = useRouter();
   const { userProfile } = useAuth();
 
   const userId = userProfile && userProfile[0]?.id;
@@ -104,14 +104,17 @@ const BookAppointment = () => {
   };
 
   const HandleClose = () => {
-    nav.push("/");
+    router.push("/");
   };
 
   useEffect(() => {
-    const serviceQuery = useRouter().query.title ? decodeURIComponent(String(useRouter().query.title)) : '';
-    const formattedService = formatServiceName(serviceQuery);
-    setSelectedService(formattedService);
-  }, [useRouter().query.title]);
+    const title = router.query.title as string;
+    if (title) {
+      const serviceQuery = decodeURIComponent(title);
+      const formattedService = formatServiceName(serviceQuery);
+      setSelectedService(formattedService);
+    }
+  }, [router.query.title]);
 
   const formatServiceName = (service: string) => {
   return decodeURIComponent(service.replace(/\+/g, ' '));
