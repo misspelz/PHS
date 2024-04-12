@@ -80,7 +80,7 @@ useEffect(() => {
   
   const [isLoading, setIsLoading] = useState(false);
 
-  const HandleLogOut = async (event) => {
+  const HandleLogOut = async (event: MouseEvent) => {
     event.stopPropagation(); 
     try {
       setIsLoading(true);
