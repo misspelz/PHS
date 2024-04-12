@@ -11,37 +11,29 @@ import Link from "next/link";
 import { servicesdata } from "@/components/data";
 
 const Services = () => {
-  const [currentSlide, setCurrentSlide] = useState(() => {
-    // Attempt to retrieve the existing slide index from session storage
-    const savedSlide = sessionStorage.getItem('currentSlide');
-    return savedSlide ? JSON.parse(savedSlide) : 0;
-  });
-
-  const nextSlide = () => {
-  setCurrentSlide((prevSlide: number) => {
-    const newSlide = prevSlide === Math.ceil(servicesdata.length / 3) - 1 ? 0 : prevSlide + 1;
-    sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); 
-    return newSlide;
-  });
-};
-
-const prevSlide = () => {
-  setCurrentSlide((prevSlide: number) => {
-    const newSlide = prevSlide === 0 ? Math.ceil(servicesdata.length / 3) - 1 : prevSlide - 1;
-    sessionStorage.setItem('currentSlide', JSON.stringify(newSlide)); 
-    return newSlide;
-  });
-};
-
-
-  // This effect ensures that if the user navigates away and then returns,
-  // the sessionStorage is checked to potentially update the current slide.
-  useEffect(() => {
+ const [currentSlide, setCurrentSlide] = useState(0);
+ useEffect(() => {
     const savedSlide = sessionStorage.getItem('currentSlide');
     if (savedSlide) {
       setCurrentSlide(JSON.parse(savedSlide));
     }
   }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('currentSlide', JSON.stringify(currentSlide));
+  }, [currentSlide]);
+
+  const nextSlide = () => {
+    setCurrentSlide(prevSlide => {
+      return prevSlide === Math.ceil(servicesdata.length / 3) - 1 ? 0 : prevSlide + 1;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prevSlide => {
+      return prevSlide === 0 ? Math.ceil(servicesdata.length / 3) - 1 : prevSlide - 1;
+    });
+  };
 
   return (
     <div
