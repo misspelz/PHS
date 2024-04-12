@@ -2,7 +2,7 @@
 
 import H6Heading from "@/components/headings/H6Heading";
 import Layout from "@/components/layout";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState, Suspense } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Calendar from "moedim";
 import Button from "@/components/button";
