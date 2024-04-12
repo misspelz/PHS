@@ -121,7 +121,7 @@ const BookAppointment = ({
   }, [searchParams]);
 
   return (
-    <Layout>
+    <Layout activePage="services">
       <div className="px-6 lg:px-[123px] py-[24px] lg:py-[52px]">
         <H6Heading className="text-center font-[600] ">
           Book an appointment
