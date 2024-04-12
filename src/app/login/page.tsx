@@ -124,7 +124,7 @@ const Login = () => {
                 name="email"
                 value={payload.email}
                 onChange={handleChange}
-                className="py-[16px] px-[24px] w-full rounded-[10px]   text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
@@ -136,7 +136,7 @@ const Login = () => {
                 name="password"
                 value={payload.password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px] rounded-l-[10px]   text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] w-full px-[24px] rounded-l-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
