@@ -116,7 +116,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
@@ -142,7 +142,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className="py-[16px] w-full px-[24px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
