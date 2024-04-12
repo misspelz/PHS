@@ -44,7 +44,6 @@ const formatDate = (date: Date): string => {
 };
 
 const BookAppointment = () => {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const { userProfile } = useAuth();
 
@@ -109,6 +108,7 @@ const BookAppointment = () => {
   };
 
  const ServiceSelector = () => {
+    const searchParams = useSearchParams();
     useEffect(() => {
       const title = searchParams.get('title');
       if (title) {
