@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from "@/components/button";
 import logo from "@/assets/phslogo.svg";
 import mobilelogo from "@/assets/mobilelogo.svg";
@@ -52,6 +52,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
   const { userProfile, setUserProfile } = useAuth();
   const nav = useRouter();
   const [open, setOpen] = useState<boolean>(false);
+  const logoutRef = useRef(null);
   const [showLogOut, setShowLogOut] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -63,11 +64,25 @@ const Navbar = ({ active, className }: NavbarProps) => {
   };
 
   const LogOutDropDown = () => {
-    setShowLogOut(true);
+    setShowLogOut(prev => !prev);
   };
+
+  const handleClickOutside = (event) => {
+    if (logoutRef.current && !logoutRef.current.contains(event.target)) {
+      setShowLogOut(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
   const [isLoading, setIsLoading] = useState(false);
 
-  const HandleLogOut = async () => {
+  const HandleLogOut = async (event) => {
+    event.stopPropagation(); 
     try {
       setIsLoading(true);
       const response = await LOG_OUT();
