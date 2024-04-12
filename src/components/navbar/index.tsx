@@ -67,11 +67,13 @@ const Navbar = ({ active, className }: NavbarProps) => {
     setShowLogOut(prev => !prev);
   };
 
-  const handleClickOutside = (event) => {
-    if (logoutRef.current && !logoutRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement; 
+    if (logoutRef.current && !logoutRef.current.contains(target)) {
       setShowLogOut(false);
     }
   };
+  
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
