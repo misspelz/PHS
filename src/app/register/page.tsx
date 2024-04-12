@@ -30,7 +30,7 @@ const Register = () => {
     <>
       {!showProfile && (
         <div className="px-6 lg:px-[123px] h-screen">
-          <div className="  w-full py-[30px]">
+          <div className="w-full py-[30px]">
             <Link href="/">
               {" "}
               <Image src={mobilelogo} alt="logo" className="lg:hidden" />
@@ -48,14 +48,14 @@ const Register = () => {
             className="max-w-[600px] w-full mx-auto"
             onSubmit={handleSubmit}
           >
-            <div className="mt-[24px] py-[16px] px-[24px] border rounded-[10px]">
+            <div className="mt-[24px] py-[16px] px-[24px] border-2 border-inputBorder border rounded-[10px]">
               <PhoneInput
                 international
                 defaultCountry="IE"
                 value={phoneNumber}
                 onChange={setPhoneNumber}
                 style={{ outline: "none" }}
-                className="phone-input outline-none text-[12px] lg:text-[14px]"
+                className="phone-input border-inputBorder outline-none text-[12px] lg:text-[14px]"
               />
             </div>
 
