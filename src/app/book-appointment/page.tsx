@@ -114,7 +114,7 @@ const BookAppointment = () => {
       if (title) {
         setSelectedService(decodeURIComponent(title));
       }
-    }, [searchParams]);
+    }, []);
 
     return (
      <select
