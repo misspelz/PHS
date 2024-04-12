@@ -108,7 +108,7 @@ const BookAppointment = () => {
   };
 
   useEffect(() => {
-    const serviceQuery = router.query.title ? decodeURIComponent(String(router.query.title)) : '';
+    const serviceQuery = useRouter().query.title ? decodeURIComponent(String(useRouter().query.title)) : '';
     const formattedService = formatServiceName(serviceQuery);
     setSelectedService(formattedService);
   }, [useRouter().query.title]);
