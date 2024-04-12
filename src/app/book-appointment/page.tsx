@@ -110,30 +110,13 @@ const BookAppointment = () => {
  const ServiceSelector = () => {
     const searchParams = useSearchParams();
     useEffect(() => {
-      const title = searchParams.get('title');
-      if (title) {
-        setSelectedService(decodeURIComponent(title));
+      const service = searchParams.get('service');
+      if (service) {
+        setSelectedService(decodeURIComponent(service));
       }
     }, []);
-
-    return (
-     <select
-  value={selectedService}
-  onChange={(e) => setSelectedService(e.target.value)}
-  className="rounded-[10px] outline-none py-[16px] px-[24px] w-full text-[12px] lg:text-[14px] border border-primary bg-transparent appearance-none"
->
-  <option value="" disabled>Select a service</option>
-  <option value="Painting">Painting</option>
-  <option value="Tiling">Tiling</option>
-  <option value="Capentry">Capentry</option>
-  <option value="Drywall Repairs">Drywall Repairs</option>
-  <option value="TV Mounting">TV Mounting</option>
-  <option value="Minor Plumbing">Minor Plumbing</option>
-  <option value="General Household Maintenance">General Household Maintenance</option>
-</select>
-
-    );
   };
+  
   return (
     <Layout activePage="services">
       <div className="px-6 lg:px-[123px] py-[24px] lg:py-[52px]">
