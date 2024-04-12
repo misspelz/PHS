@@ -52,7 +52,7 @@ const Navbar = ({ active, className }: NavbarProps) => {
   const { userProfile, setUserProfile } = useAuth();
   const nav = useRouter();
   const [open, setOpen] = useState<boolean>(false);
-  const logoutRef = useRef(null);
+   const logoutRef = useRef<HTMLDivElement>(null);
   const [showLogOut, setShowLogOut] = useState<boolean>(false);
 
   const toggleMenu = () => {
