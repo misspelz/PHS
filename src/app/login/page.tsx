@@ -128,7 +128,7 @@ const Login = () => {
               />
             </div>
 
-            <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 flex rounded-[10px] mt-[24px]">
               <input
                 type={showPassword ? "password" : "text"}
                 disabled={false}
@@ -136,7 +136,7 @@ const Login = () => {
                 name="password"
                 value={payload.password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px] rounded-l-[10px] border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] w-full px-[24px] rounded-l-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
