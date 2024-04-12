@@ -98,7 +98,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
             className="max-w-[600px] w-full mx-auto"
             onSubmit={HandleSuccess}
           >
-            <div className="relative border-2 border-inputBorder w-full border flex rounded-[10px] mt-[24px]">
+            <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
               <input
                 type="text"
                 name="name"
