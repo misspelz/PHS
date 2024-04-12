@@ -94,7 +94,7 @@ const NewPassword = () => {
                 name="new_password"
                 value={payload.new_password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px] border-inputBorder  text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
@@ -116,7 +116,7 @@ const NewPassword = () => {
                 name="confirm_password"
                 value={payload.confirm_password}
                 onChange={handleChange}
-                className="py-[16px] w-full px-[24px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
               <button
                 onClick={togglePasswordVisibility}
