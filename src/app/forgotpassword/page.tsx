@@ -174,7 +174,7 @@ const ForgotPassword = () => {
             Please enter your email, we will send an OTP code
           </p>
 
-          <div className="relative w-full border  flex rounded-[10px] mt-[24px]">
+          <div className="relative w-full border border-2 border-inputBorder flex rounded-[10px] mt-[24px]">
             <input
               type="email"
               disabled={false}
@@ -182,7 +182,7 @@ const ForgotPassword = () => {
               name="email"
               value={payload.email}
               onChange={handleChange}
-              className="py-[16px] px-[24px] w-full rounded-[10px]   text-[12px] lg:text-[14px] outline-none"
+              className="py-[16px] px-[24px] w-full rounded-[10px] border-inputBorder  text-[12px] lg:text-[14px] outline-none"
             />
           </div>
 
