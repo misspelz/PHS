@@ -105,7 +105,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
@@ -116,7 +116,7 @@ const Profile: React.FC<ProfileProps> = ({ phoneNumber = "" }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="py-[16px] px-[24px] w-full border-inputBorder text-[12px] lg:text-[14px] outline-none"
+                className="py-[16px] px-[24px] w-full border-2 border-inputBorder text-[12px] lg:text-[14px] outline-none"
               />
             </div>
 
