@@ -63,8 +63,6 @@ const BookAppointment = () => {
     date: formatDate(value),
   };
 
-  console.log("appointmentDetails", appointmentDetails);
-
   const validateInputs =
     selectedService === "" || address === "" || selectedTime === "" || !value;
 
@@ -208,7 +206,7 @@ const BookAppointment = () => {
             {timeSlots.map((timeSlot, index) => (
               <div
                 key={index}
-                className={`rounded-[30px] border p-4 ${
+                className={`rounded-[30px] cursor-pointer border p-4 ${
                   selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
