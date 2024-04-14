@@ -1,3 +1,3 @@
-export const BASE_URL = "https://princehandymanservices.onrender.com";
+export const BASE_URL = "https://princehandymanservices.vercel.app";
 
 
