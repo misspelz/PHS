@@ -7,8 +7,8 @@ import { Toaster } from "react-hot-toast";
 const lato = Lato({ subsets: ["latin-ext"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "PHS",
-  description: "Your Trusted Handyman Service for Every Repair",
+  title: "PrinceHandymanServices - Expert Handyman for Home Repairs & Maintenance",
+  description: "Looking for reliable home repair services? PrinceHandymanServices (PHS) offers professional plumbing, painting, tiling, drywall repairs, carpentry, TV mounting, and general household maintenance. Trust our skilled handymen to keep your home in perfect condition. Contact us today!",
 };
 
 export default function RootLayout({
