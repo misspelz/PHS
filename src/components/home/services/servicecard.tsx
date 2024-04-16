@@ -36,7 +36,7 @@ const Servicecard: React.FC<WebServicecardProps> = ({
               <Image src={arrowimg} alt="learn-more-arrow" />
             </Link>
           </div>
-          <div className="w-fulll flex justify-end">
+          <div className="w-full flex justify-end">
             <Image src={design} alt="base-design" />
           </div>
         </div>
