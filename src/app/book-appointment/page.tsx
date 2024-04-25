@@ -220,19 +220,17 @@ const BookAppointment = () => {
           </p>
           <div className="mt-[16px] flex flex-row flex-wrap gap-[20px] w-full">
             {timeSlots.map((timeSlot, index) => (
-          <div
-  key={index}
-  className={`rounded-[30px] border p-4 ${
-    isTimeDisabled(timeSlot)
-      ? "cursor-not-allowed opacity-50"
-      : selectedTime === timeSlot
-      ? "border-primary text-primary cursor-pointer"
-      : "border"
-  }`}
-  onClick={() => handleTimeClick(timeSlot)}
->
-  {timeSlot}
-</div>
+               <div
+                key={index}
+                className={`rounded-[30px] border cursor-pointer p-4 ${
+                  selectedTime === timeSlot
+                    ? "border-primary text-primary"
+                    : "border"
+                } ${isTimeDisabled(timeSlot) ? "cursor-not-allowed opacity-50" : ""}`}
+                onClick={() => handleTimeClick(timeSlot)}
+              >
+                {timeSlot}
+              </div>
             ))}
           </div>
         </div>
