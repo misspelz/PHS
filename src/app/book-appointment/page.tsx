@@ -98,25 +98,28 @@ const BookAppointment = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
-    try {
-      setIsLoading(true);
-      const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
-      console.log("appointment booked successful:", response);
-      if (response.status === 201) {
-        setAppointment(true);
-        setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
-      }
-    } catch (error: any) {
-      console.log("appointment booked  failed:", error);
-      if (error.response && error.response.status === 401) {
-        toast.error(error.response.data.detail);
-      } else if (error.response && error.response.status === 500) {
-        toast.error(error.message);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    console.log("appointment booked successful:", response);
+    setAppointment(true);
+    setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
+  //   try {
+  //     setIsLoading(true);
+  //     const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
+  //     console.log("appointment booked successful:", response);
+  //     if (response.status === 201) {
+  //       setAppointment(true);
+  //       setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
+  //     }
+  //   } catch (error: any) {
+  //     console.log("appointment booked  failed:", error);
+  //     if (error.response && error.response.status === 401) {
+  //       toast.error(error.response.data.detail);
+  //     } else if (error.response && error.response.status === 500) {
+  //       toast.error(error.message);
+  //     }
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+   };
 
   const HandleClose = () => {
     router.push("/");
