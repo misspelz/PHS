@@ -224,10 +224,11 @@ const BookAppointment = () => {
                 key={index}
                 className={`rounded-[30px] border p-4 ${
                   selectedTime === timeSlot
-                    ? "border-primary text-primary cursor-pointer "
+                    ? "border-primary text-primary cursor-pointer"
                     : "border"
                 } ${isTimeDisabled(timeSlot) ? "cursor-not-allowed opacity-50" : ""}`}
                 onClick={() => handleTimeClick(timeSlot)}
+                disabled={isTimeDisabled(timeSlot)}
               >
                 {timeSlot}
               </div>
