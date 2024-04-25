@@ -54,7 +54,20 @@ const BookAppointment = () => {
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
-  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+  const [bookedTimes, setBookedTimes] = useState<{ time: string; date: string }[]>([]);
+
+  const fetchBookedTimes = async () => {
+    try {
+      const response = await GET_TIME_DATE();
+      setBookedTimes(response.data); 
+    } catch (error) {
+      console.error("Error fetching booked times and dates:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBookedTimes();
+  }, []); 
 
   const appointmentDetails: AppointmentPayload = {
     user: userId || "",
@@ -68,8 +81,8 @@ const BookAppointment = () => {
     selectedService === "" || address === "" || !selectedTime || selectedTime.length === 0 || !value;
 
   const handleTimeClick = (time: string) => {
-     if (!isTimeDisabled(time)) {
-    setSelectedTime(time);
+    if (!isTimeDisabled(time)) {
+      setSelectedTime(time);
     }
   };
 
@@ -82,13 +95,12 @@ const BookAppointment = () => {
   };
 
   const isTimeDisabled = (time: string) => {
-    const formattedDateTime = `${formatDate(value)}-${time}`;
-    return bookedTimes.includes(formattedDateTime);
+    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   };
 
   const isDateDisabled = (date: Date) => {
     const formattedDate = formatDate(date);
-    return timeSlots.every(timeSlot => bookedTimes.includes(`${formattedDate}-${timeSlot}`));
+    return timeSlots.every(timeSlot => bookedTimes.some(bookedTime => bookedTime.time === timeSlot && bookedTime.date === formattedDate));
   };
 
   const handleDateChange = (date: Date) => {
@@ -99,28 +111,11 @@ const BookAppointment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
     console.log("Appointment booked successful");
-    const newBookedTime = `${formatDate(value)}-${selectedTime}`;
+    const newBookedTime = { time: selectedTime || "", date: formatDate(value) };
     setBookedTimes(prevBookedTimes => [...prevBookedTimes, newBookedTime]);
     setAppointment(true);
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
-  //     console.log("appointment booked successful:", response);
-  //     if (response.status === 201) {
-  //       setAppointment(true);
-  //       setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
-  //     }
-  //   } catch (error: any) {
-  //     console.log("appointment booked  failed:", error);
-  //     if (error.response && error.response.status === 401) {
-  //       toast.error(error.response.data.detail);
-  //     } else if (error.response && error.response.status === 500) {
-  //       toast.error(error.message);
-  //     }
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-   };
+    // Handle appointment creation logic here
+  };
 
   const HandleClose = () => {
     router.push("/");
@@ -134,7 +129,7 @@ const BookAppointment = () => {
         setSelectedService(decodeURIComponent(service));
       }
     }, [searchParams]);
-   return null;
+    return null;
   };
 
   return (
@@ -225,16 +220,16 @@ const BookAppointment = () => {
           </p>
           <div className="mt-[16px] flex flex-row flex-wrap gap-[20px] w-full">
             {timeSlots.map((timeSlot, index) => (
-             <div
-              key={index}
-              className={`rounded-[30px] cursor-pointer border p-4 ${
-              selectedTime === timeSlot
-              ? "border-primary text-primary"
-              : "border"
-    } ${isTimeDisabled(timeSlot) ? "cursor-not-allowed opacity-50" : ""}`}
-    onClick={() => handleTimeClick(timeSlot)}
-  >
-    {timeSlot}
+              <div
+                key={index}
+                className={`rounded-[30px] cursor-pointer border p-4 ${
+                  selectedTime === timeSlot
+                    ? "border-primary text-primary"
+                    : "border"
+                } ${isTimeDisabled(timeSlot) ? "cursor-not-allowed opacity-50" : ""}`}
+                onClick={() => handleTimeClick(timeSlot)}
+              >
+                {timeSlot}
               </div>
             ))}
           </div>
@@ -261,4 +256,3 @@ const BookAppointment = () => {
 };
 
 export default BookAppointment;
-
