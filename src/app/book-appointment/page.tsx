@@ -65,7 +65,7 @@ const BookAppointment = () => {
   };
 
   const validateInputs =
-    selectedService === "" || address === "" || selectedTimes.length === 0 || !value;
+    selectedService === "" || address === "" || selectedTime.length === 0 || !value;
 
   const handleTimeClick = (time: string) => {
      if (!isTimeDisabled(time)) {
