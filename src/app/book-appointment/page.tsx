@@ -9,7 +9,7 @@ import Button from "@/components/button";
 import Modal from "@/components/modal";
 import Success from "@/components/appointment/success";
 import { useAuth } from "@/contextapi";
-import { MAKE_AN_APPOINTMENT } from "@/api/services/auth";
+import { MAKE_AN_APPOINTMENT, GET_TIME_DATE } from "@/api/services/auth";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
