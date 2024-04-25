@@ -59,7 +59,7 @@ const BookAppointment = () => {
     user: userId || "",
     service_name: selectedService,
     address: address,
-    time: selectedTimes.join(", "),
+    time: selectedTime || "",
     date: formatDate(value),
   };
 
