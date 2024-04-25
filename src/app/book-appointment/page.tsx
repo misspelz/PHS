@@ -50,16 +50,17 @@ const BookAppointment = () => {
   const userId = userProfile && userProfile[0]?.id;
 
   const [Appointment, setAppointment] = useState(false);
-  const [selectedTimes, setSelectedTimes] = useState<string | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
+  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
 
   const appointmentDetails: AppointmentPayload = {
     user: userId || "",
     service_name: selectedService,
     address: address,
-    time: selectedTimes || "",
+    time: selectedTime || "",
     date: formatDate(value),
   };
 
@@ -67,8 +68,8 @@ const BookAppointment = () => {
     selectedService === "" || address === "" || selectedTimes.length === 0 || !value;
 
   const handleTimeClick = (time: string) => {
-    if (!selectedTimes.includes(time)) {
-      setSelectedTimes(prevSelectedTimes => [...prevSelectedTimes, time]);
+     if (!isTimeDisabled(time)) {
+    setSelectedTime(time);
     }
   };
 
@@ -80,13 +81,19 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
-  const isDateDisabled = () => {
-    return timeSlots.every(timeSlot => selectedTimes.includes(timeSlot));
+  const isTimeDisabled = (time: string) => {
+    const formattedDateTime = `${formatDate(value)}-${time}`;
+    return bookedTimes.includes(formattedDateTime);
+  };
+
+  const isDateDisabled = (date: Date) => {
+    const formattedDate = formatDate(date);
+    return timeSlots.every(timeSlot => bookedTimes.includes(`${formattedDate}-${timeSlot}`));
   };
 
   const handleDateChange = (date: Date) => {
     setValue(date);
-    setSelectedTimes([]);
+    setSelectedTime(null);
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -97,6 +104,7 @@ const BookAppointment = () => {
       console.log("appointment booked successful:", response);
       if (response.status === 201) {
         setAppointment(true);
+        setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
       }
     } catch (error: any) {
       console.log("appointment booked  failed:", error);
@@ -199,7 +207,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled()} />
+              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)} />
             </div>
           </div>
         </div>
@@ -216,7 +224,9 @@ const BookAppointment = () => {
               <div
                 key={index}
                 className={`rounded-[30px] cursor-pointer border p-4 ${
-                  selectedTimes === timeSlot
+                  isTimeDisabled(timeSlot)
+        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+        :selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
                 }`}
