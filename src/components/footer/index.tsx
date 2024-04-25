@@ -194,7 +194,7 @@ const Footer = () => {
               </li>
               <li className="cursor-pointer">+353 89 266 0336</li>
               <li className="cursor-pointer">
-                princehandymanservices01@gmail.com
+                princehandymanservices01 @gmail.com
               </li>
             </ul>
           </div>
