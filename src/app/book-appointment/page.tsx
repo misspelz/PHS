@@ -216,7 +216,9 @@ const BookAppointment = () => {
               <div
                 key={index}
                 className={`rounded-[30px] cursor-pointer border p-4 ${
-                  selectedTimes.includes(timeSlot) ? "border-gray-400 text-gray-400 cursor-not-allowed" : "border"
+                  selectedTimes === timeSlot
+                    ? "border-primary text-primary"
+                    : "border"
                 }`}
                 onClick={() => handleTimeClick(timeSlot)}
               >
