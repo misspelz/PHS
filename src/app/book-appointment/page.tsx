@@ -214,7 +214,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)} />
+              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "opacity-50 cursor-not-allowed" : ""} />
             </div>
           </div>
         </div>
