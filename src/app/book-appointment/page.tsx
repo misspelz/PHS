@@ -99,7 +99,14 @@ const BookAppointment = () => {
   };
 
   const isDateDisabled = (date: Date) => {
+    const today = new Date();
     const formattedDate = formatDate(date);
+    if (date < today) {
+    const timeSlotsBooked = bookedTimes.filter(time => time.startsWith(formattedDate));
+    if (timeSlotsBooked.length === 0) {
+      return true; 
+    }
+  }
     return timeSlots.every(timeSlot => bookedTimes.some(bookedTime => bookedTime.time === timeSlot && bookedTime.date === formattedDate));
   };
 
