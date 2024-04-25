@@ -133,6 +133,15 @@ export const GET_USER_PROFILE = async () => {
   return res;
 };
 
+export const GET_TIME_DATE = async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/api/phs/`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const LOG_OUT = async () => {
   try {
     const res = await axios.post(
