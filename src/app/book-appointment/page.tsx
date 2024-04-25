@@ -102,12 +102,13 @@ const BookAppointment = () => {
     const today = new Date();
     const formattedDate = formatDate(date);
     if (date < today) {
-    const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
-    if (timeSlotsBooked.length === 0) {
-      return true; 
+    return true;
     }
-  }
-    return timeSlots.every(timeSlot => bookedTimes.some(bookedTime => bookedTime.time === timeSlot && bookedTime.date === formattedDate));
+  const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
+  if (timeSlotsBooked.length === timeSlots.length) {
+    return true;
+   }
+  return false;
   };
 
   const handleDateChange = (date: Date) => {
