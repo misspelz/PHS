@@ -50,7 +50,7 @@ const BookAppointment = () => {
   const userId = userProfile && userProfile[0]?.id;
 
   const [Appointment, setAppointment] = useState(false);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [selectedTimes, setSelectedTimes] = useState<string[]>([]);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
@@ -59,15 +59,17 @@ const BookAppointment = () => {
     user: userId || "",
     service_name: selectedService,
     address: address,
-    time: selectedTime || "",
+    time: selectedTimes.join(", "),
     date: formatDate(value),
   };
 
   const validateInputs =
-    selectedService === "" || address === "" || selectedTime === "" || !value;
+    selectedService === "" || address === "" || selectedTimes.length === 0 || !value;
 
   const handleTimeClick = (time: string) => {
-    setSelectedTime(time);
+    if (!selectedTimes.includes(time)) {
+      setSelectedTimes(prevSelectedTimes => [...prevSelectedTimes, time]);
+    }
   };
 
   const handleServiceChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -78,8 +80,14 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
-  const [showError, setShowError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const isDateDisabled = () => {
+    return timeSlots.every(timeSlot => selectedTimes.includes(timeSlot));
+  };
+
+  const handleDateChange = (date: Date) => {
+    setValue(date);
+    setSelectedTimes([]);
+  };
 
   const HandleAppointment = async () => {
     try {
@@ -105,7 +113,7 @@ const BookAppointment = () => {
     router.push("/");
   };
 
- const ServiceSelector = () => {
+  const ServiceSelector = () => {
     const searchParams = useSearchParams();
     useEffect(() => {
       const service = searchParams.get('service');
@@ -115,7 +123,7 @@ const BookAppointment = () => {
     }, [searchParams]);
    return null;
   };
-  
+
   return (
     <Layout activePage="services">
       <div className="px-6 lg:px-[123px] py-[24px] lg:py-[52px]">
@@ -154,10 +162,10 @@ const BookAppointment = () => {
                   </option>
                   <option value="Painting">Painting</option>
                   <option value="Tiling">Tiling</option>
-                  <option value="Capentry">Capentry</option>
+                  <option value="Carpentry">Carpentry</option>
                   <option value="Drywall Repairs">Drywall Repairs</option>
                   <option value="TV Mounting">TV Mounting</option>
-                  <option value="Minor Plumbing">Minor Plumbing</option>
+                  <option value="Plumbing">Plumbing</option>
                   <option value="General Household Maintenance">
                     General Household Maintenance
                   </option>
@@ -190,7 +198,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={(d: Date) => setValue(d)} />
+              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled()} />
             </div>
           </div>
         </div>
@@ -207,9 +215,7 @@ const BookAppointment = () => {
               <div
                 key={index}
                 className={`rounded-[30px] cursor-pointer border p-4 ${
-                  selectedTime === timeSlot
-                    ? "border-primary text-primary"
-                    : "border"
+                  selectedTimes.includes(timeSlot) ? "border-gray-400 text-gray-400 cursor-not-allowed" : "border"
                 }`}
                 onClick={() => handleTimeClick(timeSlot)}
               >
@@ -240,3 +246,4 @@ const BookAppointment = () => {
 };
 
 export default BookAppointment;
+
