@@ -102,7 +102,7 @@ const BookAppointment = () => {
     const today = new Date();
     const formattedDate = formatDate(date);
     if (date < today) {
-    const timeSlotsBooked = bookedTimes.filter(time => time.startsWith(formattedDate));
+    const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
     if (timeSlotsBooked.length === 0) {
       return true; 
     }
