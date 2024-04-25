@@ -86,13 +86,13 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "1",
-                    title: "Minor Plumbing",
+                    title: "Plumbing",
                     description:
                       "Our Plumbing mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
-                <li className="cursor-pointer">Minor Plumbing</li>
+                <li className="cursor-pointer">Plumbing</li>
               </Link>
 
               <Link
@@ -155,13 +155,13 @@ const Footer = () => {
                   pathname: `/services`,
                   query: {
                     id: "4",
-                    title: "Capentry",
+                    title: "Carpentry",
                     description:
-                      "Our Capentry Repairs mix their awesome skills to make really great paintings.",
+                      "Our Carpentry Repairs mix their awesome skills to make really great paintings.",
                   },
                 }}
               >
-                <li className="cursor-pointer">Capentry</li>
+                <li className="cursor-pointer">Carpentry</li>
               </Link>
 
               <Link
@@ -194,7 +194,7 @@ const Footer = () => {
               </li>
               <li className="cursor-pointer">+353 89 266 0336</li>
               <li className="cursor-pointer">
-                princehandymanservices01 @gmail.com
+                princehandymanservices01@gmail.com
               </li>
             </ul>
           </div>
