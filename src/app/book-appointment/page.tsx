@@ -228,7 +228,6 @@ const BookAppointment = () => {
                     : "border"
                 } ${isTimeDisabled(timeSlot) ? "cursor-not-allowed opacity-50" : ""}`}
                 onClick={() => handleTimeClick(timeSlot)}
-                disabled={isTimeDisabled(timeSlot)}
               >
                 {timeSlot}
               </div>
