@@ -89,6 +89,7 @@ const BookAppointment = () => {
     setSelectedTimes([]);
   };
 
+  const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
     try {
       setIsLoading(true);
