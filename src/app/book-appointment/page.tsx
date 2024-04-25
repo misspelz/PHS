@@ -50,7 +50,7 @@ const BookAppointment = () => {
   const userId = userProfile && userProfile[0]?.id;
 
   const [Appointment, setAppointment] = useState(false);
-  const [selectedTimes, setSelectedTimes] = useState<string[]>([]);
+  const [selectedTimes, setSelectedTimes] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
   const [value, setValue] = useState<Date>(new Date());
