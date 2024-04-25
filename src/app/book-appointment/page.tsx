@@ -98,7 +98,7 @@ const BookAppointment = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
-    console.log("appointment booked successful:", response);
+    console.log("Appointment booked successful");
     setAppointment(true);
     setBookedTimes([...bookedTimes, `${formatDate(value)}-${selectedTime}`]);
   //   try {
