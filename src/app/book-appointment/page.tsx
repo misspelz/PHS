@@ -229,7 +229,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "pointer-events-none text-gray-400" : ""} />
+              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "pointer-events-none cursor-not-allowed text-gray-400" : ""} />
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@ const BookAppointment = () => {
                   selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
-                } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 cursor-not-allowed opacity-50" : ""}`}
+                } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
                 onClick={() => handleTimeClick(timeSlot)}
               >
                 {timeSlot}
