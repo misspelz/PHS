@@ -43,7 +43,12 @@ const formatDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+
 const BookAppointment = () => {
+  const [value, setValue] = useState<Value>(new Date());
   const router = useRouter();
   const { userProfile } = useAuth();
 
@@ -113,11 +118,16 @@ const BookAppointment = () => {
     return false;
   };
 
-  const handleDateChange = (date: Date) => {
-    setValue(date);
-    setSelectedTime(null);
-  };
+  // const handleDateChange = (date: Date) => {
+  //   setValue(date);
+  //   setSelectedTime(null);
+  // };
 
+  const handleDateChange = (date: Date | Date[]) => {
+    const selectedDate = Array.isArray(date) ? date[0] : date;
+    setValue(selectedDate);
+  };
+  
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
     const newBookedTime = { time: selectedTime || "", date: formatDate(value) };
@@ -229,7 +239,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value || new Date()} onChange={handleDateChange} disabled={isDateDisabled(value || new Date())} />
+              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)} />
             </div>
           </div>
         </div>
