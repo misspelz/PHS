@@ -129,7 +129,7 @@ const BookAppointment = () => {
   
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
-    const newBookedTime = { time: selectedTime || "", date: value ? formatDate(value) : "" };
+    const newBookedTime = { time: selectedTime || "", date: Array.isArray(value) ? formatDate(value[0]) : formatDate(value) };
       try {
       setIsLoading(true);
       const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
