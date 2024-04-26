@@ -98,12 +98,14 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
-  const isTimeDisabled = (time: string) => {
-    if (value === null) {
+ const isTimeDisabled = (time: string) => {
+  if (!Array.isArray(value) && value === null) {
     return false; // or handle the null value as per your logic
-    }
+  } else if (Array.isArray(value)) {
+    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value[0]));
+  }
   return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  };
+};
 
   const isDateDisabled = (date: Date) => {
     const today = new Date();
