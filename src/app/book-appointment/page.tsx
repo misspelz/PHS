@@ -4,7 +4,7 @@ import H6Heading from "@/components/headings/H6Heading";
 import Layout from "@/components/layout";
 import React, { ChangeEvent, useEffect, useState, Suspense } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import Calendar from "react-calendar";
+import Calendar from "moedim";
 import Button from "@/components/button";
 import Modal from "@/components/modal";
 import Success from "@/components/appointment/success";
@@ -43,10 +43,6 @@ const formatDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-
 const BookAppointment = () => {
   const router = useRouter();
   const { userProfile } = useAuth();
@@ -57,7 +53,7 @@ const BookAppointment = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
-  const [value, setValue] = useState<Value>(new Date());
+  const [value, setValue] = useState<Date>(new Date());
   const [bookedTimes, setBookedTimes] = useState<{ time: string; date: string }[]>([]);
 
   const fetchBookedTimes = async () => {
@@ -78,17 +74,17 @@ const BookAppointment = () => {
     service_name: selectedService,
     address: address,
     time: selectedTime || "",
-    date: value instanceof Date ? formatDate(value) : "",
+    date: formatDate(value),
   };
 
   const validateInputs =
     selectedService === "" || address === "" || !selectedTime || selectedTime.length === 0 || !value;
 
-  // const handleTimeClick = (time: string) => {
-  //   if (!isTimeDisabled(time)) {
-  //     setSelectedTime(time);
-  //   }
-  // };
+  const handleTimeClick = (time: string) => {
+    if (!isTimeDisabled(time)) {
+      setSelectedTime(time);
+    }
+  };
 
   const handleServiceChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedService(event.target.value);
@@ -98,38 +94,33 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
- // const isTimeDisabled = (time: string) => {
- //    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
- //  };
-
-  // const isDateDisabled = (date: Date) => {
-  //   const today = new Date();
-  //   today.setHours(0, 0, 0, 0);
-
-  //   const formattedDate = formatDate(date);
-  //   if (date < today) {
-  //     return true;
-  //   }
-  //   const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
-  //   if (timeSlotsBooked.length === timeSlots.length) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
-  // const handleDateChange = (date: Date) => {
-  //   setValue(date);
-  //   setSelectedTime(null);
-  // };
-
-  const handleDateChange = (date: Date | Date[]) => {
-    const selectedDate = Array.isArray(date) ? date[0] : date;
-    setValue(selectedDate);
+ const isTimeDisabled = (time: string) => {
+    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   };
-  
+
+  const isDateDisabled = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const formattedDate = formatDate(date);
+    if (date < today) {
+      return true;
+    }
+    const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
+    if (timeSlotsBooked.length === timeSlots.length) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleDateChange = (date: Date) => {
+    setValue(date);
+    setSelectedTime(null);
+  };
+
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
-    const newBookedTime = { time: selectedTime || "", date: Array.isArray(value) ? formatDate(value[0]) : formatDate(value) };
+    const newBookedTime = { time: selectedTime || "", date: formatDate(value) };
       try {
       setIsLoading(true);
       const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
@@ -252,26 +243,17 @@ const BookAppointment = () => {
           </p>
           <div className="mt-[16px] flex flex-row flex-wrap gap-[20px] w-full">
             {timeSlots.map((timeSlot, index) => (
-      <div
-      key={index}
-      className={`rounded-[30px] border cursor-pointer p-4 ${
-        selectedTime === timeSlot ? "border-primary text-primary" : "border"
-      }`}
-      onClick={() => handleTimeClick(timeSlot)}
-    >
-      {timeSlot}
-    </div>
-              //  <div
-              //   key={index}
-              //   className={`rounded-[30px] border cursor-pointer p-4 ${
-              //     selectedTime === timeSlot
-              //       ? "border-primary text-primary"
-              //       : "border"
-              //   // } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
-              //   onClick={() => handleTimeClick(timeSlot)}
-              // >
-              //   {timeSlot}
-              // </div>
+               <div
+                key={index}
+                className={`rounded-[30px] border cursor-pointer p-4 ${
+                  selectedTime === timeSlot
+                    ? "border-primary text-primary"
+                    : "border"
+                // } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
+                onClick={() => handleTimeClick(timeSlot)}
+              >
+                {timeSlot}
+              </div>
             ))}
           </div>
         </div>
