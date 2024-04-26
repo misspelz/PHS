@@ -56,7 +56,7 @@ const Reviews = () => {
               key={index}
               className="flex flex-col justify-center items-center w-[175px]  lg:w-[238px] "
             >
-              <div className="w-full rounded-full flex flex-col justify-center items-center">
+              <div className="w-[60px] h-[60px] lg:w-[150px] lg:h-[150px] rounded-full flex items-center justify-center bg-gray-200">
                 <p className="text-[20px] lg:text-[40px] font-bold text-gray-800">
                   {getInitials(review.name)}
                 </p>
