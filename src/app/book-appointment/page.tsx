@@ -84,11 +84,11 @@ const BookAppointment = () => {
   const validateInputs =
     selectedService === "" || address === "" || !selectedTime || selectedTime.length === 0 || !value;
 
-  const handleTimeClick = (time: string) => {
-    if (!isTimeDisabled(time)) {
-      setSelectedTime(time);
-    }
-  };
+  // const handleTimeClick = (time: string) => {
+  //   if (!isTimeDisabled(time)) {
+  //     setSelectedTime(time);
+  //   }
+  // };
 
   const handleServiceChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedService(event.target.value);
