@@ -229,7 +229,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "pointer-events-none opacity-50" : ""} />
+              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled} />
             </div>
           </div>
         </div>
