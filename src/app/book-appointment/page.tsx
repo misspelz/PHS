@@ -98,9 +98,9 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
- const isTimeDisabled = (time: string) => {
-    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  };
+ // const isTimeDisabled = (time: string) => {
+ //    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+ //  };
 
   // const isDateDisabled = (date: Date) => {
   //   const today = new Date();
@@ -252,17 +252,26 @@ const BookAppointment = () => {
           </p>
           <div className="mt-[16px] flex flex-row flex-wrap gap-[20px] w-full">
             {timeSlots.map((timeSlot, index) => (
-               <div
-                key={index}
-                className={`rounded-[30px] border cursor-pointer p-4 ${
-                  selectedTime === timeSlot
-                    ? "border-primary text-primary"
-                    : "border"
-                } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
-                onClick={() => handleTimeClick(timeSlot)}
-              >
-                {timeSlot}
-              </div>
+      <div
+      key={index}
+      className={`rounded-[30px] border cursor-pointer p-4 ${
+        selectedTime === timeSlot ? "border-primary text-primary" : "border"
+      }`}
+      onClick={() => handleTimeClick(timeSlot)}
+    >
+      {timeSlot}
+    </div>
+              //  <div
+              //   key={index}
+              //   className={`rounded-[30px] border cursor-pointer p-4 ${
+              //     selectedTime === timeSlot
+              //       ? "border-primary text-primary"
+              //       : "border"
+              //   // } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
+              //   onClick={() => handleTimeClick(timeSlot)}
+              // >
+              //   {timeSlot}
+              // </div>
             ))}
           </div>
         </div>
