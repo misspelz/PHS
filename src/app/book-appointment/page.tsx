@@ -118,11 +118,24 @@ const BookAppointment = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const HandleAppointment = async () => {
-    console.log("Appointment booked successful");
     const newBookedTime = { time: selectedTime || "", date: formatDate(value) };
-    setBookedTimes(prevBookedTimes => [...prevBookedTimes, newBookedTime]);
-    setAppointment(true);
-    // Handle appointment creation logic here
+      try {
+      setIsLoading(true);
+      const response = await MAKE_AN_APPOINTMENT(appointmentDetails);
+      if (response.status === 201) {
+        setAppointment(true);
+        setBookedTimes(prevBookedTimes => [...prevBookedTimes, newBookedTime]);
+      }
+    } catch (error: any) {
+      console.log("appointment booked  failed:", error);
+      if (error.response && error.response.status === 401) {
+        toast.error(error.response.data.detail);
+      } else if (error.response && error.response.status === 500) {
+        toast.error(error.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const HandleClose = () => {
@@ -230,7 +243,7 @@ const BookAppointment = () => {
             {timeSlots.map((timeSlot, index) => (
                <div
                 key={index}
-                className={`rounded-[30px] border cursor-pointer p-4 ${
+                className={`rounded-[30px] border p-4 ${
                   selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
