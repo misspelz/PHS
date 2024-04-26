@@ -78,7 +78,7 @@ const BookAppointment = () => {
     service_name: selectedService,
     address: address,
     time: selectedTime || "",
-    date: value ? formatDate(value) : "",
+    date: value instanceof Date ? formatDate(value) : "",
   };
 
   const validateInputs =
