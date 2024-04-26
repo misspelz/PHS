@@ -48,7 +48,6 @@ type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const BookAppointment = () => {
-  const [value, setValue] = useState<Value>(new Date());
   const router = useRouter();
   const { userProfile } = useAuth();
 
@@ -58,7 +57,7 @@ const BookAppointment = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState("");
   const [address, setAddress] = useState("");
-  const [value, setValue] = useState<Date>(new Date());
+  const [value, setValue] = useState<Value>(new Date());
   const [bookedTimes, setBookedTimes] = useState<{ time: string; date: string }[]>([]);
 
   const fetchBookedTimes = async () => {
