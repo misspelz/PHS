@@ -12,6 +12,7 @@ import tvmounting from "@/assets/tvmounting.svg";
 import tvmountingmob from "@/assets/service3.png";
 import paintingwebimg from "@/assets/paintingwebimg.svg";
 import plumbingwebimg from "@/assets/plumbingwebimg.svg";
+import plumbingmobile from "@/assets/plumbingmobile.svg";
 import bgPlumbing from "@/assets/plumbing.svg";
 import bgPainting from "@/assets/bgpainting.svg";
 import bgTV from "@/assets/bgtv.svg";
@@ -38,6 +39,7 @@ export const servicesdata = [
     imageSrc: plumbingimgmobile,
     webimage: plumbingwebimg,
     bg: bgPlumbing,
+    bgmobile: plumbingmobile,
     btn: "Learn more",
     // arrow: arrow,
   },
