@@ -39,7 +39,7 @@ export default function Services({searchParams}: {
       <div className="relative">
         {/* Hero section */}
         <Hero
-          mobileBackground={service?.bg}
+          mobileBackground={service?.bgmobile}
           desktopBackground={service?.bg}
           headingText={searchParams.title}
         />
