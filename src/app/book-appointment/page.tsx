@@ -249,7 +249,7 @@ const BookAppointment = () => {
                   selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
-                // } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
+                } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
                 onClick={() => handleTimeClick(timeSlot)}
               >
                 {timeSlot}
