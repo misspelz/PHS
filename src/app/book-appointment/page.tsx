@@ -171,7 +171,7 @@ const BookAppointment = () => {
         </p>
 
         <div className="lg:flex lg:items-center lg:gap-[24px] h-full w-full lg:mt-[52px]">
-          <div className="mt-[24px] lg:mt-0 p-[28px] bg-blue100 rounded-[10px] w-full h-[350px]">
+          <div className="mt-[24px] lg:mt-0 p-[28px] bg-blue100 rounded-[10px] w-full h-[450px]">
             <h5 className="text-center font-[600] lg:text-[18px]">
               Personal Details
             </h5>
@@ -223,7 +223,7 @@ const BookAppointment = () => {
             </div>
           </div>
 
-          <div className="w-full bg-blue100 p-[28px] mt-[48px] lg:mt-0 h-[350px] rounded-[10px]">
+          <div className="w-full bg-blue100 p-[28px] mt-[48px] lg:mt-0 h-[450px] rounded-[10px]">
             <p className={`text-[16px] text-center lg:text-[18px]`}>
               Please pick a date for your service
             </p>
@@ -231,26 +231,25 @@ const BookAppointment = () => {
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
               <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)}/>
             </div>
-            <div className="mt-4 flex">
+ <div className="mt-4 flex">
   <label className="mr-4 flex items-center">
     <input
       type="radio"
-      value="active"
-      checked
-      className="mr-2 form-radio text-blue-500"
+      name="dateStatus"
+      className="mr-2 form-radio text-blue-500" 
     />
     Active Dates
   </label>
   <label className="flex items-center">
     <input
       type="radio"
-      value="inactive"
-      checked
-      className="mr-2 form-radio text-gray-500"
+      name="dateStatus"
+      className="mr-2 form-radio text-gray-500" 
     />
     Inactive Dates
   </label>
 </div>
+
           </div>
         </div>
 
