@@ -99,28 +99,23 @@ const BookAppointment = () => {
   };
 
  const isTimeDisabled = (time: string) => {
-  if (!Array.isArray(value) && value === null) {
-    return false; // or handle the null value as per your logic
-  } else if (Array.isArray(value)) {
-    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value[0]));
-  }
-  return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-};
-
-  const isDateDisabled = (date: Date) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const formattedDate = formatDate(date);
-    if (date < today) {
-      return true;
-    }
-    const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
-    if (timeSlotsBooked.length === timeSlots.length) {
-      return true;
-    }
-    return false;
+    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   };
+
+  // const isDateDisabled = (date: Date) => {
+  //   const today = new Date();
+  //   today.setHours(0, 0, 0, 0);
+
+  //   const formattedDate = formatDate(date);
+  //   if (date < today) {
+  //     return true;
+  //   }
+  //   const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
+  //   if (timeSlotsBooked.length === timeSlots.length) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
 
   // const handleDateChange = (date: Date) => {
   //   setValue(date);
@@ -243,7 +238,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)} />
+              <Calendar value={value} onChange={handleDateChange} />
             </div>
           </div>
         </div>
