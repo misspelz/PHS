@@ -11,6 +11,7 @@ import capentrymob from "@/assets/service2.png";
 import tvmounting from "@/assets/tvmounting.svg";
 import tvmountingmob from "@/assets/service3.png";
 import paintingwebimg from "@/assets/paintingwebimg.svg";
+import paintingmobile from "@/assets/paintingmobile.svg";
 import plumbingwebimg from "@/assets/plumbingwebimg.svg";
 import plumbingmobile from "@/assets/plumbingmobile.svg";
 import bgPlumbing from "@/assets/plumbing.svg";
@@ -51,6 +52,7 @@ export const servicesdata = [
     imageSrc: paintingimgmobile,
     webimage: paintingwebimg,
     bg: bgPainting,
+    bgmobile: paintingmobile,
     btn: "Learn more",
     // arrow: arrow,
   },
