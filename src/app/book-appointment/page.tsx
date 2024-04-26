@@ -229,8 +229,28 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} />
+              <Calendar value={value} onChange={handleDateChange} disabled={isDateDisabled(value)}/>
             </div>
+            <div className="mt-4 flex">
+  <label className="mr-4 flex items-center">
+    <input
+      type="radio"
+      value="active"
+      checked
+      className="mr-2 form-radio text-blue-500"
+    />
+    Active Dates
+  </label>
+  <label className="flex items-center">
+    <input
+      type="radio"
+      value="inactive"
+      checked
+      className="mr-2 form-radio text-gray-500"
+    />
+    Inactive Dates
+  </label>
+</div>
           </div>
         </div>
 
