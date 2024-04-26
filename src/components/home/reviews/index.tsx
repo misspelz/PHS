@@ -35,7 +35,7 @@ const reviewData = [
 ];
 
 const Reviews = () => {
-  const getInitials = (name) => {
+  const getInitials = (name: string): string => {
     return name
       .split(" ")
       .map((word) => word[0])
