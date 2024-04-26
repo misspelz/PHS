@@ -100,15 +100,17 @@ const BookAppointment = () => {
 
   const isDateDisabled = (date: Date) => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
     const formattedDate = formatDate(date);
     if (date < today) {
-    return true;
+      return true;
     }
-  const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
-  if (timeSlotsBooked.length === timeSlots.length) {
-    return true;
-   }
-  return false;
+    const timeSlotsBooked = bookedTimes.filter(time => time.date === formattedDate);
+    if (timeSlotsBooked.length === timeSlots.length) {
+      return true;
+    }
+    return false;
   };
 
   const handleDateChange = (date: Date) => {
@@ -227,7 +229,7 @@ const BookAppointment = () => {
             </p>
 
             <div className="mt-[28px] flex items-center w-full justify-center scale-125">
-              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "opacity-50 cursor-not-allowed" : ""} />
+              <Calendar value={value} onChange={handleDateChange} className={isDateDisabled(value) ? "pointer-events-none text-gray-400 opacity-50 cursor-not-allowed" : ""} />
             </div>
           </div>
         </div>
