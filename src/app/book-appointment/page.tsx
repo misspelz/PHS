@@ -99,7 +99,10 @@ const BookAppointment = () => {
   };
 
   const isTimeDisabled = (time: string) => {
-    return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+    if (value === null) {
+    return false; // or handle the null value as per your logic
+    }
+  return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   };
 
   const isDateDisabled = (date: Date) => {
