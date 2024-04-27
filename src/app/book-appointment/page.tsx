@@ -81,7 +81,7 @@ const BookAppointment = () => {
     selectedService === "" || address === "" || !selectedTime || selectedTime.length === 0 || !value;
 
   const handleTimeClick = (time: string) => {
-    if (!isTimeDisabled(time)) {
+    if (!isTimeDisabled(time, value)) {
       setSelectedTime(time);
     }
   };
