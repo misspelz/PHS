@@ -80,6 +80,17 @@ const BookAppointment = () => {
   const validateInputs =
     selectedService === "" || address === "" || !selectedTime || selectedTime.length === 0 || !value;
 
+  const isPastTime = (date: Date, time: string) => {
+    const now = new Date();
+    const [hours, modifier] = time.match(/\d{2}/g);
+    const [hour, minutes] = [parseInt(hours, 10) % 12 + (modifier === "PM" ? 12 : 0), 0];
+
+    const timeSlotDate = new Date(date);
+    timeSlotDate.setHours(hour, minutes, 0, 0);
+
+    return timeSlotDate <= now;
+  };
+
   const handleTimeClick = (time: string) => {
     if (!isTimeDisabled(time)) {
       setSelectedTime(time);
@@ -95,6 +106,11 @@ const BookAppointment = () => {
   };
 
  const isTimeDisabled = (time: string) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (formatDate(value) === formatDate(today) && isPastTime(value, time)) {
+      return true;
+    }
     return bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   };
 
