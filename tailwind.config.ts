@@ -17,7 +17,7 @@ const config: Config = {
         primary: "#FFA500",
         brown: "#434037",
         skyblue: "#F9F9F9",
-        blue: "#6666FF",
+        blue: "#1A73E8",
         lightgray: "#A1A1A1", 
         blue100: "#F5F5F7",
         blacky: "#333333",
