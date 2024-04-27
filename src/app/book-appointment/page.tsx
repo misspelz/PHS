@@ -115,7 +115,9 @@ const BookAppointment = () => {
       (selectedTime.getHours() < currentHours || 
         (selectedTime.getHours() === currentHours && selectedTime.getMinutes() <= currentMinutes)));
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-   
+   console.log(selectedDate, "SD")
+   console.log(selectedTime, "ST")
+   console.log(isPastTime, "PT")
   return isPastTime || isBookedTime;
   };
 
