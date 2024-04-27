@@ -113,7 +113,7 @@ const isTimeDisabled = (time: string, selectedDate: Date) => {
   // Check if the selected time is before or equal to the current time
   const isBeforeOrEqualToCurrentTime =
     isToday &&
-    ((hours < currentHours + 1) ||
+    ((hours < currentHours) ||
     (hours === currentHours && minutes <= currentMinutes));
 
   // Check if the selected time is in the past
