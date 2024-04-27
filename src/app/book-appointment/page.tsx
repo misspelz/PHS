@@ -114,10 +114,10 @@ const BookAppointment = () => {
     (selectedDate.toDateString() === currentTime.toDateString() &&
       (selectedTime.getHours() < currentHours || 
         (selectedTime.getHours() === currentHours && selectedTime.getMinutes() <= currentMinutes)));
-    const isCurrentTime = 
+  const isCurrentTime = 
     selectedDate.toDateString() === currentTime.toDateString() &&
-    selectedTime.getHours() === currentHours &&
-    selectedTime.getMinutes() === currentMinutes;
+    selectedTime.getHours() <= currentHours && 
+    selectedTime.getMinutes() <= currentMinutes;
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
    
   return isPastTime || isBookedTime || isCurrentTime;
