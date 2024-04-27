@@ -94,7 +94,7 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
- const isTimeDisabled = (time: string) => {
+ const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -280,7 +280,7 @@ const BookAppointment = () => {
                   selectedTime === timeSlot
                     ? "border-primary text-primary"
                     : "border"
-                } ${isTimeDisabled(timeSlot) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
+                } ${isTimeDisabled(timeSlot, value) ? "pointer-events-none text-gray-400 opacity-50" : ""}`}
                 onClick={() => handleTimeClick(timeSlot)}
               >
                 {timeSlot}
