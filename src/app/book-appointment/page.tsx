@@ -94,7 +94,7 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
-  const isTimeDisabled = (time: string, selectedDate: Date) => {
+const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -113,21 +113,20 @@ const BookAppointment = () => {
   // Check if the selected time is before or equal to the current time
   const isBeforeOrEqualToCurrentTime =
     isToday &&
-    ((hours < currentHours) ||
-    (hours === currentHours && minutes <= currentMinutes));
+    ((hours < currentHours + 1) ||
+    (hours === currentHours + 1 && minutes <= currentMinutes));
 
-  // Check if the selected time is in the past or the current time
-  const isPastOrCurrentTime =
-    !isToday || 
-    (hours < currentHours) || 
-    (hours === currentHours && minutes <= currentMinutes);
+  // Check if the selected time is in the past
+  const isPastTime =
+    !isToday || (hours < currentHours) || (hours === currentHours && minutes <= currentMinutes);
 
   const isBookedTime = bookedTimes.some(
     (bookedTime) => bookedTime.time === time && bookedTime.date === formatDate(selectedDate)
   );
 
-  return isPastOrCurrentTime || isBookedTime;
+  return isPastTime || isBeforeOrEqualToCurrentTime || isBookedTime;
 };
+
 
 
  // const isTimeDisabled = (time: string, selectedDate: Date) => {
