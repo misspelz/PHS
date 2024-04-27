@@ -116,15 +116,17 @@ const BookAppointment = () => {
     ((hours < currentHours) ||
     (hours === currentHours && minutes <= currentMinutes));
 
-  // Check if the selected time is in the past
-  const isPastTime =
-    !isToday || (hours < currentHours) || (hours === currentHours && minutes <= currentMinutes);
+  // Check if the selected time is in the past or the current time
+  const isPastOrCurrentTime =
+    !isToday || 
+    (hours < currentHours) || 
+    (hours === currentHours && minutes <= currentMinutes);
 
   const isBookedTime = bookedTimes.some(
     (bookedTime) => bookedTime.time === time && bookedTime.date === formatDate(selectedDate)
   );
 
-  return isPastTime || isBeforeOrEqualToCurrentTime || isBookedTime;
+  return isPastOrCurrentTime || isBookedTime;
 };
 
 
