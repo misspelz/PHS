@@ -111,8 +111,10 @@ const BookAppointment = () => {
   selectedTime.setHours(hours, minutes, 0, 0);
   const isPastTime = 
     selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+  const isBeforeOrEqualToCurrentTime =
+    selectedDate.setHours(hours, minutes, 0, 0) <= currentTime.getTime();
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  return isPastTime || isBookedTime;
+  return isPastTime || isBeforeOrEqualToCurrentTime || isBookedTime;
   };
 
   const isDateDisabled = (date: Date) => {
