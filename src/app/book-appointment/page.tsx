@@ -112,12 +112,10 @@ const BookAppointment = () => {
   const isPastTime = 
     selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0) ||
     (selectedDate.toDateString() === currentTime.toDateString() &&
-      (selectedTime.getHours() < currentHours || 
-        (selectedTime.getHours() === currentHours && selectedTime.getMinutes() <= currentMinutes)));
+      (hours < currentHours || 
+        (hours === currentHours && period === "PM" && currentHours !== 12) ||
+        (hours === currentHours && period === "AM" && currentHours === 12 && selectedTime.getMinutes() <= currentMinutes)));
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-   console.log(selectedDate, "SD")
-   console.log(selectedTime, "ST")
-   console.log(isPastTime, "PT")
   return isPastTime || isBookedTime;
   };
 
