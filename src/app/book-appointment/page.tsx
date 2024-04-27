@@ -94,7 +94,7 @@ const BookAppointment = () => {
     setAddress(event.target.value);
   };
 
- const isTimeDisabled = (time: string, selectedDate: Date) => {
+  const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -104,18 +104,52 @@ const BookAppointment = () => {
   if (period === "PM" && hours !== 12) {
     hours += 12;
   } else if (period === "AM" && hours === 12) {
-    hours = 0; 
+    hours = 0;
   }
-   
-  const selectedTime = new Date(selectedDate.getTime());
-  selectedTime.setHours(hours, minutes, 0, 0);
-  const isPastTime = 
-    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+
+  // Check if the selected date is today's date
+  const isToday = selectedDate.toDateString() === currentTime.toDateString();
+
+  // Check if the selected time is before or equal to the current time
   const isBeforeOrEqualToCurrentTime =
-    selectedDate.setHours(hours, minutes, 0, 0) <= currentTime.getTime();
-  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+    isToday &&
+    ((hours < currentHours) ||
+    (hours === currentHours && minutes <= currentMinutes));
+
+  // Check if the selected time is in the past
+  const isPastTime =
+    !isToday || (hours < currentHours) || (hours === currentHours && minutes <= currentMinutes);
+
+  const isBookedTime = bookedTimes.some(
+    (bookedTime) => bookedTime.time === time && bookedTime.date === formatDate(selectedDate)
+  );
+
   return isPastTime || isBeforeOrEqualToCurrentTime || isBookedTime;
-  };
+};
+
+
+ // const isTimeDisabled = (time: string, selectedDate: Date) => {
+ //  const currentTime = new Date();
+ //  const currentHours = currentTime.getHours();
+ //  const currentMinutes = currentTime.getMinutes();
+ //  const [hourPart, period] = time.split(/(?=[AP]M$)/);
+ //  let [hours, minutes] = hourPart.split(":").map(Number);
+
+ //  if (period === "PM" && hours !== 12) {
+ //    hours += 12;
+ //  } else if (period === "AM" && hours === 12) {
+ //    hours = 0; 
+ //  }
+   
+ //  const selectedTime = new Date(selectedDate.getTime());
+ //  selectedTime.setHours(hours, minutes, 0, 0);
+ //  const isPastTime = 
+ //    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+ //  const isBeforeOrEqualToCurrentTime =
+ //    selectedDate.setHours(hours, minutes, 0, 0) <= currentTime.getTime();
+ //  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+ //  return isPastTime || isBeforeOrEqualToCurrentTime || isBookedTime;
+ //  };
 
   const isDateDisabled = (date: Date) => {
     const today = new Date();
