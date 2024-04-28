@@ -138,7 +138,7 @@ const BookAppointment = () => {
 
   // If it's the current date, check if the selected time is before or equal to the current time
   if (isToday) {
-    if (hours < currentHours || (hours === currentHours && minutes <= currentMinutes)) {
+    if (hours === currentHours && minutes <= currentMinutes)) {
       return true; // Disable if the selected time is in the past
     }
     // Check if the selected time is in the time slots and disable earlier time slots
