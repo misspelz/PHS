@@ -136,10 +136,7 @@ const BookAppointment = () => {
   const isPastDate = selectedDate.setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
 
   // Check if selected time is on the same date but before current time
-  const isPastTimeOnSameDate = 
-    selectedDate.getTime() === currentTime.getTime() && 
-    (hours < currentHours || (hours === currentHours && minutes < currentMinutes));
-
+  const isPastOrCurrentTime = selectedDate.getTime() <= currentTime.getTime(); 
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
   return  isPastTimeOnSameDate || isPastDate || isBookedTime;
 };
