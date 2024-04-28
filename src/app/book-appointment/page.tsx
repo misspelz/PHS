@@ -95,7 +95,28 @@ const BookAppointment = () => {
   };
 
 
- const isTimeDisabled = (time: string, selectedDate: Date) => {
+ // const isTimeDisabled = (time: string, selectedDate: Date) => {
+ //  const currentTime = new Date();
+ //  const currentHours = currentTime.getHours();
+ //  const currentMinutes = currentTime.getMinutes();
+ //  const [hourPart, period] = time.split(/(?=[AP]M$)/);
+ //  let [hours, minutes] = hourPart.split(":").map(Number);
+
+ //  if (period === "PM" && hours !== 12) {
+ //    hours += 12;
+ //  } else if (period === "AM" && hours === 12) {
+ //    hours = 0; 
+ //  }
+   
+ //  const selectedTime = new Date(selectedDate.getTime());
+ //  selectedTime.setHours(hours, minutes, 0, 0);
+ //  const isPastTime = 
+ //    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+ //  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+ //  return isPastTime || isBookedTime;
+ //  };
+
+  const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -105,16 +126,23 @@ const BookAppointment = () => {
   if (period === "PM" && hours !== 12) {
     hours += 12;
   } else if (period === "AM" && hours === 12) {
-    hours = 0; 
+    hours = 0;
   }
-   
+
   const selectedTime = new Date(selectedDate.getTime());
   selectedTime.setHours(hours, minutes, 0, 0);
-  const isPastTime = 
-    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+
+  // Check if selected date is before today's date
+  const isPastDate = selectedDate.setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+
+  // Check if selected time is on the same date but before current time
+  const isPastTimeOnSameDate = 
+    selectedDate.getTime() === currentTime.getTime() && 
+    (hours < currentHours || (hours === currentHours && minutes < currentMinutes));
+
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  return isPastTime || isBookedTime;
-  };
+  return isPastDate || isPastTimeOnSameDate || isBookedTime;
+};
 
   
   const isDateDisabled = (date: Date) => {
