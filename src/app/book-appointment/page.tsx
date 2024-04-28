@@ -117,7 +117,7 @@ const BookAppointment = () => {
  //  return isPastTime || isBookedTime;
  //  };
 
-  const isTimeDisabled = (time: string, selectedDate: Date) => {
+const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -129,19 +129,18 @@ const BookAppointment = () => {
   } else if (period === "AM" && hours === 12) {
     hours = 0; 
   }
-   
-  const selectedTime = new Date(selectedDate.getTime());
-  selectedTime.setHours(hours, minutes, 0, 0);
 
-  // Check if the selected date is the current date
+  // Check if the selected date is today
   const isToday = selectedDate.toDateString() === currentTime.toDateString();
 
-  // If it's the current date, check if the selected time is before or equal to the current time
-  if (isToday) {
-    if (hours === currentHours && minutes <= currentMinutes)) {
-      return true; // Disable if the selected time is in the past
-    }
-    // Check if the selected time is in the time slots and disable earlier time slots
+  // Check if the selected time is in the past or if it's the current time
+  const isPastOrCurrentTime =
+    !isToday || 
+    (hours < currentHours) || 
+    (hours === currentHours && minutes <= currentMinutes);
+
+  // Check if the selected time is in the time slots and disable earlier time slots
+  if (isToday && !isPastOrCurrentTime) {
     const timeIndex = timeSlots.findIndex(slot => slot === time);
     if (timeIndex >= 0) {
       for (let i = 0; i < timeIndex; i++) {
@@ -152,14 +151,14 @@ const BookAppointment = () => {
     }
   }
 
-  // Check if the selected time is in the past or if it's a booked time
-  const isPastTime = selectedTime < currentTime;
+  // Check if the selected time is a booked time
   const isBookedTime = bookedTimes.some(
     bookedTime => bookedTime.time === time && bookedTime.date === formatDate(selectedDate)
   );
 
-  return isPastTime || isBookedTime;
+  return isPastOrCurrentTime || isBookedTime;
 };
+
 
   const isDateDisabled = (date: Date) => {
     const today = new Date();
