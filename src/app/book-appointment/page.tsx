@@ -141,7 +141,7 @@ const BookAppointment = () => {
     (hours < currentHours || (hours === currentHours && minutes < currentMinutes));
 
   const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  return isPastDate || isPastTimeOnSameDate || isBookedTime;
+  return  isPastTimeOnSameDate || isPastDate || isBookedTime;
 };
 
   
