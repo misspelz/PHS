@@ -95,7 +95,29 @@ const BookAppointment = () => {
   };
 
 
- const isTimeDisabled = (time: string, selectedDate: Date) => {
+ // const isTimeDisabled = (time: string, selectedDate: Date) => {
+ //  const currentTime = new Date();
+ //  const currentHours = currentTime.getHours();
+ //  const currentMinutes = currentTime.getMinutes();
+ //  const [hourPart, period] = time.split(/(?=[AP]M$)/);
+ //  let [hours, minutes] = hourPart.split(":").map(Number);
+
+ //  if (period === "PM" && hours !== 12) {
+ //    hours += 12;
+ //  } else if (period === "AM" && hours === 12) {
+ //    hours = 0; 
+ //  }
+   
+ //  const selectedTime = new Date(selectedDate.getTime());
+ //  selectedTime.setHours(hours, minutes, 0, 0);
+ //  const isPastTime = 
+ //    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+ //  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+ //  return isPastTime || isBookedTime;
+ //  };
+
+
+  const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -105,18 +127,28 @@ const BookAppointment = () => {
   if (period === "PM" && hours !== 12) {
     hours += 12;
   } else if (period === "AM" && hours === 12) {
-    hours = 0; 
+    hours = 0;
   }
-   
-  const selectedTime = new Date(selectedDate.getTime());
-  selectedTime.setHours(hours, minutes, 0, 0);
-  const isPastTime = 
-    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
-  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
-  return isPastTime || isBookedTime;
-  };
 
+  // Check if the selected date is today
+  const isToday = selectedDate.toDateString() === currentTime.toDateString();
 
+  // Check if the selected time is in the past or if it's the current time
+  const isPastOrCurrentTime =
+    isToday &&
+    ((hours < currentHours) ||
+      (hours === currentHours && minutes <= currentMinutes));
+
+  // Check if the selected time is a booked time
+  const isBookedTime = bookedTimes.some(
+    (bookedTime) =>
+      bookedTime.time === time && bookedTime.date === formatDate(value)
+  );
+
+  return isPastOrCurrentTime || isBookedTime;
+};
+
+  
   const isDateDisabled = (date: Date) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
