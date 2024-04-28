@@ -95,29 +95,7 @@ const BookAppointment = () => {
   };
 
 
- // const isTimeDisabled = (time: string, selectedDate: Date) => {
- //  const currentTime = new Date();
- //  const currentHours = currentTime.getHours();
- //  const currentMinutes = currentTime.getMinutes();
- //  const [hourPart, period] = time.split(/(?=[AP]M$)/);
- //  let [hours, minutes] = hourPart.split(":").map(Number);
-
- //  if (period === "PM" && hours !== 12) {
- //    hours += 12;
- //  } else if (period === "AM" && hours === 12) {
- //    hours = 0; 
- //  }
-   
- //  const selectedTime = new Date(selectedDate.getTime());
- //   console.log(selectedTime, selectedDate)
- //  selectedTime.setHours(hours, minutes, 0, 0);
- //  const isPastTime = 
- //    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
- //  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
- //  return isPastTime || isBookedTime;
- //  };
-
-const isTimeDisabled = (time: string, selectedDate: Date) => {
+ const isTimeDisabled = (time: string, selectedDate: Date) => {
   const currentTime = new Date();
   const currentHours = currentTime.getHours();
   const currentMinutes = currentTime.getMinutes();
@@ -129,34 +107,14 @@ const isTimeDisabled = (time: string, selectedDate: Date) => {
   } else if (period === "AM" && hours === 12) {
     hours = 0; 
   }
-
-  // Check if the selected date is today
-  const isToday = selectedDate.toDateString() === currentTime.toDateString();
-
-  // Check if the selected time is in the past or if it's the current time
-  const isPastOrCurrentTime =
-    (hours < currentHours) || 
-    (hours === currentHours && minutes <= currentMinutes);
-
-  // Check if the selected time is in the time slots and disable earlier time slots
-  if (isToday && !isPastOrCurrentTime) {
-    const timeIndex = timeSlots.findIndex(slot => slot === time);
-    if (timeIndex >= 0) {
-      for (let i = 0; i < timeIndex; i++) {
-        if (timeSlots[i] === `${currentHours}:${currentMinutes}`) {
-          return true; // Disable earlier time slots
-        }
-      }
-    }
-  }
-
-  // Check if the selected time is a booked time
-  const isBookedTime = bookedTimes.some(
-    bookedTime => bookedTime.time === time && bookedTime.date === formatDate(selectedDate)
-  );
-
-  return isPastOrCurrentTime || isBookedTime;
-};
+   
+  const selectedTime = new Date(selectedDate.getTime());
+  selectedTime.setHours(hours, minutes, 0, 0);
+  const isPastTime = 
+    selectedDate.setHours(0, 0, 0, 0) < currentTime.setHours(0, 0, 0, 0);
+  const isBookedTime = bookedTimes.some(bookedTime => bookedTime.time === time && bookedTime.date === formatDate(value));
+  return isPastTime || isBookedTime;
+  };
 
 
   const isDateDisabled = (date: Date) => {
