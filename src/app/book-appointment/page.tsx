@@ -136,7 +136,7 @@ const BookAppointment = () => {
   // Check if the selected time is in the past or if it's the current time
   const isPastOrCurrentTime =
     isToday &&
-    ((hours < currentHours) ||
+    ((hours < currentHours + 1) ||
       (hours === currentHours && minutes <= currentMinutes));
 
   // Check if the selected time is a booked time
