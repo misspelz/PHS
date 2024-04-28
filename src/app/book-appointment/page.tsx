@@ -59,6 +59,7 @@ const BookAppointment = () => {
   const fetchBookedTimes = async () => {
     try {
       const response = await GET_TIME_DATE();
+      console.log(response.data)
       setBookedTimes(response.data); 
     } catch (error) {
       console.error("Error fetching booked times and dates:", error);
