@@ -71,6 +71,7 @@ const ForgotPassword = () => {
       console.log("otp sent successful:", response);
       if (response.status === 200) {
         setUserId(response.data.user_id);
+        console.log(response.data.user_id);
         setCode(true);
       }
     } catch (error: any) {
